@@ -22,15 +22,17 @@ class LoginScreen extends Component {
     }
   }
   componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
+    this.authChange = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
+        console.log(user._user.uid);
         this.props.navigation.dispatch(resetAction);
-        this.setState({loading:false})
       } else {
         this.setState({loading:false})
       }
     });
+  }
+  componentWillUnmount() {
+    this.authChange = null;
   }
   render() {
     if(this.state.loading) {

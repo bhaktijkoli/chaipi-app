@@ -16,7 +16,7 @@ class HomeScreen extends Component {
     return(
       <Container>
         <Content>
-          <Title>Welcome Home!</Title>
+          <Text>Welcome Home!</Text>
         </Content>
       </Container>
     )
