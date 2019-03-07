@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1078245469787",
+    "firebase_url": "https://chaipaan-c743f.firebaseio.com",
+    "project_id": "chaipaan-c743f",
+    "storage_bucket": "chaipaan-c743f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078245469787:android:f98d2beec359cf39",
+        "android_client_info": {
+          "package_name": "com.chaipaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078245469787-spajdlu7m106c7illlhda9iq5osrtef1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipaan",
+            "certificate_hash": "05a76769cefbd0aeaf0a102771d48b878366dd58"
+          }
+        },
+        {
+          "client_id": "1078245469787-8nsp5r5okjqgp67qn5ekgjvledrgla7d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUNc4OW141g20wGKXiIE00xcCNUHFGgPs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078245469787-8nsp5r5okjqgp67qn5ekgjvledrgla7d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
