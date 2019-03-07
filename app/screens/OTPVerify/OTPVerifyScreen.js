@@ -17,14 +17,6 @@ class Verify extends Component {
     this.OnClickVerify = this.OnClickVerify.bind(this);
   }
   componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-     if (user) {
-       console.log(user);
-     } else {
-       console.log("No User");
-     }
-   });
-
     let phone = this.props.navigation.getParam('phone');
     this.setState({phone});
     firebase.auth().signInWithPhoneNumber(phone, true)
@@ -32,34 +24,34 @@ class Verify extends Component {
       this.setState({confirmResult: confirmResult});
     })
     .catch(err => console.error(err)) }
-  render() {
-    let phone = this.props.navigation.getParam('phone');
-    return(
-      <Container>
-        <Content>
-          <Form>
-            <View style={Style.label}>
-              <Label>Enter the verification code sent to</Label>
-              <Text>{phone}</Text>
-            </View>
-            <Item style={Style.input}>
-              <Input keyboardType="numeric" value={this.state.code} onChangeText={value=>this.setState({'code':value})}/>
-            </Item>
-            <Button block style={Style.button} onPress={this.OnClickVerify}>
-              <Text>Verify</Text>
-            </Button>
-          </Form>
-        </Content>
-      </Container>
-    )
+    render() {
+      let phone = this.props.navigation.getParam('phone');
+      return(
+        <Container>
+          <Content>
+            <Form>
+              <View style={Style.label}>
+                <Label>Enter the verification code sent to</Label>
+                <Text>{phone}</Text>
+              </View>
+              <Item style={Style.input}>
+                <Input keyboardType="numeric" value={this.state.code} onChangeText={value=>this.setState({'code':value})}/>
+              </Item>
+              <Button block style={Style.button} onPress={this.OnClickVerify}>
+                <Text>Verify</Text>
+              </Button>
+            </Form>
+          </Content>
+        </Container>
+      )
+    }
+    OnClickVerify() {
+      this.state.confirmResult.confirm(this.state.code)
+      .then(user=> {
+        console.log(user);
+      })
+      .catch(err => console.error(err));
+    }
   }
-  OnClickVerify() {
-    this.state.confirmResult.confirm(this.state.code)
-    .then(user=> {
-      console.log(user);
-    })
-    .catch(err => console.error(err));
-  }
-}
 
-export default Verify;
+  export default Verify;

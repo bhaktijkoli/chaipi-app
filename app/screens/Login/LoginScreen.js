@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { Container, Content, Title} from 'native-base';
+import { StackActions, NavigationActions } from 'react-navigation';
+import { Container, Content, View, Title} from 'native-base';
 import { Button, Text } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
 import firebase from 'react-native-firebase';
 
 import Style from './../../styles/default';
+
+const resetAction = StackActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({ routeName: 'Home' })],
+});
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -12,9 +18,26 @@ class LoginScreen extends Component {
     this.onClickLogin = this.onClickLogin.bind(this);
     this.state = {
       phone: '8104929969',
+      loading: true,
     }
   }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user);
+        this.props.navigation.dispatch(resetAction);
+        this.setState({loading:false})
+      } else {
+        this.setState({loading:false})
+      }
+    });
+  }
   render() {
+    if(this.state.loading) {
+      return(
+        <View></View>
+      )
+    }
     return(
       <Container>
         <Content>
