@@ -6,7 +6,7 @@ import firebase from 'react-native-firebase';
 
 import Style from './../../styles/default';
 
-class HomeScreen extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
   }
@@ -23,4 +23,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default Home;

@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { StackActions, NavigationActions } from 'react-navigation';
 import { Container, Content, View, Title} from 'native-base';
 import { Button, Text } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
 import firebase from 'react-native-firebase';
 
+import Request from './../../utils/request';
+import AuthActions from './../../actions/authActions';
 import Style from './../../styles/default';
 
-const resetAction = StackActions.reset({
+const homeAction = StackActions.reset({
   index: 0,
   actions: [NavigationActions.navigate({ routeName: 'Home' })],
 });
 
-class LoginScreen extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.onClickLogin = this.onClickLogin.bind(this);
     this.state = {
       phone: '8104929969',
+      user: null,
       loading: true,
     }
   }
   componentDidMount() {
-    this.authChange = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user._user.uid);
-        this.props.navigation.dispatch(resetAction);
+    let user = null
+    this.authChange = firebase.auth().onAuthStateChanged((u) => {
+      if(user) return;
+      user = u;
+      if(user) {
+        Request.get('/user/get/'+user._user.uid)
+        .then(res => {
+          AuthActions.setUser(this, res.data);
+          this.props.navigation.dispatch(homeAction);
+        })
+        .catch(err => console.error(err))
       } else {
         this.setState({loading:false})
       }
@@ -67,4 +78,10 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+export default connect(mapStateToProps)(Login);

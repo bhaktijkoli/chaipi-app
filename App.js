@@ -6,9 +6,9 @@ import store from "./app/store";
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
 
-import LoginScreen from './app/screens/Login/LoginScreen';
-import OTPVerifyScreen from './app/screens/OTPVerify/OTPVerifyScreen';
-import HomeScreen from './app/screens/Home/HomeScreen';
+import Login from './app/screens/Login/Login';
+import OTPVerify from './app/screens/OTPVerify/OTPVerify';
+import Home from './app/screens/Home/Home';
 
 const App = () => {
   return(
@@ -20,17 +20,17 @@ const App = () => {
 
 const DrawerNavigator = createDrawerNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: Home,
   }
 })
 
 
 const AppNavigator = createStackNavigator({
   Login: {
-    screen: LoginScreen
+    screen: Login
   },
   OTPVerify: {
-    screen: OTPVerifyScreen
+    screen: OTPVerify
   },
   Home: {
     screen: createAppContainer(DrawerNavigator)

@@ -3,6 +3,6 @@ import { createLogger } from 'redux-logger'
 
 import reducer from "./reducers"
 
-var middleware = applyMiddleware()
+var middleware = applyMiddleware(createLogger())
 
 export default createStore(reducer, middleware)

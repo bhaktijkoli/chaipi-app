@@ -6,7 +6,7 @@ import firebase from 'react-native-firebase';
 
 import Style from './../../styles/default';
 
-class Verify extends Component {
+class OTPVerify extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -54,4 +54,4 @@ class Verify extends Component {
     }
   }
 
-  export default Verify;
+  export default OTPVerify;
