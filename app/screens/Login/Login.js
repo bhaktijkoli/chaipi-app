@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { StackActions, NavigationActions } from 'react-navigation';
 import { Container, Content, View, Title} from 'native-base';
 import { Button, Text } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
@@ -8,12 +7,8 @@ import firebase from 'react-native-firebase';
 
 import Request from './../../utils/request';
 import AuthActions from './../../actions/authActions';
+import NavigationActions from './../../actions/navigationActions';
 import Style from './../../styles/default';
-
-const homeAction = StackActions.reset({
-  index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'Home' })],
-});
 
 class Login extends Component {
   constructor(props) {
@@ -31,12 +26,15 @@ class Login extends Component {
       if(user) return;
       user = u;
       if(user) {
+        AuthActions.setUserUID(this, user._user.uid);
         Request.get('/user/get/'+user._user.uid)
         .then(res => {
           AuthActions.setUser(this, res.data);
-          this.props.navigation.dispatch(homeAction);
+          this.props.navigation.dispatch(NavigationActions.homeAction);
         })
-        .catch(err => console.error(err))
+        .catch(err => {
+          this.props.navigation.dispatch(NavigationActions.SetupAction);
+        })
       } else {
         this.setState({loading:false})
       }

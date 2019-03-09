@@ -1,15 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  label: {
+  top: {
+    marginTop:20,
+  },
+  bottom: {
+    marginBottom:20,
+  },
+  content: {
     margin: 10,
   },
+  heading: {
+    marginTop:5,
+    marginBottom:5,
+  },
+  label: {
+    marginTop:5,
+    marginBottom:5,
+  },
+  label: {
+    marginTop:5,
+    marginBottom:5,
+  },
   input: {
-    marginTop: 5,
-    marginBottom: 10,
-    marginRight: 15,
+    marginTop:5,
+    marginBottom:5,
+    marginLeft:0,
+    marginRight:0,
   },
   button: {
-    margin: 5,
+    marginTop:5,
+    marginBottom:5,
   }
 });

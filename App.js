@@ -8,6 +8,7 @@ import material from './native-base-theme/variables/material';
 
 import Login from './app/screens/Login/Login';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
+import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
 
 const App = () => {
@@ -26,15 +27,10 @@ const DrawerNavigator = createDrawerNavigator({
 
 
 const AppNavigator = createStackNavigator({
-  Login: {
-    screen: Login
-  },
-  OTPVerify: {
-    screen: OTPVerify
-  },
-  Home: {
-    screen: createAppContainer(DrawerNavigator)
-  }
+  Login: { screen: Login },
+  OTPVerify: { screen: OTPVerify },
+  ProfileSetup: { screen: ProfileSetup },
+  Home: { screen: createAppContainer(DrawerNavigator) }
 });
 const AppContainer =  createAppContainer(AppNavigator);
 export default App;
