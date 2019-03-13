@@ -11,25 +11,18 @@ export default StyleSheet.create({
     margin: 10,
   },
   heading: {
-    marginTop:5,
-    marginBottom:5,
+    margin: 5
   },
   label: {
-    marginTop:5,
-    marginBottom:5,
-  },
-  label: {
-    marginTop:5,
-    marginBottom:5,
+    margin: 5
   },
   input: {
-    marginTop:5,
-    marginBottom:5,
-    marginLeft:0,
-    marginRight:0,
+    marginTop: 5,
+    marginBottom: 10,
+    marginLeft: 6,
+    marginRight: 5,
   },
   button: {
-    marginTop:5,
-    marginBottom:5,
+    margin: 5
   }
 });

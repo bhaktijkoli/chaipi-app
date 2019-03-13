@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, View, Text} from 'native-base';
-import { Item, Input, Button } from 'native-base';
+import { Form, Item, Input, Button } from 'native-base';
 import { H1 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 import Request from './../../utils/request';
-import Styles from './../../styles/style';
+import Style from './../../styles/style';
 import AuthActions from './../../actions/authActions';
 import NavigationActions from './../../actions/navigationActions';
 
@@ -27,25 +27,27 @@ class ProfileSetup extends Component {
   render() {
     return(
       <Container>
-        <Content>
-          <Grid>
-            <Col style={[Styles.top, Styles.content]}>
-              <H1 style={Styles.heading}>Welcome</H1>
-              <Text style={Styles.label}>Setup your profile</Text>
-              <Item regular style={Styles.input}>
-                <Input
-                  value={this.state.fullname}
-                  onChangeText={val=>this.setState({fullname: val})}
-                  placeholder='Enter fullname' />
-              </Item>
-              <Item regular style={Styles.input}>
-                <Input
-                  keyboardType='email-address'
-                  value={this.state.email}
-                  onChangeText={val=>this.setState({email: val})}
-                  placeholder='Enter email' />
-              </Item>
-              <Button block style={Styles.button} onPress={this.onClickNext}><Text>Next</Text></Button>
+        <Content contentContainerStyle={{flex: 1}}>
+          <Grid style={{alignItems: 'flex-end'}}>
+            <Col style={Style.content}>
+              <Form style={Style.bottom}>
+                <H1 style={Style.heading}>Welcome</H1>
+                <Text style={Style.label}>Setup your profile</Text>
+                <Item regular style={Style.input}>
+                  <Input
+                    value={this.state.fullname}
+                    onChangeText={val=>this.setState({fullname: val})}
+                    placeholder='Enter fullname' />
+                </Item>
+                <Item regular style={Style.input}>
+                  <Input
+                    keyboardType='email-address'
+                    value={this.state.email}
+                    onChangeText={val=>this.setState({email: val})}
+                    placeholder='Enter email' />
+                </Item>
+                <Button large block style={Style.button} onPress={this.onClickNext}><Text>Next</Text></Button>
+              </Form>
             </Col>
           </Grid>
         </Content>
