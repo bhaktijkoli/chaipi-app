@@ -8,7 +8,7 @@ import firebase from 'react-native-firebase';
 import Request from './../../utils/request';
 import AuthActions from './../../actions/authActions';
 import NavigationActions from './../../actions/navigationActions';
-import Style from './../../styles/default';
+import Style from './../../styles/style';
 
 class Login extends Component {
   constructor(props) {

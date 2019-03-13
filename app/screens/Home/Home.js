@@ -4,7 +4,7 @@ import { Button, Text } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
 import firebase from 'react-native-firebase';
 
-import Style from './../../styles/default';
+import Style from './../../styles/style';
 
 class Home extends Component {
   constructor(props) {

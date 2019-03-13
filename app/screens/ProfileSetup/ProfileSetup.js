@@ -6,7 +6,7 @@ import { H1 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 import Request from './../../utils/request';
-import Styles from './../../styles/default';
+import Styles from './../../styles/style';
 import AuthActions from './../../actions/authActions';
 import NavigationActions from './../../actions/navigationActions';
 
