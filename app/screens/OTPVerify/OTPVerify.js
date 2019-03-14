@@ -19,7 +19,8 @@ class OTPVerify extends Component {
   }
   componentDidMount() {
     let phone = this.props.navigation.getParam('phone');
-    this.setState({phone});
+    let country = this.props.navigation.getParam('country');
+    this.setState({phone: country+phone});
     firebase.auth().signInWithPhoneNumber(phone, true)
     .then(confirmResult => {
       this.setState({confirmResult: confirmResult});

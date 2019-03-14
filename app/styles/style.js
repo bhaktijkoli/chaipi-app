@@ -8,21 +8,19 @@ export default StyleSheet.create({
     marginBottom:20,
   },
   content: {
-    margin: 10,
+    margin: 15,
   },
   heading: {
-    margin: 5
   },
   label: {
-    margin: 5
+    marginLeft: 10,
   },
   input: {
-    marginTop: 5,
-    marginBottom: 10,
-    marginLeft: 6,
-    marginRight: 5,
+    marginTop:5,
+    marginBottom:5,
   },
   button: {
-    margin: 5
+    marginTop:5,
+    marginBottom:5,
   }
 });
