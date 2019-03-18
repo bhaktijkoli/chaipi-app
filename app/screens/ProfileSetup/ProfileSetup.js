@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, View, Text} from 'native-base';
-import { Form, Item, Input, Button } from 'native-base';
+import { Form, Item, Input } from 'native-base';
 import { H1 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+
+import Button from './../../components/Button';
 
 import Request from './../../utils/request';
 import Style from './../../styles/style';
@@ -19,6 +21,7 @@ class ProfileSetup extends Component {
     this.state = {
       fullname: '',
       email: '',
+      process: false,
     }
     this.onClickNext = this.onClickNext.bind(this)
   }
@@ -33,20 +36,20 @@ class ProfileSetup extends Component {
               <Form style={Style.bottom}>
                 <H1 style={Style.heading}>Welcome</H1>
                 <Text style={Style.label}>Setup your profile</Text>
-                <Item underline style={Style.input}>
+                <Item style={Style.input}>
                   <Input
                     value={this.state.fullname}
                     onChangeText={val=>this.setState({fullname: val})}
                     placeholder='Enter fullname' />
                 </Item>
-                <Item underline style={Style.input}>
+                <Item style={Style.input}>
                   <Input
                     keyboardType='email-address'
                     value={this.state.email}
                     onChangeText={val=>this.setState({email: val})}
                     placeholder='Enter email' />
                 </Item>
-                <Button large block style={Style.button} onPress={this.onClickNext}><Text>Next</Text></Button>
+                <Button onPress={this.onClickNext} loading={this.state.process} text="NEXT"/>
               </Form>
             </Col>
           </Grid>
@@ -55,6 +58,7 @@ class ProfileSetup extends Component {
     )
   }
   onClickNext() {
+    this.setState({process: true});
     let data = {
       uid: this.props.auth.uid,
       fullname: this.state.fullname,
@@ -69,6 +73,7 @@ class ProfileSetup extends Component {
       })
     })
     .catch(err => console.error(err))
+    .finally(()=> this.setState({process: false}))
   }
 }
 

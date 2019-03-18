@@ -21,6 +21,8 @@ export default StyleSheet.create({
   input: {
     marginTop:5,
     marginBottom:5,
+    marginLeft: 0,
+    marginRight: 0,
     borderColor: platform === "ios" ? "#007aff" : "#3F51B5",
   },
   button: {

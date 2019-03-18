@@ -23,6 +23,7 @@ class Login extends Component {
     }
   }
   componentDidMount() {
+    // firebase.auth().signOut();
     let user = null
     this.authChange = firebase.auth().onAuthStateChanged((u) => {
       if(user) return;
