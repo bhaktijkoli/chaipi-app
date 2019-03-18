@@ -22,17 +22,19 @@ const App = () => {
 }
 
 const DrawerNavigator = createDrawerNavigator({
-  Home: {
-    screen: Home,
-  }
+  Home: { screen: Home }
 })
+
+DrawerNavigator.navigationOptions = {
+    header: null
+};
 
 
 const AppNavigator = createStackNavigator({
   Login: { screen: Login },
   OTPVerify: { screen: OTPVerify },
   ProfileSetup: { screen: ProfileSetup },
-  Home: { screen: createAppContainer(DrawerNavigator) }
+  Home: { screen: DrawerNavigator }
 });
 const AppContainer =  createAppContainer(AppNavigator);
 export default App;

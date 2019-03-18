@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import { Container, Content, View, Title} from 'native-base';
-import { Button, Text } from 'native-base';
-import { Form, Item, Label, Input } from 'native-base';
+import { Container, Content, View, Title, Text} from 'native-base';
+import { Header } from 'native-base';
 import firebase from 'react-native-firebase';
+
+import Footer from './../../components/Footer'
 
 import Style from './../../styles/style';
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
   componentDidMount() {
   }
   render() {
     return(
       <Container>
-        <Content>
+        <Header transparent>
+        </Header>
+        <Content style={Style.content}>
           <Text>Welcome Home!</Text>
         </Content>
+        <Footer tab='home'/>
       </Container>
     )
   }
