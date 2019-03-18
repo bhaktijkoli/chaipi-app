@@ -33,13 +33,13 @@ class ProfileSetup extends Component {
               <Form style={Style.bottom}>
                 <H1 style={Style.heading}>Welcome</H1>
                 <Text style={Style.label}>Setup your profile</Text>
-                <Item regular style={Style.input}>
+                <Item underline style={Style.input}>
                   <Input
                     value={this.state.fullname}
                     onChangeText={val=>this.setState({fullname: val})}
                     placeholder='Enter fullname' />
                 </Item>
-                <Item regular style={Style.input}>
+                <Item underline style={Style.input}>
                   <Input
                     keyboardType='email-address'
                     value={this.state.email}

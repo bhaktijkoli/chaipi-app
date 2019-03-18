@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Text, View } from 'native-base';
+import { Text, View } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
 import firebase from 'react-native-firebase';
+
+import Button from './../../components/Button';
 
 import Style from './../../styles/style';
 
@@ -15,12 +17,13 @@ class OTPVerify extends Component {
       code3: '',
       code4: '',
       code5: '',
+      process: false,
     }
     this.OnClickVerify = this.OnClickVerify.bind(this);
   }
   render() {
     var counts = [0,1,2,3,4,5];
-    var countsList =   counts.map((el, key) => {
+    var countsList = counts.map((el, key) => {
       return(
         <View key={key} style={{flex:1,margin:3}}>
           <Item style={Style.input}>
@@ -52,20 +55,25 @@ class OTPVerify extends Component {
         <View style={{flexDirection:'row'}}>
           {countsList}
         </View>
-        <Button large block style={Style.button} onPress={this.OnClickVerify}>
-          <Text>VERIFY</Text>
-        </Button>
+        <Button onPress={this.OnClickVerify} loading={this.state.process} text="VERIFY"/>
       </Form>
     )
   }
   OnClickVerify() {
     let { code0, code1, code2, code3, code4, code5 } = this.state;
     let code = code0 + code1 + code2 + code3 + code4 + code5;
+    this.setState({process:true})
     this.props.confirmResult.confirm(code)
     .then(user=> {
       console.log(user);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.log(err.message);
+      Toast.show({ text: err.message, buttonText: 'Ok' })
+    })
+    .finally(() => {
+      this.setState({process:false})
+    })
   }
 }
 

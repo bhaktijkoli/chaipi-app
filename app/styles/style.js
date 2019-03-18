@@ -1,4 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { Platform } from "react-native";
+
+const platform = Platform.OS;
 
 export default StyleSheet.create({
   top: {
@@ -18,6 +21,7 @@ export default StyleSheet.create({
   input: {
     marginTop:5,
     marginBottom:5,
+    borderColor: platform === "ios" ? "#007aff" : "#3F51B5",
   },
   button: {
     marginTop:5,

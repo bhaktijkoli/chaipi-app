@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import { Provider } from "react-redux";
-import { StyleProvider } from 'native-base';
+import { Root, StyleProvider } from 'native-base';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
@@ -13,9 +13,11 @@ import Home from './app/screens/Home/Home';
 
 const App = () => {
   return(
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
+    <Root>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </Root>
   )
 }
 
