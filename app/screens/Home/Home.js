@@ -18,7 +18,7 @@ class Home extends Component {
         <Content style={Style.content}>
           <Text>Welcome Home!</Text>
         </Content>
-        <Footer tab='home'/>
+        <Footer tab='home' navigation={this.props.navigation}/>
       </Container>
     )
   }

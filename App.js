@@ -10,6 +10,7 @@ import Login from './app/screens/Login/Login';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
 import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
+import Account from './app/screens/Account/Account';
 
 const App = () => {
   return(
@@ -22,7 +23,8 @@ const App = () => {
 }
 
 const DrawerNavigator = createDrawerNavigator({
-  Home: { screen: Home }
+  Home: { screen: Home },
+  Account: { screen: Account },
 })
 
 DrawerNavigator.navigationOptions = {

@@ -9,7 +9,7 @@ class FooterEx extends Component {
     return(
       <Footer>
         <FooterTab>
-          <Button vertical active={tab=='home'}>
+          <Button vertical active={tab=='home'} onPress={e=>this.onClick('Home')}>
             <Icon name="home" type="AntDesign" />
           </Button>
           <Button vertical active={tab=='search'}>
@@ -18,12 +18,15 @@ class FooterEx extends Component {
           <Button vertical active={tab=='favorites'}>
             <Icon name="hearto" type="AntDesign" />
           </Button>
-          <Button vertical active={tab=='account'}>
+          <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>
             <Icon name="user" type="AntDesign" />
           </Button>
         </FooterTab>
       </Footer>
     )
+  }
+  onClick(menu) {
+    this.props.navigation.navigate(menu);
   }
 }
 

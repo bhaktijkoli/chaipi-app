@@ -29,7 +29,9 @@ class Login extends Component {
       if(user) return;
       user = u;
       if(user) {
-        AuthActions.setUserUID(this, user._user.uid);
+        console.log(user);
+        let data = {uid: user._user.uid, phone: user._user.phoneNumber}
+        AuthActions.setUserUID(this, data);
         Request.get('/user/get/'+user._user.uid)
         .then(res => {
           AuthActions.setUser(this, res.data);
