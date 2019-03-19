@@ -18,6 +18,9 @@ class FooterEx extends Component {
           <Button vertical active={tab=='favorites'}>
             <Icon name="hearto" type="AntDesign" />
           </Button>
+          <Button vertical active={tab=='favorites'}>
+            <Icon name="shoppingcart" type="AntDesign" />
+          </Button>
           <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>
             <Icon name="user" type="AntDesign" />
           </Button>
