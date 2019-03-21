@@ -11,7 +11,7 @@ export default StyleSheet.create({
     marginBottom:20,
   },
   content: {
-    margin: 15,
+    padding: 15,
   },
   heading: {
   },
@@ -25,8 +25,24 @@ export default StyleSheet.create({
     marginRight: 0,
     borderColor: platform === "ios" ? "#007aff" : "#3F51B5",
   },
+  inputRegular: {
+    marginTop:5,
+    marginBottom:20,
+    marginLeft: 0,
+    marginRight: 0,
+  },
+  inputRegularError: {
+    marginTop:5,
+    marginBottom:0,
+    marginLeft: 0,
+    marginRight: 0,
+  },
   button: {
     marginTop:5,
     marginBottom:5,
+  },
+  error: {
+    color: '#ed2f2f',
+    marginBottom: 10,
   }
 });

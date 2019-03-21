@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Container, Content, View, Title, Text} from 'native-base';
 import { Header, Left, Body, Right, Icon } from 'native-base';
 import { List, ListItem } from 'native-base';
-import firebase from 'react-native-firebase';
 
 import Footer from './../../components/Footer'
 
@@ -76,7 +75,7 @@ const accountItems = [
 
 const shopManagementItems = [
   {name: 'Shop', icon: 'shop', route: 'Home', type: 'Entypo'},
-  {name: 'Products', icon: 'profile', route: 'Home', type: 'AntDesign'},
+  {name: 'Products', icon: 'profile', route: 'AddProduct', type: 'AntDesign'},
 ];
 
 const helpItems = [

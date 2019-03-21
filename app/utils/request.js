@@ -9,8 +9,8 @@ module.exports.get = (url) => {
   return axios.get(route(url))
 }
 
-module.exports.token = (token) => {
-  axios.defaults.headers.common['authtoken'] = token;
+module.exports.setToken = (token) => {
+  axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 
 const route = (url) => {

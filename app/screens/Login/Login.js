@@ -23,18 +23,17 @@ class Login extends Component {
     }
   }
   componentDidMount() {
-    // firebase.auth().signOut();
     let user = null
     this.authChange = firebase.auth().onAuthStateChanged((u) => {
       if(user) return;
       user = u;
       if(user) {
-        console.log(user);
         let data = {uid: user._user.uid, phone: user._user.phoneNumber}
         AuthActions.setUserUID(this, data);
         Request.get('/user/get/'+user._user.uid)
         .then(res => {
           AuthActions.setUser(this, res.data);
+          Request.setToken(user._user.uid)
           this.props.navigation.dispatch(NavigationActions.homeAction);
         })
         .catch(err => {
