@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { withNavigation } from 'react-navigation';
 import { Header, Left, Body, Right, Button, Title, Icon } from 'native-base';
 
 import Style from './../styles/style';
 
 class Header2 extends Component {
   render() {
+    console.log(this.props.navigation);
     return(
       <Header transparent>
         <Left>
-          <Button transparent>
+          <Button transparent onPress={()=> this.props.navigation.goBack()}>
             <Icon name='arrow-back' />
           </Button>
         </Left>
@@ -21,4 +23,4 @@ class Header2 extends Component {
   }
 }
 
-export default Header2;
+export default withNavigation(Header2);
