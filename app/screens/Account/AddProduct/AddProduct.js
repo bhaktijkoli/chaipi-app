@@ -19,7 +19,7 @@ class AddProduct extends Component {
       <Container>
         <Header2 title="Add A Product"/>
         <ScrollView style={Style.content}>
-          <AddProductForm auth={this.props.auth} />
+          <AddProductForm auth={this.props.auth} navigation={this.props.navigation}/>
         </ScrollView>
       </Container>
     )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
-import { Form, Item, Label, Text, Input, Textarea, Icon, Button } from 'native-base';
+import { Form, Item, Label, Text, Input, Textarea, Icon, Button, Toast } from 'native-base';
 import { If } from 'react-if';
 import ButtonEx from './../../../components/Button';
 
@@ -32,7 +32,7 @@ class AddProductForm extends Component {
   render() {
     console.log('Current state', this.state);
     return(
-      <Form>
+      <Form style={Style.bottom}>
         <Label>Name</Label>
         <Item regular error={this.state.name_error.length>0} style={Style.inputRegularError}>
           <Input
@@ -79,7 +79,6 @@ class AddProductForm extends Component {
     )
   }
   changeImage() {
-    console.log(ImagePicker.showImagePicker);
     ImagePicker.showImagePicker(options, (response) => {
       console.log("Response", response);
       if (response.didCancel) {
@@ -89,17 +88,24 @@ class AddProductForm extends Component {
       } else {
         const source = { uri: response.uri };
         this.setState({
-          image: source,
+          image: { uri: response.uri, name: response.fileName, type: response.type },
         });
       }
     });
   }
   onClickAdd() {
-    this.setState({process: true});
-    Request.post('/product/add', this.state)
+    this.setState({process: true, name_error: '', price_error: '', time_error: ''});
+    let data = new FormData();
+    data.append('name', this.state.name)
+    data.append('price', this.state.price)
+    data.append('time', this.state.time)
+    data.append('description', this.state.description)
+    data.append('image', this.state.image)
+    Request.post('/product/add', data)
     .then(res => {
       if(res.data.success) {
-
+        Toast.show({text: `${this.state.name} has been listed.`, buttonText: 'Ok'});
+        this.props.navigation.navigate('Home');
       } else {
         let messages = res.data.messages;
         Object.keys(messages).forEach(el => {

@@ -14,7 +14,7 @@ module.exports.setToken = (token) => {
 }
 
 const route = (url) => {
-  return 'http://192.168.0.123:3000/api/v1' + url;
+  return 'http://192.168.0.105:3000/api/v1' + url;
 }
 
 module.exports.route = route;
