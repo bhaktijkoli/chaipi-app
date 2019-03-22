@@ -75,7 +75,7 @@ const accountItems = [
 
 const shopManagementItems = [
   {name: 'Shop', icon: 'shop', route: 'Home', type: 'Entypo'},
-  {name: 'Products', icon: 'profile', route: 'AddProduct', type: 'AntDesign'},
+  {name: 'Products', icon: 'profile', route: 'Products', type: 'AntDesign'},
 ];
 
 const helpItems = [
