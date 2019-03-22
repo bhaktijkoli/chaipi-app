@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Item, Label, Text, Input, Textarea, Icon } from 'native-base';
-import Button from './../../../components/Button';
+import { Form, Item, Label, Text, Input, Textarea, Icon, Button } from 'native-base';
+import ButtonEx from './../../../components/Button';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
@@ -42,13 +42,16 @@ class AddProductForm extends Component {
           <Icon name='clock-o' type="FontAwesome" style={{color:'#575757'}}/>
         </Item>
         <Text style={Style.error}>{this.state.time_error}</Text>
+        <Label>Image</Label>
+        <Button style={Style.input} bordered><Icon name="pluscircleo" type="AntDesign"/></Button>
         <Label>Description</Label>
         <Textarea
           rowSpan={5}
           bordered
+          style={Style.inputNoBorder}
           value={this.state.description}
           onChangeText={val=>this.setState({description: val})} />
-        <Button onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
+        <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
       </Form>
     )
   }

@@ -20,10 +20,16 @@ export default StyleSheet.create({
   },
   input: {
     marginTop:5,
-    marginBottom:5,
+    marginBottom:10,
     marginLeft: 0,
     marginRight: 0,
     borderColor: platform === "ios" ? "#007aff" : "#3F51B5",
+  },
+  inputNoBorder: {
+    marginTop:5,
+    marginBottom:10,
+    marginLeft: 0,
+    marginRight: 0,
   },
   inputRegular: {
     marginTop:5,
@@ -38,7 +44,7 @@ export default StyleSheet.create({
     marginRight: 0,
   },
   button: {
-    marginTop:5,
+    marginTop:10,
     marginBottom:5,
   },
   error: {
