@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
+import { TouchableOpacity, Image } from 'react-native';
 import { Form, Item, Label, Text, Input, Textarea, Icon, Button } from 'native-base';
+import { If } from 'react-if';
 import ButtonEx from './../../../components/Button';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
+
+const ImagePicker = require('react-native-image-picker');
+
+const options = {
+  title: 'Select Image',
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
 class AddProductForm extends Component {
   state = {
     name: '',
     price: '0',
     time: '0',
+    image: null,
     description: '',
     name_error: '',
     price_error: '',
@@ -17,6 +30,7 @@ class AddProductForm extends Component {
     process: false,
   }
   render() {
+    console.log('Current state', this.state);
     return(
       <Form>
         <Label>Name</Label>
@@ -43,7 +57,16 @@ class AddProductForm extends Component {
         </Item>
         <Text style={Style.error}>{this.state.time_error}</Text>
         <Label>Image</Label>
-        <Button style={Style.input} bordered><Icon name="pluscircleo" type="AntDesign"/></Button>
+        <If condition={this.state.image!=null}>
+          <TouchableOpacity activeOpacity = { .5 } onPress={this.changeImage.bind(this)}>
+          <Image source={this.state.image} style={{width:152, height:152, marginTop:10, marginBottom: 20}} onPress={this.changeImage.bind(this)}/>
+          </TouchableOpacity>
+      </If>
+        <If condition={this.state.image==null}>
+          <Button style={Style.input} bordered onPress={this.changeImage.bind(this)}>
+            <Icon name="pluscircleo" type="AntDesign"/>
+          </Button>
+        </If>
         <Label>Description</Label>
         <Textarea
           rowSpan={5}
@@ -54,6 +77,22 @@ class AddProductForm extends Component {
         <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
       </Form>
     )
+  }
+  changeImage() {
+    console.log(ImagePicker.showImagePicker);
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log("Response", response);
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const source = { uri: response.uri };
+        this.setState({
+          image: source,
+        });
+      }
+    });
   }
   onClickAdd() {
     this.setState({process: true});
