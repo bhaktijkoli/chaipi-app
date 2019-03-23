@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { ScrollView } from 'react-native';
-import { Container, Content, View, Title, Text} from 'native-base';
+import { Container, Content, View, Title, Text, List} from 'native-base';
 import { Header, Left, Body, Right, Button, Icon, Fab } from 'native-base';
 
 import Style from './../../../styles/style';
@@ -29,12 +29,14 @@ class Products extends Component {
     return(
       <Container>
         <Header2 title="Your Products"/>
-        <ScrollView style={Style.content}>
-          {
-            this.state.products.map((el, key) => {
-              return <ProductItem product={el} key={key} />
-            })
-          }
+        <ScrollView>
+          <List>
+            {
+              this.state.products.map((el, key) => {
+                return <ProductItem product={el} key={key} />
+              })
+            }
+          </List>
         </ScrollView>
         <Fab
           direction="up"

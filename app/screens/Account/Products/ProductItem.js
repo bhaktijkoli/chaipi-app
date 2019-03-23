@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Image } from 'react-native';
-import { Card, CardItem, Left, Right, Body, Title, Text } from 'native-base';
+import { ListItem, Thumbnail, Left, Right, Body, Button, Icon, Text } from 'native-base';
 
 import Style from './../../../styles/style';
 
@@ -10,17 +10,15 @@ class ProductItem extends Component {
     let product = this.props.product;
     let image = { uri: product.image };
     return(
-      <Card>
-        <CardItem>
+        <ListItem thumbnail style={{marginBottom:10}}>
           <Left>
-            <Image source={image} style={{width:74, height: 74}}/>
+            <Thumbnail square source={image} style={{width:74, height: 74}}/>
           </Left>
-          <Body style={{alignItems: 'flex-start'}}>
-            <Title>{product.name}</Title>
-            <Text>{product.description}</Text>
+          <Body>
+            <Text>{product.name}</Text>
+            <Text note>&#8377;{product.price}</Text>
           </Body>
-        </CardItem>
-      </Card>
+        </ListItem>
     )
   }
 }
