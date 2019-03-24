@@ -1,6 +1,9 @@
 import axios from 'axios';
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+const host = '192.168.1.105';
+const port = 3000;
+
 module.exports.post = (url, data) => {
   return axios.post(route(url), data)
 }
@@ -14,7 +17,7 @@ module.exports.setToken = (token) => {
 }
 
 const route = (url) => {
-  return 'http://192.168.1.106:3000/api/v1' + url;
+  return `http://${host}:${port}/api/v1${url}`;
 }
 
 module.exports.route = route;
