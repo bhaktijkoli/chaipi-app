@@ -16,6 +16,7 @@
     "react-native-gesture-handler": "^1.1.0",
     "react-native-image-picker": "^0.28.0",
     "react-native-linear-gradient": "^2.5.4",
+    "react-native-shimmer-placeholder": "^1.0.30",
     "react-navigation": "^3.3.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",

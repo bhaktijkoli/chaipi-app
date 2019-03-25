@@ -50,6 +50,7 @@
 		77570E96208F4F7782DC1515 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCCD82791C748A082617916 /* libRNGestureHandler-tvOS.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85D4E65D67D142CCB0D10E78 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40A388E0C1DD45A5B49B34E1 /* FontAwesome.ttf */; };
+		873D9D13224913F8000B7A13 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 873D9CE7224913EF000B7A13 /* libBVLinearGradient.a */; };
 		876A5FBA223848D6006DB310 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 876A5FB9223848D6006DB310 /* GoogleService-Info.plist */; };
 		876A5FBB223848D6006DB310 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 876A5FB9223848D6006DB310 /* GoogleService-Info.plist */; };
 		876A5FBC223848D6006DB310 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 876A5FB9223848D6006DB310 /* GoogleService-Info.plist */; };
@@ -309,6 +310,20 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		873D9CE6224913EF000B7A13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 873D9CE1224913EF000B7A13 /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = BVLinearGradient;
+		};
+		873D9CE8224913EF000B7A13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 873D9CE1224913EF000B7A13 /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64AA15081EF7F30100718508;
+			remoteInfo = "BVLinearGradient-tvOS";
+		};
 		876A5FA22238471C006DB310 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -417,6 +432,7 @@
 		7D2A52B6745D4C49AE43FB11 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		7DD25D75B9A409ACA05DDCCB /* libPods-ChaiPaan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChaiPaan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		873D9CE1224913EF000B7A13 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		876A5FB9223848D6006DB310 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87AD4C932244BACD00FD1BA7 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		94DFCF012F324AABACF0C20D /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
@@ -450,6 +466,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873D9D13224913F8000B7A13 /* libBVLinearGradient.a in Frameworks */,
 				87AD4CC12244BB4A00FD1BA7 /* libRNImagePicker.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -659,6 +676,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				873D9CE1224913EF000B7A13 /* BVLinearGradient.xcodeproj */,
 				87AD4C932244BACD00FD1BA7 /* RNImagePicker.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -711,6 +729,15 @@
 				00E356EE1AD99517003FC87E /* ChaiPaanTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* ChaiPaan-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* ChaiPaan-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		873D9CE2224913EF000B7A13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				873D9CE7224913EF000B7A13 /* libBVLinearGradient.a */,
+				873D9CE9224913EF000B7A13 /* libBVLinearGradient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -897,6 +924,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 873D9CE2224913EF000B7A13 /* Products */;
+					ProjectRef = 873D9CE1224913EF000B7A13 /* BVLinearGradient.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1191,6 +1222,20 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		873D9CE7224913EF000B7A13 /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = 873D9CE6224913EF000B7A13 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		873D9CE9224913EF000B7A13 /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = 873D9CE8224913EF000B7A13 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		876A5FA32238471C006DB310 /* libjsi.a */ = {
