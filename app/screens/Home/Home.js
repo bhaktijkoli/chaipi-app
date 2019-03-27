@@ -4,6 +4,7 @@ import { Header } from 'native-base';
 import firebase from 'react-native-firebase';
 
 import OfferItemList from './OfferItemList';
+import SubscriptionList from './SubscriptionList';
 
 import Footer from './../../components/Footer'
 
@@ -17,8 +18,9 @@ class Home extends Component {
       <Container>
         <Header transparent>
         </Header>
-        <Content style={Style.content}>
+        <Content>
           <OfferItemList />
+          <SubscriptionList />
         </Content>
         <Footer tab='home' navigation={this.props.navigation}/>
       </Container>
