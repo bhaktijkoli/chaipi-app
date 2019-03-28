@@ -24,7 +24,7 @@ class SubscriptionList extends Component {
   render() {
     return(
       <ScrollView>
-        <List style={{marginTop:10}}>
+        <List>
           {this.renderList()}
         </List>
       </ScrollView>

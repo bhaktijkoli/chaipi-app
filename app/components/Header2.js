@@ -6,7 +6,6 @@ import Style from './../styles/style';
 
 class Header2 extends Component {
   render() {
-    console.log(this.props.navigation);
     return(
       <Header transparent>
         <Left>

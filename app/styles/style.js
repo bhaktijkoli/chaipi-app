@@ -18,6 +18,12 @@ export default StyleSheet.create({
   label: {
     marginLeft: 10,
   },
+  homeLabel: {
+    fontSize: 14,
+    color: '#808080',
+    marginLeft: 20,
+    marginTop: 5,
+  },
   input: {
     marginTop:5,
     marginBottom:10,
