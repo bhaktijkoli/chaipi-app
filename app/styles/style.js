@@ -23,7 +23,7 @@ export default StyleSheet.create({
     marginBottom:10,
     marginLeft: 0,
     marginRight: 0,
-    borderColor: platform === "ios" ? "#007aff" : "#3F51B5",
+    borderColor: '#f39c12',
   },
   inputNoBorder: {
     marginTop:5,

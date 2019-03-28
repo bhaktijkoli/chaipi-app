@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Root, StyleProvider } from 'native-base';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
-import material from './native-base-theme/variables/material';
+import commonColor from './native-base-theme/variables/commonColor';
 
 import Login from './app/screens/Login/Login';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
@@ -17,9 +17,11 @@ import AddProduct from './app/screens/Account/AddProduct/AddProduct';
 const App = () => {
   return(
     <Root>
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
+      <StyleProvider style={getTheme(commonColor)}>
+        <Provider store={store}>
+          <AppContainer />
+        </Provider>
+      </StyleProvider>
     </Root>
   )
 }
@@ -32,7 +34,7 @@ const DrawerNavigator = createDrawerNavigator({
 })
 
 DrawerNavigator.navigationOptions = {
-    header: null
+  header: null
 };
 
 
