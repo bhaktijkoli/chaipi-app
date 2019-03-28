@@ -16,15 +16,13 @@ class Account extends Component {
     let phone = this.props.auth.phone;
     return(
       <Container>
-        <Header transparent noLeft>
-          <Left>
-            <View>
-              <Title>{user.fullname.toUpperCase()}</Title>
-              <Text style={{marginLeft:15}}>{phone}</Text>
-            </View>
-          </Left>
-        </Header>
         <Content>
+          <Header transparent>
+            <Left>
+              <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
+              <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
+            </Left>
+          </Header>
           <List>
             <ListItem itemDivider>
               <Text>My Account</Text>
@@ -54,7 +52,7 @@ class Account extends Component {
           <Body style={{flex:6}}>
             <Text>{el.name}</Text>
           </Body>
-       </ListItem>
+        </ListItem>
       )
     })
   }
@@ -80,6 +78,7 @@ const shopManagementItems = [
 
 const helpItems = [
   {name: 'Help', icon: 'questioncircleo', route: 'Home', type: 'AntDesign'},
+  {name: 'About', icon: 'infocirlceo', route: 'Home', type: 'AntDesign'},
 ]
 
 function mapStateToProps(state) {

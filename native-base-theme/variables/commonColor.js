@@ -140,15 +140,15 @@ export default {
   footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: platform === "ios" ? "#737373" : "#bfc6ea",
+  tabBarTextColor: "#737373",
   tabBarTextSize: platform === "ios" ? 14 : 11,
-  activeTab: platform === "ios" ? "#f39c12" : "#fff",
+  activeTab: "#f39c12",
   sTabBarActiveTextColor: "#f39c12",
   tabBarActiveTextColor: "#f39c12",
   tabActiveBgColor: 'transparent',
 
   // Header
-  toolbarBtnColor: platform === "ios" ? "#f39c12" : "#fff",
+  toolbarBtnColor: platform === "ios" ? "#f39c12" : "#f39c12",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#f39c12",
   toolbarHeight: platform === "ios" ? 64 : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
@@ -251,8 +251,8 @@ export default {
   titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
   titleFontSize: platform === "ios" ? 17 : 19,
   subTitleFontSize: platform === "ios" ? 11 : 14,
-  subtitleColor: platform === "ios" ? "#000" : "#fff",
-  titleFontColor: platform === "ios" ? "#000" : "#fff",
+  subtitleColor: platform === "ios" ? "#000" : "#000",
+  titleFontColor: platform === "ios" ? "#000" : "#000",
 
   // Other
   borderRadiusBase: platform === "ios" ? 5 : 2,
