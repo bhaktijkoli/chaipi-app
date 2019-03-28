@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
 
 class FooterEx extends Component {
@@ -15,8 +16,8 @@ class FooterEx extends Component {
           <Button vertical active={tab=='search'}>
             <Icon name="search1" type="AntDesign" />
           </Button>
-          <Button vertical active={tab=='favorites'}>
-            <Icon name="hearto" type="AntDesign" />
+          <Button primmary active={tab=='favorites'} style={customStyle.centerButton}>
+            <Icon name="hearto" type="AntDesign" style={{color: '#FFF'}}/>
           </Button>
           <Button vertical active={tab=='favorites'}>
             <Icon name="shoppingcart" type="AntDesign" />
@@ -32,5 +33,17 @@ class FooterEx extends Component {
     this.props.navigation.navigate(menu);
   }
 }
+
+const customStyle = StyleSheet.create({
+  centerButton: { elevation: 4,
+    alignSelf: 'center',
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+    backgroundColor: '#f39c12',
+    justifyContent: 'center',
+    marginBottom: 20
+  }
+})
 
 export default FooterEx;
