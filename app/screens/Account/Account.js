@@ -68,7 +68,7 @@ const accountItems = [
   {name: 'Favorites', icon: 'hearto', route: 'Home', type: 'AntDesign'},
   {name: 'Order History', icon: 'clockcircleo', route: 'Home', type: 'AntDesign'},
   {name: 'App Settings', icon: 'setting', route: 'Home', type: 'AntDesign'},
-  {name: 'Logout', icon: 'logout', route: 'Home', type: 'AntDesign'},
+  {name: 'Logout', icon: 'logout', route: 'Logout', type: 'AntDesign'},
 ];
 
 const shopManagementItems = [

@@ -7,6 +7,7 @@ import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
 
 import Login from './app/screens/Login/Login';
+import Logout from './app/screens/Login/Logout';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
 import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
@@ -40,9 +41,11 @@ DrawerNavigator.navigationOptions = {
 
 const AppNavigator = createStackNavigator({
   Login: { screen: Login },
+  Logout: { screen: Logout },
   OTPVerify: { screen: OTPVerify },
   ProfileSetup: { screen: ProfileSetup },
   Home: { screen: DrawerNavigator }
 });
+
 const AppContainer =  createAppContainer(AppNavigator);
 export default App;

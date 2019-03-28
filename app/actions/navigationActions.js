@@ -5,6 +5,11 @@ module.exports.homeAction = StackActions.reset({
   actions: [NavigationActions.navigate({ routeName: 'Home' })],
 });
 
+module.exports.loginAction = StackActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({ routeName: 'Login' })],
+});
+
 module.exports.SetupAction = StackActions.reset({
   index: 0,
   actions: [NavigationActions.navigate({ routeName: 'ProfileSetup' })],
