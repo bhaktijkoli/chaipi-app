@@ -27,16 +27,24 @@ const App = () => {
   )
 }
 
+const SubNavigator = createStackNavigator(
+  {
+    Home: { screen: Home },
+    Account: { screen: Account },
+    Products: { screen: Products },
+    AddProduct: { screen: AddProduct },
+  },
+  {
+    defaultNavigationOptions: {
+      header: null
+    }
+  }
+);
+
 const DrawerNavigator = createDrawerNavigator({
-  Home: { screen: Home },
-  Account: { screen: Account },
-  Products: { screen: Products },
-  AddProduct: { screen: AddProduct },
+  Sub: {screen: SubNavigator }
 })
 
-DrawerNavigator.navigationOptions = {
-  header: null
-};
 
 
 const AppNavigator = createStackNavigator({
