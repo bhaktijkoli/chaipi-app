@@ -27,8 +27,14 @@ const App = () => {
   )
 }
 
-const SubNavigator = createStackNavigator(
+
+
+const AppNavigator = createStackNavigator(
   {
+    Login: { screen: Login },
+    Logout: { screen: Logout },
+    OTPVerify: { screen: OTPVerify },
+    ProfileSetup: { screen: ProfileSetup },
     Home: { screen: Home },
     Account: { screen: Account },
     Products: { screen: Products },
@@ -40,20 +46,6 @@ const SubNavigator = createStackNavigator(
     }
   }
 );
-
-const DrawerNavigator = createDrawerNavigator({
-  Sub: {screen: SubNavigator }
-})
-
-
-
-const AppNavigator = createStackNavigator({
-  Login: { screen: Login },
-  Logout: { screen: Logout },
-  OTPVerify: { screen: OTPVerify },
-  ProfileSetup: { screen: ProfileSetup },
-  Home: { screen: DrawerNavigator }
-});
 
 const AppContainer =  createAppContainer(AppNavigator);
 export default App;
