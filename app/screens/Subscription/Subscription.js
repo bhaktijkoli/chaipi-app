@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Image } from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container, Content, Toast } from 'native-base';
 import { Form, Item, Label, Picker } from 'native-base';
 import { H2, Text, Icon } from 'native-base';
 import ButtonEx from './../../components/Button'
 
 import Header2 from './../../components/Header2';
+import Request from './../../utils/request';
 import Style from './../../styles/style';
 
 class Subscription extends Component {
@@ -43,11 +44,25 @@ class Subscription extends Component {
                 }
               </Picker>
             </Item>
-            <ButtonEx loading={this.state.process} text="ADD TO CART"/>
+            <ButtonEx loading={this.state.process} text="ADD TO CART" onPress={this.onAddToCart.bind(this)}/>
           </Form>
         </Content>
       </Container>
     )
+  }
+  onAddToCart() {
+    let subscription = this.props.navigation.getParam('subscription');
+    let data = {
+      product: subscription.id,
+      count: this.state.duration,
+    }
+    Request.post('/order/add', data)
+    .then(res => {
+      if(res.data.success) {
+        Toast.show({text: `${subscription.name} has been added to cart.`, buttonText: 'Ok'});
+        this.props.navigation.navigate('Home');
+      }
+    })
   }
 }
 

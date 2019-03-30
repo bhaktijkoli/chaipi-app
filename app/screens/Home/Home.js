@@ -18,16 +18,13 @@ class Home extends Component {
         <Content>
           <Text style={Style.homeLabel}>Offers</Text>
           <OfferItemList />
-          {/*
-            <Text style={Style.homeLabel}>Subscriptions</Text>
-            <SubscriptionList navigation={this.props.navigation}/>
-
-            */}
-          </Content>
-          <Footer tab='home' navigation={this.props.navigation}/>
-        </Container>
-      )
-    }
+          <Text style={Style.homeLabel}>Subscriptions</Text>
+          <SubscriptionList navigation={this.props.navigation}/>
+        </Content>
+        <Footer tab='home' navigation={this.props.navigation}/>
+      </Container>
+    )
   }
+}
 
-  export default Home;
+export default Home;
