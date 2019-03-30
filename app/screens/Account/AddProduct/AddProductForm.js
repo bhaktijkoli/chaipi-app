@@ -30,7 +30,6 @@ class AddProductForm extends Component {
     process: false,
   }
   render() {
-    console.log('Current state', this.state);
     return(
       <Form style={Style.bottom}>
         <Label>Name</Label>
@@ -80,11 +79,8 @@ class AddProductForm extends Component {
   }
   changeImage() {
     ImagePicker.showImagePicker(options, (response) => {
-      console.log("Response", response);
       if (response.didCancel) {
-        console.log('User cancelled image picker');
       } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
       } else {
         const source = { uri: response.uri };
         this.setState({
@@ -97,6 +93,7 @@ class AddProductForm extends Component {
     this.setState({process: true, name_error: '', price_error: '', time_error: ''});
     let data = new FormData();
     data.append('name', this.state.name)
+    data.append('type', 'product')
     data.append('price', this.state.price)
     data.append('time', this.state.time)
     data.append('description', this.state.description)
@@ -114,7 +111,7 @@ class AddProductForm extends Component {
         });
       }
     })
-    .catch(res => console.log(res))
+    .catch(res => console.err(res))
     .finally(()=>this.setState({process: false}));
   }
 }

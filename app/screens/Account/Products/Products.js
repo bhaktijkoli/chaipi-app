@@ -40,7 +40,7 @@ class Products extends Component {
         </ScrollView>
         <Fab
           direction="up"
-          style={{ backgroundColor: '#5067FF' }}
+          style={{ backgroundColor: '#f39c12' }}
           position="bottomRight"
           onPress={() => this.props.navigation.navigate('AddProduct')}>
           <Icon name="plus" type="AntDesign" />

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Container, Content, View, Title, Text} from 'native-base';
 import { Header, Left, Body, Right, Icon } from 'native-base';
 import { List, ListItem } from 'native-base';
+import { If } from 'react-if'
 
 import Footer from './../../components/Footer'
 
@@ -14,6 +15,7 @@ class Account extends Component {
   render() {
     let user = this.props.auth.user;
     let phone = this.props.auth.phone;
+    let shop = this.props.auth.shop;
     return(
       <Container>
         <Content>
@@ -28,10 +30,12 @@ class Account extends Component {
               <Text>My Account</Text>
             </ListItem>
             {this.renderSettingItems(accountItems)}
-            <ListItem itemDivider>
-              <Text>My Shop</Text>
-            </ListItem>
-            {this.renderSettingItems(shopManagementItems)}
+            <If condition={shop!=null}>
+              <ListItem itemDivider>
+                <Text>My Shop</Text>
+              </ListItem>
+            </If>
+            {this.renderSettingItems(shopManagementItems, shop!=null)}
             <ListItem itemDivider>
               <Text>Help</Text>
             </ListItem>
@@ -42,19 +46,24 @@ class Account extends Component {
       </Container>
     )
   }
-  renderSettingItems(arrayItems) {
-    return arrayItems.map((el, key) => {
-      return(
-        <ListItem key={key} onPress={e=>this.onClickListItem(el.route)}>
-          <Left>
-            <Icon name={el.icon} type={el.type}/>
-          </Left>
-          <Body style={{flex:6}}>
-            <Text>{el.name}</Text>
-          </Body>
-        </ListItem>
-      )
-    })
+  renderSettingItems(arrayItems, condition=true) {
+    if(condition) {
+      return arrayItems.map((el, key) => {
+        return(
+          <ListItem key={key} onPress={e=>this.onClickListItem(el.route)}>
+            <Left>
+              <Icon name={el.icon} type={el.type}/>
+            </Left>
+            <Body style={{flex:6}}>
+              <Text>{el.name}</Text>
+            </Body>
+          </ListItem>
+        )
+      })
+    }
+    else {
+      return null;
+    }
   }
   onClickListItem(route) {
     this.props.navigation.navigate(route);
