@@ -11,8 +11,6 @@ import Footer from './../../components/Footer'
 import Style from './../../styles/style';
 
 class Home extends Component {
-  componentDidMount() {
-  }
   render() {
     return(
       <Container>
@@ -21,7 +19,7 @@ class Home extends Component {
           <Text style={Style.homeLabel}>Offers</Text>
           <OfferItemList />
           <Text style={Style.homeLabel}>Subscriptions</Text>
-          <SubscriptionList />
+          <SubscriptionList navigation={this.props.navigation}/>
         </Content>
         <Footer tab='home' navigation={this.props.navigation}/>
       </Container>

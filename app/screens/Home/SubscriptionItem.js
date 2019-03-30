@@ -20,9 +20,10 @@ class SubscriptionItem extends Component {
         </ListItem>
       )
     }
-    let subscription = this.props.subscription;
+    let { subscription, navigation } = this.props;
+    console.log(navigation);
     return(
-      <ListItem thumbnail style={{marginBottom:10}}>
+      <ListItem button thumbnail style={{marginBottom:10}} onPress={e => navigation.navigate('Subscription', {subscription})}>
         <Left>
           <Thumbnail square source={{ uri: subscription.image }} style={{width:72, height:72}}/>
         </Left>

@@ -10,6 +10,10 @@ export default StyleSheet.create({
   bottom: {
     marginBottom:20,
   },
+  mg10: {
+    marginTop: 10,
+    marginBottom: 10
+  },
   content: {
     padding: 15,
   },
@@ -52,6 +56,9 @@ export default StyleSheet.create({
   button: {
     marginTop:10,
     marginBottom:5,
+  },
+  lightColor: {
+    color: '#575757',
   },
   error: {
     color: '#ed2f2f',

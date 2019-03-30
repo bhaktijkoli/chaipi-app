@@ -41,7 +41,7 @@ class SubscriptionList extends Component {
     } else {
       return this.state.subscriptions.map((el, key) => {
         return(
-          <SubscriptionItem subscription={el} key={key}/>
+          <SubscriptionItem subscription={el} key={key} navigation={this.props.navigation}/>
         )
       });
     }
