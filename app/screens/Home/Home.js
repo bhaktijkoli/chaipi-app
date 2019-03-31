@@ -5,6 +5,7 @@ import firebase from 'react-native-firebase';
 
 import OfferItemList from './OfferItemList';
 import SubscriptionList from './SubscriptionList';
+import ShopList from './ShopList';
 
 import Header from './../../components/Header'
 import Footer from './../../components/Footer'
@@ -25,6 +26,8 @@ class Home extends Component {
           <OfferItemList />
           <Text style={Style.homeLabel}>Subscriptions</Text>
           <SubscriptionList navigation={this.props.navigation}/>
+          <Text style={Style.homeLabel}>Shops</Text>
+          <ShopList navigation={this.props.navigation}/>
         </Content>
         <Footer tab='home' navigation={this.props.navigation}/>
       </Container>
