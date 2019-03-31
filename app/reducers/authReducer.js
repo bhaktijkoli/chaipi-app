@@ -2,6 +2,7 @@ var initialState = {
   user: null,
   shop: null,
   uid: null,
+  cart: [],
   phone: '',
 }
 export default function reducer(state=initialState, action) {
@@ -12,6 +13,9 @@ export default function reducer(state=initialState, action) {
     }
     case "AUTH_SET_UID": {
       return {...state, uid: action.payload.uid, phone: action.payload.phone}
+    }
+    case "AUTH_SET_CART": {
+      return {...state, cart: action.payload}
     }
   }
 

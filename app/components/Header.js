@@ -9,7 +9,7 @@ class HeaderEx extends Component {
     return(
       <Header transparent>
         <Left>
-          <Text></Text>
+          <Title>{this.props.title}</Title>
         </Left>
       </Header>
     )

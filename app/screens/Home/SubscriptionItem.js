@@ -21,7 +21,6 @@ class SubscriptionItem extends Component {
       )
     }
     let { subscription, navigation } = this.props;
-    console.log(navigation);
     return(
       <ListItem button thumbnail style={{marginBottom:10}} onPress={e => navigation.navigate('Subscription', {subscription})}>
         <Left>
