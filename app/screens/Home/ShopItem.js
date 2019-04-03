@@ -14,6 +14,7 @@ class ShopItem extends Component {
           </Left>
           <Body style={{marginRight:20}}>
             <Shimmer autoRun={true} style={{width:'100%', height:20}}/>
+            <Shimmer autoRun={true} style={{width:'100%', height:18, marginTop: 5}}/>
           </Body>
         </ListItem>
       )
@@ -26,6 +27,7 @@ class ShopItem extends Component {
         </Left>
         <Body>
           <Text numberOfLines={1}>{shop.name}</Text>
+          <Text numberOfLines={1} note>{shop.description}</Text>
         </Body>
       </ListItem>
     )
