@@ -13,7 +13,7 @@ class SubscriptionList extends Component {
     subscriptions: null,
   }
   componentDidMount() {
-    Request.get('/product/get/subscription')
+    Request.get('/product/get?type=subscription')
     .then(res => {
       setTimeout(function () {
         this.setState({subscriptions: res.data});

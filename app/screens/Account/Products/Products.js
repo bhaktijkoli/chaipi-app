@@ -16,7 +16,7 @@ class Products extends Component {
     products: [],
   }
   componentDidMount() {
-    Request.get('/product/get')
+    Request.get('/product/get?shop='+this.props.auth.shop.id)
     .then(res => {
       console.log(res.data);
       this.setState({products: res.data})

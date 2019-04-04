@@ -21,7 +21,7 @@ class ShopItem extends Component {
     }
     let { shop, navigation } = this.props;
     return(
-      <ListItem button thumbnail style={{marginBottom:10}}>
+      <ListItem button thumbnail style={{marginBottom:10}} onPress={e => navigation.navigate('Shop', {shop})}>
         <Left>
           <Thumbnail square source={{ uri: shop.image }} style={{width:72, height:72}}/>
         </Left>
