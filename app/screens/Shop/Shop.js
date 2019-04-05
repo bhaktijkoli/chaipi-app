@@ -18,7 +18,6 @@ class Shop extends Component {
     let shop = this.props.navigation.getParam('shop');
     Request.get('/product/get?shop='+shop.id)
     .then(res => {
-      console.log(res.data);
       setTimeout(function () {
         this.setState({products: res.data});
       }.bind(this), 500);
@@ -48,7 +47,7 @@ class Shop extends Component {
         <Text style={{fontSize:16, marginTop:5}}>{item.name}</Text>
         <Grid style={{marginTop:5}}>
           <Col>
-            <Button bordered small>
+            <Button bordered small onPress={e => this.onAddClick(item)}>
               <Text>Add</Text>
             </Button>
           </Col>
@@ -58,6 +57,19 @@ class Shop extends Component {
         </Grid>
       </TouchableOpacity>
     )
+  }
+  onAddClick(item) {
+    let data = {
+      product: item.id,
+      count: 1,
+    }
+    Request.post('/order/add', data)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.error(err);
+    })
   }
   getItemWidth() {
     let {width} = Dimensions.get('window');
@@ -70,17 +82,5 @@ function mapStateToProps(state) {
     auth: state.auth,
   };
 }
-
-
-
-// <View style={{flex: 1, flexDirection:'row', alignContent: 'flex-end', width: '100%'}}>
-//   <Text style={[{fontSize:14, marginTop:5}, Style.lightColor]}>&#8377;{item.price}</Text>
-//   <View>
-//     <Button bordered>
-//       <Text>Add</Text>
-//     </Button>
-//   </View>
-// </View>
-
 
 export default connect(mapStateToProps)(Shop);
