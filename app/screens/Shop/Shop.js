@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { Container, Content, View, Title, Button, Text, H1} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { FlatList, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { If } from 'react-if';
 
 import Header2 from './../../components/Header2';
+import CartButton from './../../components/CartButton';
 
 import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
@@ -41,15 +43,21 @@ class Shop extends Component {
     )
   }
   renderProductItem(item, key) {
+    let cart = this.getCartItem(item.id);
     return(
       <TouchableOpacity key={item.id} style={{margin:10}}>
         <Image source={{uri: item.image}} style={{height:124, width:this.getItemWidth()}}/>
         <Text style={{fontSize:16, marginTop:5}}>{item.name}</Text>
         <Grid style={{marginTop:5}}>
           <Col>
-            <Button bordered small onPress={e => this.onAddClick(item)}>
-              <Text>Add</Text>
-            </Button>
+            <If condition={cart==null}>
+              <Button bordered small onPress={e => this.onAddClick(item)}>
+                <Text>Add</Text>
+              </Button>
+            </If>
+            <If condition={cart!=null}>
+              <CartButton cart={cart}/>
+            </If>
           </Col>
           <Col>
             <Text style={[{fontSize:14, alignSelf: 'flex-end'}, Style.lightColor]}>&#8377;{item.price}</Text>
@@ -74,6 +82,15 @@ class Shop extends Component {
   getItemWidth() {
     let {width} = Dimensions.get('window');
     return width/2-25;
+  }
+  getCartItem(pid) {
+    let items = this.props.auth.cart;
+    for(var i=0;i<items.length;i++) {
+      if(items[i].product.id == pid) {
+        return items[i];
+      }
+    }
+    return null;
   }
 }
 
