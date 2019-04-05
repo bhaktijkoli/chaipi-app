@@ -45,9 +45,11 @@ class Shop extends Component {
   renderProductItem(item, key) {
     let cart = this.getCartItem(item.id);
     return(
-      <TouchableOpacity key={item.id} style={{margin:10}}>
-        <Image source={{uri: item.image}} style={{height:124, width:this.getItemWidth()}}/>
-        <Text style={{fontSize:16, marginTop:5}}>{item.name}</Text>
+      <View style={{margin:10}}>
+        <TouchableOpacity>
+          <Image source={{uri: item.image}} style={{height:124, width:this.getItemWidth()}}/>
+          <Text style={{fontSize:16, marginTop:5}}>{item.name}</Text>
+        </TouchableOpacity>
         <Grid style={{marginTop:5}}>
           <Col>
             <If condition={cart==null}>
@@ -56,14 +58,14 @@ class Shop extends Component {
               </Button>
             </If>
             <If condition={cart!=null}>
-              <CartButton cart={cart}/>
+              <CartButton cart={cart} update={this.updateCart.bind(this)}/>
             </If>
           </Col>
           <Col>
             <Text style={[{fontSize:14, alignSelf: 'flex-end'}, Style.lightColor]}>&#8377;{item.price}</Text>
           </Col>
         </Grid>
-      </TouchableOpacity>
+      </View>
     )
   }
   onAddClick(item) {
@@ -91,6 +93,9 @@ class Shop extends Component {
       }
     }
     return null;
+  }
+  updateCart() {
+    Auth.getCart(this);
   }
 }
 

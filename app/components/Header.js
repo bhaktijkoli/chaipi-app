@@ -7,10 +7,10 @@ import Style from './../styles/style';
 class HeaderEx extends Component {
   render() {
     return(
-      <Header transparent>
-        <Left>
+      <Header transparent noLeft>
+        <Body>
           <Title>{this.props.title}</Title>
-        </Left>
+        </Body>
       </Header>
     )
   }

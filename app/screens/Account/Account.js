@@ -19,11 +19,11 @@ class Account extends Component {
     return(
       <Container>
         <Content>
-          <Header transparent>
-            <Left>
+          <Header transparent noLeft>
+            <Body>
               <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
               <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
-            </Left>
+            </Body>
           </Header>
           <List>
             <ListItem itemDivider>
