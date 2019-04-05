@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Title, View} from 'native-base';
+import { Container, Content, Title, View, Text } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import firebase from 'react-native-firebase';
 
@@ -15,6 +15,7 @@ class OTPVerify extends Component {
     super(props)
     this.state = {
       phone: '',
+      err: '',
       confirmResult: null,
     }
   }
@@ -27,12 +28,15 @@ class OTPVerify extends Component {
     .then(confirmResult => {
       this.setState({confirmResult: confirmResult});
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+      console.error(err.message);
+    })
   }
   render() {
     return(
       <Container>
         <Content contentContainerStyle={{flex: 1}}>
+          <Text>{this.state.err}</Text>
           <Grid style={{alignItems: 'center'}}>
             <Col style={Style.content}>
               <OTPVerifyForm phone={this.state.phone} confirmResult={this.state.confirmResult} />

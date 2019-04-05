@@ -23,8 +23,12 @@
           }
         },
         {
-          "client_id": "1078245469787-8nsp5r5okjqgp67qn5ekgjvledrgla7d.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "1078245469787-deq6ikfinehju1cnk8knr6jj7am77dbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipaan",
+            "certificate_hash": "e7f9d92b9f70714837645751ae7a8df7e513505c"
+          }
         }
       ],
       "api_key": [
@@ -33,20 +37,20 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "1078245469787-8nsp5r5okjqgp67qn5ekgjvledrgla7d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1078245469787-3drnko6ra4to7sm5riaiv02l9i7lhfpt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chaipaan"
+              }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
