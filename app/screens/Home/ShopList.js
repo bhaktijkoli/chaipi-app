@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { List } from 'native-base';
+import { FlatList } from 'react-native';
 import { Rating } from 'react-native-ratings';
 
 import ShopItem from './ShopItem';
@@ -10,43 +9,29 @@ import Request from './../../utils/request';
 
 class ShopList extends Component {
   state = {
-    shops: null,
+    loading: true,
+    shops: [1,2,3,4,5,6],
   }
   componentDidMount() {
     Request.get('/shop/get')
     .then(res => {
       console.log(res.data);
       setTimeout(function () {
-        this.setState({shops: res.data});
+        this.setState({shops: res.data, loading: false});
       }.bind(this), 500);
     })
     .catch(err => console.error(err))
   }
   render() {
     return(
-      <ScrollView>
-        <List>
-          {this.renderList()}
-        </List>
-      </ScrollView>
+      <FlatList
+        style={{marginLeft:5, marginRight:5}}
+        data={this.state.shops}
+        renderItem={({item, index}) => { return <ShopItem shop={item} navigation={this.props.navigation} nulled={this.state.loading}/> }}
+        keyExtractor={(item, index) => index.toString()}
+        >
+      </FlatList>
     )
-  }
-  renderList() {
-    if(this.state.shops == null) {
-      var counts = [0,1,2,3,4,5,6];
-      return counts.map((el, key) => {
-        return(
-          <ShopItem shop={el} key={key} nulled/>
-        )
-      });
-    } else {
-      return this.state.shops.map((el, key) => {
-        return(
-          <ShopItem shop={el} key={key} navigation={this.props.navigation}/>
-        )
-      });
-    }
-
   }
 }
 

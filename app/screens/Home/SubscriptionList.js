@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
-import { List } from 'native-base';
 import { Rating } from 'react-native-ratings';
 
 import SubscriptionItem from './SubscriptionItem';
@@ -30,23 +29,6 @@ class SubscriptionList extends Component {
         >
       </FlatList>
     )
-  }
-  renderList() {
-    if(this.state.subscriptions == null) {
-      var counts = [0,1,2,3,4,5,6];
-      return counts.map((el, key) => {
-        return(
-          <SubscriptionItem subscription={el} key={key} nulled/>
-        )
-      });
-    } else {
-      return this.state.subscriptions.map((el, key) => {
-        return(
-          <SubscriptionItem subscription={el} key={key} navigation={this.props.navigation}/>
-        )
-      });
-    }
-
   }
 }
 
