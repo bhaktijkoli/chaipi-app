@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { List } from 'native-base';
 import { Rating } from 'react-native-ratings';
 
@@ -10,24 +10,25 @@ import Request from './../../utils/request';
 
 class SubscriptionList extends Component {
   state = {
-    subscriptions: null,
+    loading: true,
+    subscriptions: [1,2,3,4,5,6],
   }
   componentDidMount() {
     Request.get('/product/get?type=subscription')
     .then(res => {
-      setTimeout(function () {
-        this.setState({subscriptions: res.data});
-      }.bind(this), 500);
+      this.setState({subscriptions: res.data, loading: false});
     })
     .catch(err => console.error(err))
   }
   render() {
     return(
-      <ScrollView>
-        <List>
-          {this.renderList()}
-        </List>
-      </ScrollView>
+      <FlatList
+        style={{marginLeft:5, marginRight:5}}
+        data={this.state.subscriptions}
+        renderItem={({item, index}) => { return <SubscriptionItem subscription={item} navigation={this.props.navigation} nulled={this.state.loading}/> }}
+        keyExtractor={(item, index) => index.toString()}
+        >
+      </FlatList>
     )
   }
   renderList() {
