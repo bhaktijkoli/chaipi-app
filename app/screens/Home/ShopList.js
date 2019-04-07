@@ -15,10 +15,7 @@ class ShopList extends Component {
   componentDidMount() {
     Request.get('/shop/get')
     .then(res => {
-      console.log(res.data);
-      setTimeout(function () {
-        this.setState({shops: res.data, loading: false});
-      }.bind(this), 500);
+      this.setState({shops: res.data, loading: false});
     })
     .catch(err => console.error(err))
   }
