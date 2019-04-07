@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { View, Text } from 'native-base';
 
 import Shimmer from 'react-native-shimmer-placeholder'
@@ -25,7 +25,7 @@ class ShopItem extends Component {
     }
 
     return(
-      <View style={{flexDirection: 'row'}}>
+      <TouchableOpacity style={{flexDirection: 'row'}} onPress={e => navigation.navigate("Shop", {shop})}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
           <Image source={{ uri: shop.image }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
         </Shimmer>
@@ -33,7 +33,7 @@ class ShopItem extends Component {
           <Text numberOfLines={1} style={CustomStyle.title}>{shop.name}</Text>
           <Text numberOfLines={1} style={CustomStyle.note} note>{shop.description}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 }
