@@ -30,11 +30,11 @@ class CartButton extends Component {
   UpdateCount(count) {
     if(count < 0) count = 0;
     let data = {
-      order: this.props.cart.id,
+      cart: this.props.cart.id,
       count: count,
     }
     this.setState({count})
-    Request.post('/order/count', data)
+    Request.post('/cart/count', data)
     .then(res => {
       this.props.update();
     })

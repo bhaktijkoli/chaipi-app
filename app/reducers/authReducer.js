@@ -4,6 +4,7 @@ var initialState = {
   uid: null,
   cart: [],
   phone: '',
+  update: 0,
 }
 export default function reducer(state=initialState, action) {
 
@@ -16,6 +17,9 @@ export default function reducer(state=initialState, action) {
     }
     case "AUTH_SET_CART": {
       return {...state, cart: action.payload}
+    }
+    case "AUTH_UPDATE": {
+      return {...state, update: state.update}
     }
   }
 

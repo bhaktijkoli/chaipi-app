@@ -37,12 +37,15 @@ class Shop extends Component {
           <FlatList
             numColumns={2}
             data={this.state.products}
-            renderItem={({item, index}) => { return <ShopItem product={item} auth={this.props.auth}/> }}
+            renderItem={({item, index}) => { return <ShopItem product={item} update={this.update.bind(this)}/> }}
             keyExtractor={(item, index) => index.toString()}
             ></FlatList>
         </Content>
       </Container>
     )
+  }
+  update() {
+    Auth.getCart(this);
   }
 }
 

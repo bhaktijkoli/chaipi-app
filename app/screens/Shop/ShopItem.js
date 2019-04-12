@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Container, Content, View, Title, Button, Text, H1} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { FlatList, TouchableOpacity, Image, Dimensions } from 'react-native';
@@ -48,9 +49,9 @@ class ShopItem extends Component {
       product: product.id,
       count: 1,
     }
-    Request.post('/order/add', data)
+    Request.post('/cart/add', data)
     .then(res => {
-      console.log(res.data);
+      this.props.update();
     })
     .catch(err => {
       console.error(err);
@@ -68,8 +69,14 @@ class ShopItem extends Component {
     return null;
   }
   updateCart() {
-
+    this.props.update();
   }
 }
 
-export default ShopItem;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+export default connect(mapStateToProps)(ShopItem);
