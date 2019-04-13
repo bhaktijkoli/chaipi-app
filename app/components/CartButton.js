@@ -48,19 +48,21 @@ const customStyle = StyleSheet.create({
     paddingRight: 10,
     paddingTop:8,
     paddingBottom: 6,
-    borderWidth: 0.6,
     fontSize: 12,
     textAlign: 'center',
     justifyContent : "space-between",
-    borderColor: '#f39c12'
+    borderColor: '#f39c12',
+    borderWidth: 0.6,
   },
   buttonLeft: {
     borderTopRightRadius:0,
-    borderBottomRightRadius: 0
+    borderBottomRightRadius: 0,
+    borderRightWidth: 0,
   },
   buttonRight: {
     borderTopLeftRadius:0,
-    borderBottomLeftRadius: 0
+    borderBottomLeftRadius: 0,
+    borderLeftWidth: 0,
   }
 })
 

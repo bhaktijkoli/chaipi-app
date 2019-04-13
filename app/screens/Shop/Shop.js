@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Button, Text, H1} from 'native-base';
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { FlatList, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Container, Content } from 'native-base';
+import { FlatList } from 'react-native';
 import { If } from 'react-if';
 
 import Header2 from './../../components/Header2';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Text, List} from 'native-base';
+import { FlatList } from 'react-native';
+import { Container, Content } from 'native-base';
 
 import Header from './../../components/Header'
 import Footer from './../../components/Footer'
@@ -18,17 +19,18 @@ class Cart extends Component {
       <Container>
         <Header title={`Your Cart(${carts.length})`}/>
         <Content>
-          <List>
-            {
-              carts.map((el, key) => {
-                return <CartItem order={el} key={key}/>
-              })
-            }
-          </List>
+          <FlatList
+            data={carts}
+            renderItem={({item, index}) => { return <CartItem cart={item} update={this.update.bind(this)} /> }}
+            keyExtractor={(item, index) => index.toString()}
+            ></FlatList>
         </Content>
         <Footer tab='cart' navigation={this.props.navigation}/>
       </Container>
     )
+  }
+  update() {
+    Auth.getCart(this);
   }
 }
 
