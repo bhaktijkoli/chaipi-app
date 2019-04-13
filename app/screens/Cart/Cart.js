@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { FlatList } from 'react-native';
-import { Container, Content } from 'native-base';
+import { FlatList, StyleSheet } from 'react-native';
+import { Container, Content, View, Text, Button } from 'native-base';
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 import Header from './../../components/Header'
 import Footer from './../../components/Footer'
@@ -15,15 +16,57 @@ import CartItem from './CartItem';
 class Cart extends Component {
   render() {
     let carts = this.props.auth.cart;
+    let total = 0;
+    carts.forEach(el => {
+      total = el.product.price * el.count
+    });
     return(
       <Container>
         <Header title={`Your Cart(${carts.length})`}/>
         <Content>
           <FlatList
             data={carts}
-            renderItem={({item, index}) => { return <CartItem cart={item} update={this.update.bind(this)} /> }}
             keyExtractor={(item, index) => index.toString()}
-            ></FlatList>
+            renderItem={({item, index}) => {
+              return <CartItem cart={item} update={this.update.bind(this)}></CartItem>
+            }}>
+          </FlatList>
+          <Grid style={CustomStyle.billContainer}>
+            <Row>
+              <Text style={Style.heading}>Bill Details</Text>
+            </Row>
+            <Row style={{paddingTop:5,paddingBottom:5}}>
+              <Col>
+                <Text style={CustomStyle.billItem}>Item Total</Text>
+              </Col>
+              <Col>
+                <Text style={CustomStyle.billCost}>&#8377;{total}</Text>
+              </Col>
+            </Row>
+            <Row style={[Style.upperBorder, {paddingTop:5,paddingBottom:5}]}>
+              <Col>
+                <Text style={CustomStyle.billItem}>Delivery Fee</Text>
+              </Col>
+              <Col>
+                <Text style={CustomStyle.billCost}>&#8377;10</Text>
+              </Col>
+            </Row>
+            <Row style={[Style.upperBorder, {paddingTop:5,paddingBottom:5}]}>
+              <Col>
+                <Text style={CustomStyle.billItem}>To Pay</Text>
+              </Col>
+              <Col>
+                <Text style={CustomStyle.billCost}>&#8377;{total+10}</Text>
+              </Col>
+            </Row>
+            <Row style={{paddingTop:10,paddingBottom:10}}>
+              <Col>
+                <Button block success>
+                  <Text>Proceed</Text>
+                </Button>
+              </Col>
+            </Row>
+          </Grid>
         </Content>
         <Footer tab='cart' navigation={this.props.navigation}/>
       </Container>
@@ -33,6 +76,25 @@ class Cart extends Component {
     Auth.getCart(this);
   }
 }
+
+const CustomStyle = StyleSheet.create({
+  billContainer: {
+    padding: 10,
+  },
+  billItem: {
+
+  },
+  billCost: {
+    fontWeight: '500',
+    alignSelf: 'flex-end',
+  },
+  checkoutContainer: {
+    borderTopWidth: 0.2,
+    padding: 15,
+    borderColor: '#000'
+  }
+})
+
 
 function mapStateToProps(state) {
   return {

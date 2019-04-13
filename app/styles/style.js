@@ -18,6 +18,9 @@ export default StyleSheet.create({
     padding: 15,
   },
   heading: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginBottom: 10,
   },
   label: {
     marginLeft: 10,
@@ -63,5 +66,9 @@ export default StyleSheet.create({
   error: {
     color: '#ed2f2f',
     marginBottom: 10,
-  }
+  },
+  upperBorder: {
+    borderTopWidth: 0.5,
+    borderTopColor: '#575757',
+  },
 });
