@@ -17,6 +17,7 @@ import Account from './app/screens/Account/Account';
 import Subscription from './app/screens/Subscription/Subscription';
 import Products from './app/screens/Account/Products/Products';
 import AddProduct from './app/screens/Account/AddProduct/AddProduct';
+import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 
 const App = () => {
   return(
@@ -45,6 +46,7 @@ const AppNavigator = createStackNavigator(
     Subscription: { screen: Subscription },
     Products: { screen: Products },
     AddProduct: { screen: AddProduct },
+    PartnerWithUs: { screen: PartnerWithUs },
   },
   {
     defaultNavigationOptions: {

@@ -86,8 +86,9 @@ const shopManagementItems = [
 ];
 
 const helpItems = [
-  {name: 'Help', icon: 'questioncircleo', route: 'Home', type: 'AntDesign'},
+  {name: 'Partner with us?', icon: 'book', route: 'PartnerWithUs', type: 'AntDesign'},
   {name: 'About', icon: 'infocirlceo', route: 'Home', type: 'AntDesign'},
+  {name: 'Help', icon: 'questioncircleo', route: 'Home', type: 'AntDesign'},
 ]
 
 function mapStateToProps(state) {
