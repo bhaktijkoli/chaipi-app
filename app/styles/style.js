@@ -11,8 +11,7 @@ export default StyleSheet.create({
     marginBottom:20,
   },
   mg10: {
-    marginTop: 10,
-    marginBottom: 10
+    margin: 10,
   },
   content: {
     padding: 15,
