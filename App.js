@@ -18,6 +18,7 @@ import Subscription from './app/screens/Subscription/Subscription';
 import Products from './app/screens/Account/Products/Products';
 import Address from './app/screens/Account/Address/Address';
 import AddAddress from './app/screens/Account/AddAddress/AddAddress';
+import AddCard from './app/screens/Account/AddCard/AddCard';
 import AddProduct from './app/screens/Account/AddProduct/AddProduct';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 
@@ -50,6 +51,7 @@ const AppNavigator = createStackNavigator(
     AddProduct: { screen: AddProduct },
     Address: { screen: Address },
     AddAddress: { screen: AddAddress },
+    AddCard: { screen: AddCard },
     PartnerWithUs: { screen: PartnerWithUs },
   },
   {

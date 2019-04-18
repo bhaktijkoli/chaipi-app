@@ -73,7 +73,7 @@ class Account extends Component {
 const accountItems = [
   {name: 'Profile', icon: 'user', route: 'Home', type: 'AntDesign'},
   {name: 'Address', icon: 'enviromento', route: 'Address', type: 'AntDesign'},
-  {name: 'Payment', icon: 'creditcard', route: 'Home', type: 'AntDesign'},
+  {name: 'Payment', icon: 'creditcard', route: 'AddCard', type: 'AntDesign'},
   {name: 'Favorites', icon: 'hearto', route: 'Home', type: 'AntDesign'},
   {name: 'Order History', icon: 'clockcircleo', route: 'Home', type: 'AntDesign'},
   {name: 'App Settings', icon: 'setting', route: 'Home', type: 'AntDesign'},
