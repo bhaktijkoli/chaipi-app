@@ -1,14 +1,15 @@
-package com.chaipaan;
+package com.chaipi;
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.imagepicker.ImagePickerPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -28,13 +29,14 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-      new MainReactPackage(),
+          new MainReactPackage(),
+            new LinearGradientPackage(),
+            new RNGestureHandlerPackage(),
+            new ImagePickerPackage(),
+            new MapsPackage(),
             new RNFusedLocationPackage(),
-      new LinearGradientPackage(),
-      new ImagePickerPackage(),
-      new RNFirebasePackage(),
-      new RNGestureHandlerPackage(),
-      new RNFirebaseAuthPackage()
+            new RNFirebasePackage(),
+            new RNFirebaseAuthPackage()
       );
     }
 

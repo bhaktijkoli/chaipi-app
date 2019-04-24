@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Item, Label, Text, Input, Textarea, Icon, Button, Toast } from 'native-base';
+import { Content, Form, Item, Label, Text, Input, Textarea, Icon, Button, Toast } from 'native-base';
+import { StyleSheet } from 'react-native';
 import ButtonEx from './../../../components/Button';
 import axios from 'axios';
-// import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 
 import Style from './../../../styles/style';
@@ -15,8 +16,8 @@ class AddAddressForm extends Component {
     landmark: '',
     house_error: '',
     landmark_error: '',
-    lat: '',
-    lon: '',
+    lat: 0,
+    lon: 0,
     process: false,
   }
   componentDidMount() {
@@ -24,12 +25,15 @@ class AddAddressForm extends Component {
       (position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyAjSpjnhZHk2PA0JyHoEAHEKJHvvgHdjRA`;
-        axios.get(url)
-        .then(res => {
-          let location = res.data.results[0].formatted_address;
-          this.setState({location, lat, lon});
-        })
+        this.setState({lat, lon});
+        console.log(lat, lon);
+        // let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyAjSpjnhZHk2PA0JyHoEAHEKJHvvgHdjRA`;
+        // axios.get(url)
+        // .then(res => {
+        //   console.log(res);
+        //   let location = res.data.results[0].formatted_address;
+        //   this.setState({location, lat, lon});
+        // })
       },
       (error) => {
         console.log(error.code, error.message);
@@ -39,36 +43,50 @@ class AddAddressForm extends Component {
   }
   render() {
     let region = {
-      latitude: 37.78825,
-      longitude: -122.4324,
+      latitude: this.state.lat,
+      longitude: this.state.lon,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }
+    let coordinate = {
+      latitude: this.state.lat,
+      longitude: this.state.lon,
+    }
     return(
-      <Form style={Style.bottom}>
-        <Label>Location</Label>
-        <Item regular style={Style.inputRegularError}>
-          <Input
-            placeholder="Searching your location"
-            value={this.state.location} />
-        </Item>
-        <Text style={Style.error}></Text>
-        <Label>House/Flat No</Label>
-        <Item regular error={this.state.house_error.length>0} style={Style.inputRegularError}>
-          <Input
-            value={this.state.house}
-            onChangeText={val=>this.setState({house: val})} />
-        </Item>
-        <Text style={Style.error}>{this.state.house_error}</Text>
-        <Label>Landmark</Label>
-        <Item regular error={this.state.landmark_error.length>0} style={Style.inputRegularError}>
-          <Input
-            value={this.state.landmark}
-            onChangeText={val=>this.setState({landmark: val})} />
-        </Item>
-        <Text style={Style.error}>{this.state.landmark_error}</Text>
-        <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
-      </Form>
+      <Content>
+        <MapView
+          style={CustomStyle.map}
+          region={region}>
+          <Marker
+            coordinate={coordinate}
+            >
+          </Marker>
+        </MapView>
+        <Form style={Style.content}>
+          <Label>Location</Label>
+          <Item regular style={Style.inputRegularError}>
+            <Input
+              placeholder="Searching your location"
+              value={this.state.location} />
+          </Item>
+          <Text style={Style.error}></Text>
+          <Label>House/Flat No</Label>
+          <Item regular error={this.state.house_error.length>0} style={Style.inputRegularError}>
+            <Input
+              value={this.state.house}
+              onChangeText={val=>this.setState({house: val})} />
+          </Item>
+          <Text style={Style.error}>{this.state.house_error}</Text>
+          <Label>Landmark</Label>
+          <Item regular error={this.state.landmark_error.length>0} style={Style.inputRegularError}>
+            <Input
+              value={this.state.landmark}
+              onChangeText={val=>this.setState({landmark: val})} />
+          </Item>
+          <Text style={Style.error}>{this.state.landmark_error}</Text>
+          <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
+        </Form>
+      </Content>
     )
   }
   onClickAdd() {
@@ -85,9 +103,16 @@ class AddAddressForm extends Component {
           this.setState({[key]: messages[el]})
         });
       }    })
-    .catch(err => console.error(err))
-    .finally(() => this.setState({process: false}))
+      .catch(err => console.error(err))
+      .finally(() => this.setState({process: false}))
+    }
   }
-}
 
-export default AddAddressForm;
+  const CustomStyle = StyleSheet.create({
+    map: {
+      width:'100%',
+      height:200,
+    },
+  })
+
+  export default AddAddressForm;

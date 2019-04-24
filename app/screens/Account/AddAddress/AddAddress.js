@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content } from 'native-base';
+import { Container } from 'native-base';
 
 import Style from './../../../styles/style';
 import Header2 from './../../../components/Header2';
@@ -14,9 +14,7 @@ class AddAddress extends Component {
     return(
       <Container>
         <Header2 title="Add New Address"/>
-        <Content style={Style.content}>
-          <AddAddressForm />
-        </Content>
+        <AddAddressForm />
       </Container>
     )
   }

@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ChaiPaan.app"
-               BlueprintName = "ChaiPaan"
-               ReferencedContainer = "container:ChaiPaan.xcodeproj">
+               BuildableName = "chaipi.app"
+               BlueprintName = "chaipi"
+               ReferencedContainer = "container:chaipi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ChaiPaanTests.xctest"
-               BlueprintName = "ChaiPaanTests"
-               ReferencedContainer = "container:ChaiPaan.xcodeproj">
+               BuildableName = "chaipiTests.xctest"
+               BlueprintName = "chaipiTests"
+               ReferencedContainer = "container:chaipi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ChaiPaanTests.xctest"
-               BlueprintName = "ChaiPaanTests"
-               ReferencedContainer = "container:ChaiPaan.xcodeproj">
+               BuildableName = "chaipiTests.xctest"
+               BlueprintName = "chaipiTests"
+               ReferencedContainer = "container:chaipi.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ChaiPaan.app"
-            BlueprintName = "ChaiPaan"
-            ReferencedContainer = "container:ChaiPaan.xcodeproj">
+            BuildableName = "chaipi.app"
+            BlueprintName = "chaipi"
+            ReferencedContainer = "container:chaipi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ChaiPaan.app"
-            BlueprintName = "ChaiPaan"
-            ReferencedContainer = "container:ChaiPaan.xcodeproj">
+            BuildableName = "chaipi.app"
+            BlueprintName = "chaipi"
+            ReferencedContainer = "container:chaipi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ChaiPaan.app"
-            BlueprintName = "ChaiPaan"
-            ReferencedContainer = "container:ChaiPaan.xcodeproj">
+            BuildableName = "chaipi.app"
+            BlueprintName = "chaipi"
+            ReferencedContainer = "container:chaipi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

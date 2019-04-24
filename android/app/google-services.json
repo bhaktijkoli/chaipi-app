@@ -1,53 +1,41 @@
 {
   "project_info": {
-    "project_number": "1078245469787",
-    "firebase_url": "https://chaipaan-c743f.firebaseio.com",
-    "project_id": "chaipaan-c743f",
-    "storage_bucket": "chaipaan-c743f.appspot.com"
+    "project_number": "187596517037",
+    "firebase_url": "https://chaipi-70e72.firebaseio.com",
+    "project_id": "chaipi-70e72",
+    "storage_bucket": "chaipi-70e72.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1078245469787:android:f98d2beec359cf39",
+        "mobilesdk_app_id": "1:187596517037:android:0ec74af41884f37c",
         "android_client_info": {
-          "package_name": "com.chaipaan"
+          "package_name": "com.chaipi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1078245469787-spajdlu7m106c7illlhda9iq5osrtef1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chaipaan",
-            "certificate_hash": "05a76769cefbd0aeaf0a102771d48b878366dd58"
-          }
-        },
-        {
-          "client_id": "1078245469787-deq6ikfinehju1cnk8knr6jj7am77dbk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chaipaan",
-            "certificate_hash": "e7f9d92b9f70714837645751ae7a8df7e513505c"
-          }
+          "client_id": "187596517037-4cga3jbr2n85h8opn93en0b81asnn5bh.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAUNc4OW141g20wGKXiIE00xcCNUHFGgPs"
+          "current_key": "AIzaSyBsVi4U9Qp2fQB8kMEMeRW6FJdtKTgynmA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1078245469787-8nsp5r5okjqgp67qn5ekgjvledrgla7d.apps.googleusercontent.com",
+              "client_id": "187596517037-4cga3jbr2n85h8opn93en0b81asnn5bh.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1078245469787-3drnko6ra4to7sm5riaiv02l9i7lhfpt.apps.googleusercontent.com",
+              "client_id": "187596517037-soi6t3k1l9p55ndt9r655q0h81qsui8r.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.chaipaan"
+                "bundle_id": "com.chaipi"
               }
             }
           ]
