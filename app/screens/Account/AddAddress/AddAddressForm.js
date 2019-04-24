@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Content, Form, Item, Label, Text, Input, Textarea, Icon, Button, Toast } from 'native-base';
-import { StyleSheet } from 'react-native';
+import { PermissionsAndroid, Platform, StyleSheet } from 'react-native';
 import ButtonEx from './../../../components/Button';
 import axios from 'axios';
 import MapView, {Marker} from 'react-native-maps';
@@ -20,20 +20,13 @@ class AddAddressForm extends Component {
     lon: 0,
     process: false,
   }
-  componentDidMount() {
+  async componentDidMount() {
+    if(await !this.requestLocationPermission()) return;
     Geolocation.getCurrentPosition(
       (position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        this.setState({lat, lon});
-        console.log(lat, lon);
-        // let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyAjSpjnhZHk2PA0JyHoEAHEKJHvvgHdjRA`;
-        // axios.get(url)
-        // .then(res => {
-        //   console.log(res);
-        //   let location = res.data.results[0].formatted_address;
-        //   this.setState({location, lat, lon});
-        // })
+        this.moveCamera(lat, lon)
       },
       (error) => {
         console.log(error.code, error.message);
@@ -42,12 +35,6 @@ class AddAddressForm extends Component {
     );
   }
   render() {
-    let region = {
-      latitude: this.state.lat,
-      longitude: this.state.lon,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    }
     let coordinate = {
       latitude: this.state.lat,
       longitude: this.state.lon,
@@ -55,8 +42,10 @@ class AddAddressForm extends Component {
     return(
       <Content>
         <MapView
-          style={CustomStyle.map}
-          region={region}>
+          ref="map"
+          onRegionChange={this.onRegionChange.bind(this)}
+          onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}
+          style={CustomStyle.map}>
           <Marker
             coordinate={coordinate}
             >
@@ -105,6 +94,66 @@ class AddAddressForm extends Component {
       }    })
       .catch(err => console.error(err))
       .finally(() => this.setState({process: false}))
+    }
+    onRegionChange(region) {
+      this.setState({location: ""})
+      this.moveMarker(region.latitude, region.longitude);
+    }
+    onRegionChangeComplete(region) {
+      this.getLocation();
+    }
+    moveCamera(lat, lon) {
+      this.moveMarker(lat, lon)
+      this.refs.map.animateCamera({
+        center: {
+          latitude: this.state.lat,
+          longitude: this.state.lon,
+        },
+        pitch: 0,
+        heading: 0,
+        altitude: 18,
+        zoom: 18,
+      })
+      this.getLocation();
+    }
+    moveMarker(lat, lon) {
+      this.setState({lat, lon});
+    }
+    getLocation() {
+      let {lat, lon} = this.state;
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU`;
+      axios.get(url)
+      .then(res => {
+        let location = res.data.results[0].formatted_address;
+        this.setState({location});
+      })
+    }
+    async requestLocationPermission() {
+      if(Platform.OS === 'iOS') return true;
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: 'Cool Photo App Camera Permission',
+            message:
+            'Cool Photo App needs access to your camera ' +
+            'so you can take awesome pictures.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('You can use the camera');
+          return true
+        } else {
+          console.log('Camera permission denied');
+          return false
+        }
+      } catch (err) {
+        console.warn(err);
+        return true;
+      }
     }
   }
 
