@@ -126,7 +126,8 @@ class AddAddressForm extends Component {
       let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU`;
       axios.get(url)
       .then(res => {
-        let location = res.data.results[0].formatted_address;
+        console.log(res.data);
+        let location = res.data.results[1].formatted_address;
         this.setState({location});
       })
     }

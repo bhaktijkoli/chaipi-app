@@ -10,10 +10,7 @@ class AddressItem extends Component {
     return(
       <View style={{padding:10}}>
         <Text style={{fontSize:18}}>{item.house},{item.landmark},{item.location}</Text>
-        <View style={{flexDirection:'row', marginTop: 5}}>
-          <Button bordered small style={{alignItems: "flex-start", marginRight:10}}>
-            <Text>Edit</Text>
-          </Button>
+        <View style={{flexDirection:'row', marginTop: 5, alignItems: 'flex-end'}}>
           <Button bordered small style={{alignItems: "flex-start"}} onPress={this.onDelete.bind(this)}>
             <Text>Delete</Text>
           </Button>
