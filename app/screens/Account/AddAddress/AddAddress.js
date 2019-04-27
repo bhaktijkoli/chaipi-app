@@ -14,7 +14,7 @@ class AddAddress extends Component {
     return(
       <Container>
         <Header2 title="Add New Address"/>
-        <AddAddressForm />
+        <AddAddressForm navigation={this.props.navigation}/>
       </Container>
     )
   }

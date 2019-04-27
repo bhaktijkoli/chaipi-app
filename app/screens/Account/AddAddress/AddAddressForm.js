@@ -55,7 +55,9 @@ class AddAddressForm extends Component {
           <Label>Location</Label>
           <Item regular style={Style.inputRegularError}>
             <Input
+              caretHidden={true}
               placeholder="Searching your location"
+              editable={false}
               value={this.state.location} />
           </Item>
           <Text style={Style.error}></Text>
@@ -160,7 +162,7 @@ class AddAddressForm extends Component {
   const CustomStyle = StyleSheet.create({
     map: {
       width:'100%',
-      height:200,
+      height:260,
     },
   })
 
