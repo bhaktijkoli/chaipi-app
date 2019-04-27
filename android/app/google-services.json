@@ -1,38 +1,38 @@
 {
   "project_info": {
-    "project_number": "187596517037",
-    "firebase_url": "https://chaipi-70e72.firebaseio.com",
-    "project_id": "chaipi-70e72",
-    "storage_bucket": "chaipi-70e72.appspot.com"
+    "project_number": "778753524039",
+    "firebase_url": "https://chaipi-238608.firebaseio.com",
+    "project_id": "chaipi-238608",
+    "storage_bucket": "chaipi-238608.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:187596517037:android:0ec74af41884f37c",
+        "mobilesdk_app_id": "1:778753524039:android:0ec74af41884f37c",
         "android_client_info": {
           "package_name": "com.chaipi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "187596517037-4cga3jbr2n85h8opn93en0b81asnn5bh.apps.googleusercontent.com",
+          "client_id": "778753524039-aes6u01jbe8ac1t36pqddqko5a5ckj7g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBsVi4U9Qp2fQB8kMEMeRW6FJdtKTgynmA"
+          "current_key": "AIzaSyCd9DgfZXOaIgF3H6V1ghQAJje3TCNWPQw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "187596517037-4cga3jbr2n85h8opn93en0b81asnn5bh.apps.googleusercontent.com",
+              "client_id": "778753524039-aes6u01jbe8ac1t36pqddqko5a5ckj7g.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "187596517037-soi6t3k1l9p55ndt9r655q0h81qsui8r.apps.googleusercontent.com",
+              "client_id": "778753524039-9330t9ti8gvu5pe8naii2v4ocg0ootjn.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.chaipi"
