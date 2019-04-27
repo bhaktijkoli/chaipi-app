@@ -15,24 +15,24 @@
       },
       "oauth_client": [
         {
-          "client_id": "778753524039-aes6u01jbe8ac1t36pqddqko5a5ckj7g.apps.googleusercontent.com",
+          "client_id": "778753524039-3tmudt36sao8v223dmm91ve3r47h5pak.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCd9DgfZXOaIgF3H6V1ghQAJje3TCNWPQw"
+          "current_key": "AIzaSyC3htbm-RLjQWYMeZyRdBddlawqpcUPhJk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "778753524039-aes6u01jbe8ac1t36pqddqko5a5ckj7g.apps.googleusercontent.com",
+              "client_id": "778753524039-3tmudt36sao8v223dmm91ve3r47h5pak.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "778753524039-9330t9ti8gvu5pe8naii2v4ocg0ootjn.apps.googleusercontent.com",
+              "client_id": "778753524039-3cu95uio975ilv3ncgc9ciqgdih6kf31.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.chaipi"

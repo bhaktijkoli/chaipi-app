@@ -47,6 +47,7 @@ class AddAddressForm extends Component {
           onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}
           style={CustomStyle.map}>
           <Marker
+            title="Move pin to adjust your location"
             coordinate={coordinate}
             >
           </Marker>
