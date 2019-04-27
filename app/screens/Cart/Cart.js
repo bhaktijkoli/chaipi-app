@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Image } from 'react-native';
 import { Container, Content, View, Text, Button } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 
@@ -13,9 +13,12 @@ import Style from './../../styles/style';
 
 import CartItem from './CartItem';
 
+import CartLogo from './../../assets/cart_empty.svg';
+
 class Cart extends Component {
   render() {
     let carts = this.props.auth.cart;
+    if(carts.length == 0) return this.renderEmptyCart();
     let total = 0;
     carts.forEach(el => {
       total = el.product.price * el.count
@@ -74,6 +77,17 @@ class Cart extends Component {
   }
   update() {
     Auth.getCart(this);
+  }
+  renderEmptyCart() {
+    return(
+      <Container>
+        <Header title={`Your Cart`}/>
+        <View style={{alignItems:'center'}}>
+          <Image source={require('./../../assets/empty_cart.png')} style={{width:264, height:264, marginLeft:-15,marginBottom:20}}/>
+          <Text style={Style.lightColor}>Your cart is empty.</Text>
+        </View>
+      </Container>
+    )
   }
 }
 
