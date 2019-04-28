@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { FlatList, StyleSheet, Image } from 'react-native';
-import { Container, Content, View, Text, Button } from 'native-base';
+import { FlatList, StyleSheet, Image, Modal, TouchableOpacity } from 'react-native';
+import { Container, Content, View, Text, Title, Button } from 'native-base';
+import { List, ListItem } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { If, Then, Else } from 'react-if';
 
@@ -19,6 +20,7 @@ import CartLogo from './../../assets/cart_empty.svg';
 class Cart extends Component {
   state = {
     current_address: null,
+    addressModalVisible: false,
   }
   componentDidMount() {
     if(this.props.auth.addresses[0]) {
@@ -37,6 +39,7 @@ class Cart extends Component {
     if(current_address) {
       current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.location}`;
     }
+    this.renderAddressList()
     return(
       <Container>
         <Header title={`Your Cart(${carts.length})`}/>
@@ -85,7 +88,7 @@ class Cart extends Component {
                   <Text>{current_address_formated}</Text>
                 </Row>
                 <Row style={{paddingBottom:5}}>
-                  <Button primary border small><Text>Change</Text></Button>
+                  <Button primary border small onPress={e=>this.setState({addressModalVisible: true})}><Text>Change</Text></Button>
                 </Row>
               </Then>
               <Else>
@@ -106,6 +109,27 @@ class Cart extends Component {
           </Grid>
         </Content>
         <Footer tab='cart' navigation={this.props.navigation}/>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.addressModalVisible}>
+          <View style={CustomStyle.addressModalContainer}>
+            <View style={CustomStyle.addressModal}>
+              <View>
+                <Title>Select Address</Title>
+                <List>
+                  {this.renderAddressList()}
+                </List>
+                <Button full primary style={{marginTop:20}} onPress={e=>{
+                    this.setState({addressModalVisible: false})
+                    this.props.navigation.navigate('AddAddress', {cart:1})
+                  }}>
+                  <Text>ADD ADDRESS</Text>
+                </Button>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </Container>
     )
   }
@@ -122,6 +146,15 @@ class Cart extends Component {
         </View>
       </Container>
     )
+  }
+  renderAddressList() {
+    return this.props.auth.addresses.map((el, key) => {
+      return(
+        <ListItem key={key} onPress={e=>this.setState({addressModalVisible:false, current_address: el})}>
+          <Text>{el.house}, {el.landmark}, {el.location}</Text>
+        </ListItem>
+      )
+    })
   }
 }
 
@@ -140,6 +173,25 @@ const CustomStyle = StyleSheet.create({
     borderTopWidth: 0.2,
     padding: 15,
     borderColor: '#000'
+  },
+  addressModalContainer: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#0000000d'
+  },
+  addressModal: {
+    marginTop: 200,
+    backgroundColor: 'white',
+    height: '100%',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    padding: 10,
   }
 })
 
