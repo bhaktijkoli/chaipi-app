@@ -15,3 +15,9 @@ module.exports.getCart = (component) => {
     }, 100);
   })
 }
+module.exports.getAddress = (component) => {
+  Request.get('/address/get')
+  .then(res => {
+    component.props.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
+  })
+}

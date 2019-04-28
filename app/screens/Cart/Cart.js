@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { FlatList, StyleSheet, Image } from 'react-native';
 import { Container, Content, View, Text, Button } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import { If, Then, Else } from 'react-if';
 
-import Header from './../../components/Header'
+import Header from './../../components/Header2'
 import Footer from './../../components/Footer'
 
 import Auth from './../../actions/authActions';
@@ -16,6 +17,14 @@ import CartItem from './CartItem';
 import CartLogo from './../../assets/cart_empty.svg';
 
 class Cart extends Component {
+  state = {
+    current_address: null,
+  }
+  componentDidMount() {
+    if(this.props.auth.addresses[0]) {
+      this.setState({current_address: this.props.auth.addresses[0]});
+    };
+  }
   render() {
     let carts = this.props.auth.cart;
     if(carts.length == 0) return this.renderEmptyCart();
@@ -23,6 +32,11 @@ class Cart extends Component {
     carts.forEach(el => {
       total = el.product.price * el.count
     });
+    let {current_address} = this.state;
+    let current_address_formated = "";
+    if(current_address) {
+      current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.location}`;
+    }
     return(
       <Container>
         <Header title={`Your Cart(${carts.length})`}/>
@@ -62,9 +76,29 @@ class Cart extends Component {
                 <Text style={CustomStyle.billCost}>&#8377;{total+10}</Text>
               </Col>
             </Row>
-            <Row style={{paddingTop:10,paddingBottom:10}}>
+            <Row style={{paddingTop:20,paddingBottom:5}}>
+              <Text style={Style.heading}>Deliver to</Text>
+            </Row>
+            <If condition={current_address != null}>
+              <Then>
+                <Row style={{paddingTop:5,paddingBottom:5}}>
+                  <Text>{current_address_formated}</Text>
+                </Row>
+                <Row style={{paddingBottom:5}}>
+                  <Button primary border small><Text>Change</Text></Button>
+                </Row>
+              </Then>
+              <Else>
+                <Row style={{paddingTop:5,paddingBottom:5}}>
+                  <Button primary border small onPress={e=> this.props.navigation.navigate('AddAddress', {cart: 1})}>
+                    <Text>Add Address</Text>
+                  </Button>
+                </Row>
+              </Else>
+            </If>
+            <Row style={{paddingTop:10,paddingBottom:10, alignSelf:'flex-end'}}>
               <Col>
-                <Button block success>
+                <Button block success large>
                   <Text>Proceed</Text>
                 </Button>
               </Col>

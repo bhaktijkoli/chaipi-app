@@ -16,6 +16,7 @@ import Style from './../../styles/style';
 class Home extends Component {
   componentDidMount() {
     Auth.getCart(this);
+    Auth.getAddress(this);
   }
   render() {
     return(

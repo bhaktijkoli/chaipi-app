@@ -6,17 +6,12 @@ import { Button } from 'native-base';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
+import Auth from './../../../actions/authActions';
 import Header2 from './../../../components/Header2';
 
 import AddressItem from './AddressItem';
 
 class Shop extends Component {
-  state = {
-    addresses: [],
-  }
-  componentDidMount() {
-    this.update()
-  }
   render() {
     let { navigation } = this.props;
     return(
@@ -24,7 +19,7 @@ class Shop extends Component {
         <Header2 title="Addresses"/>
         <Content>
           <FlatList
-            data={this.state.addresses}
+            data={this.props.auth.addresses}
             keyExtractor={(item, index) => index.toString()}
             renderItem={(item) => {return <AddressItem item={item} navigation={navigation} update={this.update.bind(this)}/>}}
               >
@@ -37,11 +32,7 @@ class Shop extends Component {
       )
     }
     update() {
-      Request.get('/address/get')
-      .then(res => {
-        this.setState({addresses: res.data});
-      })
-      .catch(err => console.error(err))
+      Auth.getAddress(this);
     }
   }
 

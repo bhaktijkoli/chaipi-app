@@ -86,8 +86,13 @@ class AddAddressForm extends Component {
     Request.post('/address/add', this.state)
     .then(res => {
       if(res.data.success) {
-        Toast.show({text: `Address has been added.`, buttonText: 'Ok'});
-        this.props.navigation.navigate('Home');
+        this.props.update();
+        if(this.props.navigation.getParam('cart')) {
+          this.props.navigation.navigate('Cart');
+        } else {
+          Toast.show({text: `Address has been added.`, buttonText: 'Ok'});
+          this.props.navigation.navigate('Home');
+        }
       } else {
         let messages = res.data.messages;
         Object.keys(messages).forEach(el => {
@@ -127,7 +132,6 @@ class AddAddressForm extends Component {
       let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU`;
       axios.get(url)
       .then(res => {
-        console.log(res.data);
         let location = res.data.results[1].formatted_address;
         this.setState({location});
       })
