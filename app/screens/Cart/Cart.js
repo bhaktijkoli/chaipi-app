@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FlatList, StyleSheet, Image, Modal, TouchableOpacity } from 'react-native';
-import { Container, Content, View, Text, Title, Button } from 'native-base';
+import { Container, Content, View, Text, Title, Button, Toast } from 'native-base';
 import { List, ListItem } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { If, Then, Else } from 'react-if';
@@ -101,7 +101,7 @@ class Cart extends Component {
             </If>
             <Row style={{paddingTop:10,paddingBottom:10, alignSelf:'flex-end'}}>
               <Col>
-                <Button block success large>
+                <Button block success large onPress={this.onProceed.bind(this)}>
                   <Text>Proceed</Text>
                 </Button>
               </Col>
@@ -155,6 +155,12 @@ class Cart extends Component {
         </ListItem>
       )
     })
+  }
+  onProceed() {
+    if(!this.state.current_address) {
+      Toast.show({text:"Select delivery address.", buttonText:'Ok'});
+    }
+    this.props.navigation.navigate('SelectPayment', {address:this.state.current_address})
   }
 }
 

@@ -13,6 +13,7 @@ import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
+import SelectPayment from './app/screens/SelectPayment/SelectPayment';
 import Account from './app/screens/Account/Account';
 import Subscription from './app/screens/Subscription/Subscription';
 import Products from './app/screens/Account/Products/Products';
@@ -45,6 +46,7 @@ const AppNavigator = createStackNavigator(
     Home: { screen: Home },
     Shop: { screen: Shop },
     Cart: { screen: Cart },
+    SelectPayment: { screen: SelectPayment },
     Account: { screen: Account },
     Subscription: { screen: Subscription },
     Products: { screen: Products },
