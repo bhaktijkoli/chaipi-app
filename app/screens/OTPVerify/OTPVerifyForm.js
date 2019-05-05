@@ -33,11 +33,19 @@ class OTPVerify extends Component {
               keyboardType="numeric"
               maxLength={1}
               autoFocus={key==0}
-              value={this.state.code}
+              value={this.state['code'+key]}
               onChangeText={value=> {
                 this.setState({['code'+key]:value})
                 if(value.length == 1 && key < counts.length-1) {
                   this['code'+(key+1)]._root.focus();
+                }
+              }}
+              onKeyPress={event => {
+                if(event.nativeEvent.key == "Backspace" && key > 0) {
+                  let k = 'code'+parseInt(key-1);
+                  console.log(this.state[k]);
+                  this.setState({[k]:""})
+                  this[k]._root.focus();
                 }
               }}
               />
