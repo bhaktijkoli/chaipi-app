@@ -159,8 +159,9 @@ class Cart extends Component {
   onProceed() {
     if(!this.state.current_address) {
       Toast.show({text:"Select delivery address.", buttonText:'Ok'});
+    } else {
+      this.props.navigation.navigate('SelectPayment', {address:this.state.current_address})
     }
-    this.props.navigation.navigate('SelectPayment', {address:this.state.current_address})
   }
 }
 

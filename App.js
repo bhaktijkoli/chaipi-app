@@ -14,6 +14,7 @@ import Home from './app/screens/Home/Home';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
 import SelectPayment from './app/screens/SelectPayment/SelectPayment';
+import Checkout from './app/screens/Checkout/Checkout';
 import Account from './app/screens/Account/Account';
 import Subscription from './app/screens/Subscription/Subscription';
 import Products from './app/screens/Account/Products/Products';

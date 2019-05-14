@@ -6,6 +6,9 @@ module.exports.setUser = (component, data) => {
 module.exports.setUserUID = (component, data) => {
   component.props.dispatch({type: 'AUTH_SET_UID', payload: data})
 }
+module.exports.setOrder = (component, data) => {
+  component.props.dispatch({type: 'AUTH_SET_ORDER', payload: data})
+}
 module.exports.getCart = (component) => {
   Request.get('/cart/get')
   .then(res => {
