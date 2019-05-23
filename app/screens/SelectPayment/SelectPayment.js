@@ -46,7 +46,7 @@ class SelectPayment extends Component {
     Request.post('/cart/proceed', {payment})
     .then(res => {
       this.setState({process: false})
-      Auth.setOrder(res.data, this)
+      Auth.setOrder(this, res.data);
     }).catch(err => console.log(err));
   }
 }

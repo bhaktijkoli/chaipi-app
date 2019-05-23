@@ -12,6 +12,7 @@ import Footer from './../../components/Footer'
 
 import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
+import ws from './../../utils/ws';
 
 class Home extends Component {
   componentDidMount() {
