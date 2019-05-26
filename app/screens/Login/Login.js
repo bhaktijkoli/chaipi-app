@@ -5,11 +5,12 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import firebase from 'react-native-firebase';
 
 import Request from './../../utils/request';
+import Fcm from './../../utils/fcm';
 import AuthActions from './../../actions/authActions';
 import NavigationActions from './../../actions/navigationActions';
 import Style from './../../styles/style';
 
-import LoginForm from './LoginForm'
+import LoginForm from './LoginForm';
 
 class Login extends Component {
   static navigationOptions = {
@@ -34,6 +35,7 @@ class Login extends Component {
         .then(res => {
           AuthActions.setUser(this, res.data);
           Request.setToken(user._user.uid)
+          Fcm.syncToken();
           this.props.navigation.dispatch(NavigationActions.homeAction);
         })
         .catch(err => {

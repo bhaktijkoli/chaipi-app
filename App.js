@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import { Provider } from "react-redux";
 import { Root, StyleProvider } from 'native-base';
+import firebase from 'react-native-firebase';
+import type { Notification, NotificationOpen } from 'react-native-firebase';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
@@ -23,17 +25,35 @@ import AddAddress from './app/screens/Account/AddAddress/AddAddress';
 import AddCard from './app/screens/Account/AddCard/AddCard';
 import AddProduct from './app/screens/Account/AddProduct/AddProduct';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
+import fcm from './app/utils/fcm'
 
-const App = () => {
-  return(
-    <Root>
-      <StyleProvider style={getTheme(commonColor)}>
-        <Provider store={store}>
-          <AppContainer />
-        </Provider>
-      </StyleProvider>
-    </Root>
-  )
+class App extends Component {
+  async componentDidMount() {
+    fcm.init();
+    const notificationOpen: NotificationOpen = await firebase.notifications().getInitialNotification();
+    if (notificationOpen) {
+      console.log("App opended by notification");
+      // App was opened by a notification
+      // Get the action triggered by the notification being opened
+      const action = notificationOpen.action;
+      // Get information about the notification that was opened
+      const notification: Notification = notificationOpen.notification;
+      console.log(notification);
+    }
+  }
+
+  render() {
+    return(
+      <Root>
+        <StyleProvider style={getTheme(commonColor)}>
+          <Provider store={store}>
+            <AppContainer />
+          </Provider>
+        </StyleProvider>
+      </Root>
+    )
+  }
+
 }
 
 
