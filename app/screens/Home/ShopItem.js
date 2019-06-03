@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { View, Text } from 'native-base';
 
-import Shimmer from 'react-native-shimmer-placeholder'
+import Shimmer from 'react-native-shimmer-placeholder';
+
+import Request from './../../utils/request';
+
 class ShopItem extends Component {
   state = {
     loaded: false,
@@ -23,11 +26,11 @@ class ShopItem extends Component {
         </View>
       )
     }
-
+    console.log(Request.url(shop.image));
     return(
       <TouchableOpacity style={{flexDirection: 'row'}} onPress={e => navigation.navigate("Shop", {shop})}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
-          <Image source={{ uri: shop.image }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
+          <Image source={{ uri: Request.url(shop.image) }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
         </Shimmer>
         <View style={{flexDirection: 'column'}}>
           <Text numberOfLines={1} style={CustomStyle.title}>{shop.name}</Text>

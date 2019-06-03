@@ -26,7 +26,6 @@ class OrderDetails extends Component {
     let products = JSON.parse(order.products);
     let shop = order.shop;
     let total = 0;
-    console.log(products);
     return(
       <Container>
         <Header2 title={"ORDER #"+order.trackid}/>
