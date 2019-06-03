@@ -5,20 +5,26 @@ const host = '192.168.0.105';
 const port = 3000;
 
 module.exports.post = (url, data) => {
-  return axios.post(route(url), data)
+  return axios.post(api(url), data)
 }
 
 module.exports.get = (url) => {
-  return axios.get(route(url))
+  return axios.get(api(url))
 }
+
 
 module.exports.setToken = (token) => {
   axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 
-const route = (url) => {
-  // return `https://chaipaan.tk/api/v1${url}`;
-  return `http://${host}:${port}/api/v1${url}`;
+const url = (res) => {
+  // return `https://chaipaan.tk/${url}`;
+  return `http://${host}:${port}${res}`;
 }
 
-module.exports.route = route;
+const api = (api) => {
+  return url('/api/v1'+api)
+}
+
+module.exports.url = url;
+module.exports.api = api;

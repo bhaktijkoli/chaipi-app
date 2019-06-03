@@ -12,7 +12,7 @@ export default function reducer(state=initialState, action) {
 
   switch (action.type) {
     case "AUTH_SET_USER": {
-      return {...state, user: action.payload, shop: action.payload.shop, order: action.payload.order}
+      return {...state, user: action.payload}
     }
     case "AUTH_SET_UID": {
       return {...state, uid: action.payload.uid, phone: action.payload.phone}

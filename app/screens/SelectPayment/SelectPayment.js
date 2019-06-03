@@ -47,6 +47,7 @@ class SelectPayment extends Component {
     .then(res => {
       this.setState({process: false})
       Auth.setOrder(this, res.data);
+      this.props.navigation.navigate('OrderDetails');
     }).catch(err => console.log(err));
   }
 }

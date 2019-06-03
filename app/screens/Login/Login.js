@@ -35,8 +35,11 @@ class Login extends Component {
         .then(res => {
           AuthActions.setUser(this, res.data);
           Request.setToken(user._user.uid)
+          AuthActions.getOrder(this);
           Fcm.syncToken();
-          this.props.navigation.dispatch(NavigationActions.homeAction);
+          Fcm.checkNotification(() => {
+            this.props.navigation.dispatch(NavigationActions.homeAction);
+          })
         })
         .catch(err => {
           this.props.navigation.dispatch(NavigationActions.SetupAction);

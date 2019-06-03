@@ -14,6 +14,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   content: {
+    flex: 1,
     padding: 15,
   },
   heading: {

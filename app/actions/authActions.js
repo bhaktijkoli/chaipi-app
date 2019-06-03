@@ -24,3 +24,9 @@ module.exports.getAddress = (component) => {
     component.props.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
   })
 }
+module.exports.getOrder = (component) => {
+  Request.get('/order/get')
+  .then(res => {
+    component.props.dispatch({type: 'AUTH_SET_ORDER', payload: res.data})
+  })
+}

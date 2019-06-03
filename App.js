@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import { Provider } from "react-redux";
 import { Root, StyleProvider } from 'native-base';
-import firebase from 'react-native-firebase';
-import type { Notification, NotificationOpen } from 'react-native-firebase';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
@@ -16,6 +14,7 @@ import Home from './app/screens/Home/Home';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
 import SelectPayment from './app/screens/SelectPayment/SelectPayment';
+import OrderDetails from './app/screens/OrderDetails/OrderDetails';
 import Checkout from './app/screens/Checkout/Checkout';
 import Account from './app/screens/Account/Account';
 import Subscription from './app/screens/Subscription/Subscription';
@@ -29,25 +28,14 @@ import fcm from './app/utils/fcm'
 
 class App extends Component {
   async componentDidMount() {
-    fcm.init();
-    const notificationOpen: NotificationOpen = await firebase.notifications().getInitialNotification();
-    if (notificationOpen) {
-      console.log("App opended by notification");
-      // App was opened by a notification
-      // Get the action triggered by the notification being opened
-      const action = notificationOpen.action;
-      // Get information about the notification that was opened
-      const notification: Notification = notificationOpen.notification;
-      console.log(notification);
-    }
+    fcm.init(this.refs.navigation._navigation);
   }
-
   render() {
     return(
       <Root>
         <StyleProvider style={getTheme(commonColor)}>
           <Provider store={store}>
-            <AppContainer />
+            <AppContainer ref="navigation"/>
           </Provider>
         </StyleProvider>
       </Root>
@@ -68,6 +56,7 @@ const AppNavigator = createStackNavigator(
     Shop: { screen: Shop },
     Cart: { screen: Cart },
     SelectPayment: { screen: SelectPayment },
+    OrderDetails: { screen: OrderDetails },
     Account: { screen: Account },
     Subscription: { screen: Subscription },
     Products: { screen: Products },
