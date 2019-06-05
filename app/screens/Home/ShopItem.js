@@ -26,7 +26,6 @@ class ShopItem extends Component {
         </View>
       )
     }
-    console.log(Request.url(shop.image));
     return(
       <TouchableOpacity style={{flexDirection: 'row'}} onPress={e => navigation.navigate("Shop", {shop})}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>

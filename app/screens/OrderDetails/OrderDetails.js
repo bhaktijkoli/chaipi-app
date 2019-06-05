@@ -7,6 +7,7 @@ import Shimmer from 'react-native-shimmer-placeholder';
 import StepIndicator from 'react-native-step-indicator';
 
 import Header2 from './../../components/Header2';
+import SpinnerBox from './../../components/SpinnerBox';
 import SpinnerModel from './../../components/SpinnerModel';
 
 import Auth from './../../actions/authActions';
@@ -23,6 +24,9 @@ class OrderDetails extends Component {
   }
   render() {
     let order = this.props.auth.order;
+    if(!order) {
+      return <SpinnerBox />
+    }
     let products = JSON.parse(order.products);
     let shop = order.shop;
     let total = 0;

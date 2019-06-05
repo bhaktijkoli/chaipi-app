@@ -3,7 +3,7 @@ var initialState = {
   shop: null,
   uid: null,
   cart: [],
-  order: {},
+  order: null,
   addresses: [],
   phone: '',
   update: 0,
