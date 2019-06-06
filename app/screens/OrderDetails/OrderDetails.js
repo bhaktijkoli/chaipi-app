@@ -24,12 +24,13 @@ class OrderDetails extends Component {
   }
   render() {
     let order = this.props.auth.order;
-    if(!order) {
+    if(!order || !order.shop) {
       return <SpinnerBox />
     }
     let products = JSON.parse(order.products);
     let shop = order.shop;
     let total = 0;
+    console.log("Shop", shop);
     return(
       <Container>
         <Header2 title={"ORDER #"+order.trackid}/>

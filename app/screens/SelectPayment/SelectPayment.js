@@ -7,6 +7,7 @@ import Header2 from './../../components/Header2';
 import SpinnerModel from './../../components/SpinnerModel';
 
 import Auth from './../../actions/authActions';
+import NavigationActions from './../../actions/navigationActions';
 import Style from './../../styles/style';
 import Request from './../../utils/request';
 
@@ -49,7 +50,7 @@ class SelectPayment extends Component {
     .then(res => {
       this.setState({process: false})
       Auth.setOrder(this, res.data);
-      this.props.navigation.navigate('OrderDetails');
+      NavigationActions.resetNavigation(this, 'OrderDetails');
     }).catch(err => console.log(err));
   }
 }
