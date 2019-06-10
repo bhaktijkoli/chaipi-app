@@ -4,6 +4,8 @@ import { Footer, FooterTab, Button, Icon, Text, Badge, View } from 'native-base'
 import { If } from 'react-if';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
+import AuthActions from './../actions/authActions'
+
 class FooterEx extends Component {
   componentDidMount() {
   }
@@ -12,35 +14,40 @@ class FooterEx extends Component {
     let cartCount = this.props.auth.cart.length;
     let order = this.props.auth.order;
     return(
-      <Footer>
-        <If condition={order!=null}>
-          <View style={customStyle.orderView}>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
+      <View>
+        <If condition={order != null}>
+          <Footer>
+            <View style={customStyle.orderView}>
+              <View style={{flex: 1}}>
+                <Text numberOfLines={1}>{AuthActions.getStatusTitle(order)}</Text>
+                <Text numberOfLines={1} note>{AuthActions.getStatusNote(order)}</Text>
+              </View>
+              <View style={{flex: 1}}>
+                <Button primary full onPress={e=>this.props.navigation.navigate('OrderDetails')}><Text>VIEW</Text></Button>
+              </View>
             </View>
-            <View style={{flex: 1}}>
-              <Button primary full style={{ zIndex: 1 }}onPress={e=>this.props.navigation.navigate('OrderDetails')}><Text>VIEW</Text></Button>
-            </View>
-          </View>
+          </Footer>
         </If>
-        <FooterTab>
-          <Button vertical active={tab=='home'} onPress={e=>this.onClick('Home')}>
-            <Icon name="home" type="AntDesign" />
-          </Button>
-          <Button vertical active={tab=='search'}>
-            <Icon name="search1" type="AntDesign" />
-          </Button>
-          <Button badge={cartCount>0} vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
-            <If condition={cartCount>0}>
-              <Badge primary><Text>{cartCount}</Text></Badge>
-            </If>
-            <Icon name="shoppingcart" type="AntDesign" />
-          </Button>
-          <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>
-            <Icon name="user" type="AntDesign" />
-          </Button>
-        </FooterTab>
-      </Footer>
+        <Footer>
+          <FooterTab>
+            <Button vertical active={tab=='home'} onPress={e=>this.onClick('Home')}>
+              <Icon name="home" type="AntDesign" />
+            </Button>
+            <Button vertical active={tab=='search'}>
+              <Icon name="search1" type="AntDesign" />
+            </Button>
+            <Button badge={cartCount>0} vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
+              <If condition={cartCount>0}>
+                <Badge primary><Text>{cartCount}</Text></Badge>
+              </If>
+              <Icon name="shoppingcart" type="AntDesign" />
+            </Button>
+            <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>
+              <Icon name="user" type="AntDesign" />
+            </Button>
+          </FooterTab>
+        </Footer>
+      </View>
     )
   }
   onClick(menu) {
@@ -50,9 +57,6 @@ class FooterEx extends Component {
 
 const customStyle = StyleSheet.create({
   orderView: {
-    position: 'absolute',
-    bottom: 55,
-    backgroundColor: '#F8F8F8',
     width: '100%',
     padding: 5,
     flexDirection: 'row',

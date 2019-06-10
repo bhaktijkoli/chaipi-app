@@ -30,3 +30,31 @@ module.exports.getOrder = (component) => {
     component.props.dispatch({type: 'AUTH_SET_ORDER', payload: res.data})
   })
 }
+
+module.exports.getStatusTitle = (order) => {
+  if(!order) return "";
+  switch (order.status) {
+    case 0:
+    return "Waiting"
+    case 1:
+    return "Order is being prepared"
+    case 2:
+    return "Order is ready"
+    case 3:
+    return "Order pickedup"
+  }
+};
+
+module.exports.getStatusNote = (order) => {
+  if(!order) return "";
+  switch (order.status) {
+    case 0:
+    return "Waiting for confirmation"
+    case 1:
+    return "Your order is being prepared"
+    case 2:
+    return "Your order is ready"
+    case 3:
+    return "Your order has been pickedup"
+  }
+};
