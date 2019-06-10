@@ -42,7 +42,7 @@ class Account extends Component {
             {this.renderSettingItems(helpItems)}
           </List>
         </Content>
-        <Footer tab='account' navigation={this.props.navigation}/>
+        <Footer tab='account' navigation={this.props.navigation}  auth={this.props.auth}/>
       </Container>
     )
   }

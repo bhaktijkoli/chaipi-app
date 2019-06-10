@@ -31,7 +31,7 @@ class Home extends Component {
           <Text style={Style.homeLabel}>Shops</Text>
           <ShopList navigation={this.props.navigation}/>
         </Content>
-        <Footer tab='home' navigation={this.props.navigation}/>
+        <Footer tab='home' navigation={this.props.navigation} auth={this.props.auth}/>
       </Container>
     )
   }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Modal } from 'react-native';
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 
 class FooterEx extends Component {
   componentDidMount() {
   }
   render() {
-    let tab = this.props.tab;
+    let tab = this.props.tab
     return(
       <Footer>
         <FooterTab>

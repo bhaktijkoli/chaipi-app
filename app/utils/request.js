@@ -18,12 +18,12 @@ module.exports.setToken = (token) => {
 }
 
 const url = (res) => {
-  // return `https://chaipaan.tk/${url}`;
+  // return `https://chaipaan.tk/${res}`;
   return `http://${host}:${port}${res}`;
 }
 
 const api = (api) => {
-  return url('/api/v1'+api)
+  return url('api/v1'+api)
 }
 
 module.exports.url = url;
