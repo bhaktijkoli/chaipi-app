@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Modal } from 'react-native';
-import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
+import { Footer, FooterTab, Button, Icon, Text, Badge, View } from 'native-base';
+import { If } from 'react-if';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 class FooterEx extends Component {
@@ -9,8 +10,19 @@ class FooterEx extends Component {
   render() {
     let tab = this.props.tab
     let cartCount = this.props.auth.cart.length;
+    let order = this.props.auth.order;
     return(
       <Footer>
+        <If condition={order!=null}>
+          <View style={customStyle.orderView}>
+            <View style={{flex: 1}}>
+              <Text>Hello</Text>
+            </View>
+            <View style={{flex: 1}}>
+              <Button primary full style={{ zIndex: 1 }}onPress={e=>this.props.navigation.navigate('OrderDetails')}><Text>VIEW</Text></Button>
+            </View>
+          </View>
+        </If>
         <FooterTab>
           <Button vertical active={tab=='home'} onPress={e=>this.onClick('Home')}>
             <Icon name="home" type="AntDesign" />
@@ -18,11 +30,10 @@ class FooterEx extends Component {
           <Button vertical active={tab=='search'}>
             <Icon name="search1" type="AntDesign" />
           </Button>
-          <Button primmary active={tab=='favorites'} style={customStyle.centerButton} onPress={e=>this.onClick('OrderDetails')}>
-            <Icon name="hearto" type="AntDesign" style={{color: '#FFF'}}/>
-          </Button>
-          <Button badge vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
-            <Badge primary><Text>{cartCount}</Text></Badge>
+          <Button badge={cartCount>0} vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
+            <If condition={cartCount>0}>
+              <Badge primary><Text>{cartCount}</Text></Badge>
+            </If>
             <Icon name="shoppingcart" type="AntDesign" />
           </Button>
           <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>
@@ -38,6 +49,15 @@ class FooterEx extends Component {
 }
 
 const customStyle = StyleSheet.create({
+  orderView: {
+    position: 'absolute',
+    bottom: 55,
+    backgroundColor: '#F8F8F8',
+    width: '100%',
+    padding: 5,
+    flexDirection: 'row',
+    flex: 1,
+  },
   centerButton: { elevation: 4,
     alignSelf: 'center',
     height: 70,
@@ -45,7 +65,7 @@ const customStyle = StyleSheet.create({
     borderRadius: 35,
     backgroundColor: '#f39c12',
     justifyContent: 'center',
-    marginBottom: 20
+    marginBottom: 20,
   }
 })
 
