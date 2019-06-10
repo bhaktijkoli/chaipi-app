@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Modal } from 'react-native';
-import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 class FooterEx extends Component {
@@ -8,6 +8,7 @@ class FooterEx extends Component {
   }
   render() {
     let tab = this.props.tab
+    let cartCount = this.props.auth.cart.length;
     return(
       <Footer>
         <FooterTab>
@@ -20,7 +21,8 @@ class FooterEx extends Component {
           <Button primmary active={tab=='favorites'} style={customStyle.centerButton} onPress={e=>this.onClick('OrderDetails')}>
             <Icon name="hearto" type="AntDesign" style={{color: '#FFF'}}/>
           </Button>
-          <Button vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
+          <Button badge vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>
+            <Badge primary><Text>{cartCount}</Text></Badge>
             <Icon name="shoppingcart" type="AntDesign" />
           </Button>
           <Button vertical active={tab=='account'} onPress={e=>this.onClick('Account')}>

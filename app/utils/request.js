@@ -2,29 +2,32 @@ import axios from 'axios';
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 const host = '192.168.0.105';
+// const host = '192.168.0.119';
 const port = 3000;
 
 module.exports.post = (url, data) => {
-  return axios.post(api(url), data)
+  console.log("POST:", route(url));
+  return axios.post(route(url), data)
 }
 
 module.exports.get = (url) => {
-  return axios.get(api(url))
+  console.log("GET:", route(url));
+  return axios.get(route(url))
 }
-
 
 module.exports.setToken = (token) => {
   axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 
-const url = (res) => {
-  // return `https://chaipaan.tk/${res}`;
-  return `http://${host}:${port}${res}`;
+const url = (req) => {
+  // return `https://chaipaan.tk${req}`;
+  return `http://${host}:${port}${req}`;
 }
 
-const api = (api) => {
-  return url('api/v1'+api)
+const route = (req) => {
+  return url('/api/v1'+req);
 }
+
 
 module.exports.url = url;
-module.exports.api = api;
+module.exports.route = route;

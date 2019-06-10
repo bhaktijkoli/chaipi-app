@@ -108,7 +108,7 @@ class Cart extends Component {
             </Row>
           </Grid>
         </Content>
-        <Footer tab='cart' navigation={this.props.navigation}/>
+        <Footer tab='cart' navigation={this.props.navigation} auth={this.props.auth}/>
         <Modal
           animationType="slide"
           transparent={true}
