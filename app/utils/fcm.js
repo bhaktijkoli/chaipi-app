@@ -1,7 +1,6 @@
 import firebase from 'react-native-firebase';
 import type { Notification, RemoteMessage, NotificationOpen } from 'react-native-firebase';
 import Request from './request';
-import store from './../store';
 import authActions from './../actions/authActions';
 
 let fcmToken = null;
@@ -31,6 +30,7 @@ let startListining = () => {
   notificationListener = firebase.notifications().onNotification((notification: Notification) => {
     console.log("Notification recieved");
     console.log(notification);
+    performNotificationAction(notification);
   });
   notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen: NotificationOpen) => {
     console.log("Notification open");
@@ -72,6 +72,17 @@ let performNotification = async (notification: Notification) => {
     return true;
   }
   return false;
+}
+
+let performNotificationAction = async (notification: Notification) => {
+  let payload = JSON.parse(notification.data.payload);
+  switch (payload.action) {
+    case "ACTIVE_ORDER":
+    authActions.getOrder();
+    break;
+    default:
+    console.log("Invalid action");
+  }
 }
 
 module.exports.init = init;
