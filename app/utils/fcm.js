@@ -1,6 +1,8 @@
 import firebase from 'react-native-firebase';
 import type { Notification, RemoteMessage, NotificationOpen } from 'react-native-firebase';
 import Request from './request';
+import store from './../store';
+import authActions from './../actions/authActions';
 
 let fcmToken = null;
 let navigation = null;
@@ -66,7 +68,6 @@ let checkNotification = async (callback) => {
 let performNotification = async (notification: Notification) => {
   let payload = JSON.parse(notification.data.payload);
   if(payload) {
-    console.log(payload.screen);
     navigation.navigate(payload.screen);
     return true;
   }

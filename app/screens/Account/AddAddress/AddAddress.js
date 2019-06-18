@@ -20,7 +20,7 @@ class AddAddress extends Component {
     )
   }
   update() {
-    Auth.getAddress(this)
+    Auth.getAddress()
   }
 }
 

@@ -49,7 +49,7 @@ class SelectPayment extends Component {
     Request.post('/cart/proceed', {payment, location, house, landmark, lat, lon})
     .then(res => {
       this.setState({process: false})
-      Auth.setOrder(this, res.data);
+      Auth.setOrder(res.data);
       NavigationActions.resetNavigation(this, 'OrderDetails');
     }).catch(err => console.log(err));
   }

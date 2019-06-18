@@ -20,7 +20,7 @@ class OrderDetails extends Component {
     process: false,
   }
   componentDidMount() {
-    Auth.getOrder(this);
+    Auth.getOrder();
   }
   render() {
     let order = this.props.auth.order;

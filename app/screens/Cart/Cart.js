@@ -134,7 +134,7 @@ class Cart extends Component {
     )
   }
   update() {
-    Auth.getCart(this);
+    Auth.getCart();
   }
   renderEmptyCart() {
     return(

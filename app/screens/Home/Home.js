@@ -16,8 +16,8 @@ import ws from './../../utils/ws';
 
 class Home extends Component {
   componentDidMount() {
-    Auth.getCart(this);
-    Auth.getAddress(this);
+    Auth.getCart();
+    Auth.getAddress();
   }
   render() {
     return(

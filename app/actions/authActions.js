@@ -1,33 +1,34 @@
 import Request from './../utils/request';
+import store from './../store';
 
-module.exports.setUser = (component, data) => {
-  component.props.dispatch({type: 'AUTH_SET_USER', payload: data})
+module.exports.setUser = (data) => {
+  store.dispatch({type: 'AUTH_SET_USER', payload: data})
 }
-module.exports.setUserUID = (component, data) => {
-  component.props.dispatch({type: 'AUTH_SET_UID', payload: data})
+module.exports.setUserUID = (data) => {
+  store.dispatch({type: 'AUTH_SET_UID', payload: data})
 }
-module.exports.setOrder = (component, data) => {
-  component.props.dispatch({type: 'AUTH_SET_ORDER', payload: data})
+module.exports.setOrder = (data) => {
+  store.dispatch({type: 'AUTH_SET_ORDER', payload: data})
 }
-module.exports.getCart = (component) => {
+module.exports.getCart = () => {
   Request.get('/cart/get')
   .then(res => {
-    component.props.dispatch({type: 'AUTH_SET_CART', payload: res.data});
+    store.dispatch({type: 'AUTH_SET_CART', payload: res.data});
     setTimeout(function () {
-      component.props.dispatch({type: 'AUTH_UPDATE'});
+      store.dispatch({type: 'AUTH_UPDATE'});
     }, 100);
   })
 }
-module.exports.getAddress = (component) => {
+module.exports.getAddress = () => {
   Request.get('/address/get')
   .then(res => {
-    component.props.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
+    store.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
   })
 }
-module.exports.getOrder = (component) => {
+module.exports.getOrder = () => {
   Request.get('/order/get/active')
   .then(res => {
-    component.props.dispatch({type: 'AUTH_SET_ORDER', payload: res.data})
+    store.dispatch({type: 'AUTH_SET_ORDER', payload: res.data})
   })
 }
 

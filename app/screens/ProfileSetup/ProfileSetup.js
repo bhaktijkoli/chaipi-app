@@ -68,7 +68,7 @@ class ProfileSetup extends Component {
     .then(res => {
       Request.get('/user/get/'+this.props.auth.uid)
       .then(res => {
-        AuthActions.setUser(this, res.data);
+        AuthActions.setUser(res.data);
         this.props.navigation.dispatch(NavigationActions.homeAction);
       })
     })

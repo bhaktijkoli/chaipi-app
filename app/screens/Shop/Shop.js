@@ -44,7 +44,7 @@ class Shop extends Component {
     )
   }
   update() {
-    Auth.getCart(this);
+    Auth.getCart();
   }
 }
 
