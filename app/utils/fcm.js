@@ -26,11 +26,11 @@ let startListining = () => {
   console.log("Started startListining");
   notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification: Notification) => {
     console.log("Notification displayed");
+    console.log(notification);
   });
   notificationListener = firebase.notifications().onNotification((notification: Notification) => {
     console.log("Notification recieved");
     console.log(notification);
-    performNotificationAction(notification);
   });
   notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen: NotificationOpen) => {
     console.log("Notification open");
@@ -41,6 +41,7 @@ let startListining = () => {
   messageListener = firebase.messaging().onMessage((message: RemoteMessage) => {
     console.log("Remote message recieved");
     console.log(message);
+    performMessageAction(message.data);
   });
 }
 
@@ -74,8 +75,8 @@ let performNotification = async (notification: Notification) => {
   return false;
 }
 
-let performNotificationAction = async (notification: Notification) => {
-  let payload = JSON.parse(notification.data.payload);
+let performMessageAction = async (data) => {
+  let payload = JSON.parse(data.payload);
   switch (payload.action) {
     case "ACTIVE_ORDER":
     authActions.getOrder();
@@ -90,3 +91,4 @@ module.exports.syncToken = syncToken;
 module.exports.startListining = startListining;
 module.exports.checkNotification = checkNotification;
 module.exports.performNotification = performNotification;
+module.exports.performMessageAction = performMessageAction;
