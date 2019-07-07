@@ -30,7 +30,7 @@ class SelectPayment extends Component {
               </Left>
               <Body>
                 <Text>Cash</Text>
-                <Text note>Please keep exact change handy to help us servce you better</Text>
+                <Text note>Please keep exact change handy to help us serve you better</Text>
               </Body>
             </ListItem>
             <Separator bordered>
