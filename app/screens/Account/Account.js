@@ -15,7 +15,6 @@ class Account extends Component {
   render() {
     let user = this.props.auth.user;
     let phone = this.props.auth.phone;
-    let shop = this.props.auth.shop;
     return(
       <Container>
         <Content>
@@ -30,12 +29,6 @@ class Account extends Component {
               <Text>My Account</Text>
             </ListItem>
             {this.renderSettingItems(accountItems)}
-            <If condition={shop!=null}>
-              <ListItem itemDivider>
-                <Text>My Shop</Text>
-              </ListItem>
-            </If>
-            {this.renderSettingItems(shopManagementItems, shop!=null)}
             <ListItem itemDivider>
               <Text>Help</Text>
             </ListItem>
@@ -78,11 +71,6 @@ const accountItems = [
   {name: 'Order History', icon: 'clockcircleo', route: 'Home', type: 'AntDesign'},
   {name: 'App Settings', icon: 'setting', route: 'Home', type: 'AntDesign'},
   {name: 'Logout', icon: 'logout', route: 'Logout', type: 'AntDesign'},
-];
-
-const shopManagementItems = [
-  {name: 'Shop', icon: 'shop', route: 'Home', type: 'Entypo'},
-  {name: 'Products', icon: 'profile', route: 'Products', type: 'AntDesign'},
 ];
 
 const helpItems = [

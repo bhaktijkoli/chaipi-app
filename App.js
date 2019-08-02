@@ -19,11 +19,9 @@ import Checkout from './app/screens/Checkout/Checkout';
 import Account from './app/screens/Account/Account';
 import Profile from './app/screens/Account/Profile/Profile';
 import Subscription from './app/screens/Subscription/Subscription';
-import Products from './app/screens/Account/Products/Products';
 import Address from './app/screens/Account/Address/Address';
 import AddAddress from './app/screens/Account/AddAddress/AddAddress';
 import AddCard from './app/screens/Account/AddCard/AddCard';
-import AddProduct from './app/screens/Account/AddProduct/AddProduct';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 import fcm from './app/utils/fcm'
 
@@ -59,10 +57,7 @@ const AppNavigator = createStackNavigator(
     SelectPayment: { screen: SelectPayment },
     OrderDetails: { screen: OrderDetails },
     Account: { screen: Account },
-    Profile: { screen: Profile },
     Subscription: { screen: Subscription },
-    Products: { screen: Products },
-    AddProduct: { screen: AddProduct },
     Address: { screen: Address },
     AddAddress: { screen: AddAddress },
     AddCard: { screen: AddCard },
