@@ -20,7 +20,6 @@ class ProfileSetup extends Component {
     super(props)
     this.state = {
       fullname: '',
-      email: '',
       process: false,
     }
     this.onClickNext = this.onClickNext.bind(this)
@@ -42,14 +41,8 @@ class ProfileSetup extends Component {
                     onChangeText={val=>this.setState({fullname: val})}
                     placeholder='Enter fullname' />
                 </Item>
-                <Item style={Style.input}>
-                  <Input
-                    keyboardType='email-address'
-                    value={this.state.email}
-                    onChangeText={val=>this.setState({email: val})}
-                    placeholder='Enter email' />
-                </Item>
                 <Button onPress={this.onClickNext} loading={this.state.process} text="NEXT"/>
+                <Button onPress={this.logout} loading={this.state.process} text="Logout"/>
               </Form>
             </Col>
           </Grid>
@@ -62,7 +55,6 @@ class ProfileSetup extends Component {
     let data = {
       uid: this.props.auth.uid,
       fullname: this.state.fullname,
-      email: this.state.email
     };
     Request.post('/user/add', data)
     .then(res => {
@@ -75,7 +67,12 @@ class ProfileSetup extends Component {
     .catch(err => console.error(err))
     .finally(()=> this.setState({process: false}))
   }
-}
+
+  logout() {
+      this.props.navigation.navigate("Logout");
+    }
+  }
+
 
 function mapStateToProps(state) {
   return {

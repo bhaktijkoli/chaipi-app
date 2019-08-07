@@ -56,7 +56,7 @@ class OTPVerify extends Component {
     return(
 
       <Form>
-        <View style={{'alignItems':'center'}}>
+        <View style={{alignItems:'center'}}>
           <Label>Enter the verification code sent to</Label>
           <Text style={{marginTop:10, marginBottom:10}}>{this.props.phone}</Text>
         </View>
@@ -67,6 +67,7 @@ class OTPVerify extends Component {
       </Form>
     )
   }
+  
   OnClickVerify() {
     let { code0, code1, code2, code3, code4, code5 } = this.state;
     let code = code0 + code1 + code2 + code3 + code4 + code5;

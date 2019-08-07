@@ -15,7 +15,7 @@ class CartItem extends Component {
   }
   render() {
     let cart = this.props.cart;
-    let product = cart.product;
+    let product = cart.product
     return(
       <View style={{flexDirection: 'row'}}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>

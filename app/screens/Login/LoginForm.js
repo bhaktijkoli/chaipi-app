@@ -15,6 +15,7 @@ class LoginForm extends Component {
       countries: require('./../../data/countries.json'),
     }
   }
+
   render() {
     return(
       <Form style={Style.bottom}>

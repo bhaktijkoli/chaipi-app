@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "778753524039-gv3p7tapivgt9cokqhl34qmceqqg7noa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipi",
+            "certificate_hash": "ff179a9ec44e481abb6e1a0a4e18d4a57f6236bc"
+          }
+        },
+        {
+          "client_id": "778753524039-q6tjto7u59dto85920d99te8v3j29d6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipi",
+            "certificate_hash": "21201db823942b9be21962163816774984a12f6b"
+          }
+        },
+        {
+          "client_id": "778753524039-srijp3nrjpc2ddl7iocpkkcn4bmvj381.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipi",
+            "certificate_hash": "297702938858ec8439e0188a2f6c887fdc78d979"
+          }
+        },
+        {
           "client_id": "778753524039-3tmudt36sao8v223dmm91ve3r47h5pak.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -32,10 +56,62 @@
               "client_type": 3
             },
             {
-              "client_id": "778753524039-3cu95uio975ilv3ncgc9ciqgdih6kf31.apps.googleusercontent.com",
+              "client_id": "778753524039-l2tpfvstn14kb6f115b3061a04kq08g7.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.chaipi"
+                "bundle_id": "com.chaipioperator"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778753524039:android:ee07e56296b71d5b",
+        "android_client_info": {
+          "package_name": "com.chaipioperator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778753524039-kmfhlm06fqsg5nnis62es4jj7u0b4sbv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipioperator",
+            "certificate_hash": "21201db823942b9be21962163816774984a12f6b"
+          }
+        },
+        {
+          "client_id": "778753524039-rdqu3sboub5d273nq79r3fbfdi4eqqsv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipioperator",
+            "certificate_hash": "297702938858ec8439e0188a2f6c887fdc78d979"
+          }
+        },
+        {
+          "client_id": "778753524039-3tmudt36sao8v223dmm91ve3r47h5pak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3htbm-RLjQWYMeZyRdBddlawqpcUPhJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778753524039-3tmudt36sao8v223dmm91ve3r47h5pak.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778753524039-l2tpfvstn14kb6f115b3061a04kq08g7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chaipioperator"
               }
             }
           ]
