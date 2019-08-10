@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { ScrollView, TouchableOpacity } from 'react-native';
+import { ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { Container, Content, View, Title, Text, List} from 'native-base';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
 import Header2 from './../../../components/Header2';
-import AuthActions from './../../actions/authActions';
-
 
 class Profile extends Component {
 
@@ -18,7 +16,7 @@ class Profile extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   render() {
     return(
       <Container>
@@ -44,19 +42,6 @@ class Profile extends Component {
   }
 
   handleSubmit() {
-    let data = {
-      uid: this.props.auth.uid,
-      FullName: this.state.FullName
-    };
-    Request.post('/user/add', data)
-    .then(res => {
-      Request.get('/user/get'+this.props.auth.uid)
-      .then(res => {
-        AuthActions.setUser(res.data);
-      })      
-    })
-    .catch(err => console.error(err))
-    .finally(()=> this.setState({process: false}))
   }
 }
 
