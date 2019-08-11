@@ -10,7 +10,8 @@ class LoginForm extends Component {
     super(props)
     this.onClickLogin = this.onClickLogin.bind(this);
     this.state = {
-      phone: '8104929969',
+      // phone: '8104929969',
+      phone: '7710848662',
       country: '+91',
       countries: require('./../../data/countries.json'),
     }

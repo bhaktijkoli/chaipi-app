@@ -11,73 +11,40 @@ class OTPVerify extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      code0: '',
-      code1: '',
-      code2: '',
-      code3: '',
-      code4: '',
-      code5: '',
+      code: '',
       process: false,
     }
-    this.OnClickVerify = this.OnClickVerify.bind(this);
   }
   render() {
-    var counts = [0,1,2,3,4,5];
-    var countsList = counts.map((el, key) => {
-      return(
-        <View key={key} style={{flex:1,margin:3}}>
-          <Item style={Style.input}>
-            <Input
-              ref={input => this['code'+key] = input}
-              textAlign={'center'}
-              keyboardType="numeric"
-              maxLength={1}
-              autoFocus={key==0}
-              value={this.state['code'+key]}
-              onChangeText={value=> {
-                this.setState({['code'+key]:value})
-                if(value.length == 1 && key < counts.length-1) {
-                  this['code'+(key+1)]._root.focus();
-                }
-              }}
-              onKeyPress={event => {
-                if(event.nativeEvent.key == "Backspace" && key > 0) {
-                  let k = 'code'+parseInt(key-1);
-                  console.log(this.state[k]);
-                  this.setState({[k]:""})
-                  this[k]._root.focus();
-                }
-              }}
-              />
-          </Item>
-        </View>
-      )
-    });
     return(
-
       <Form>
-        <View style={{alignItems:'center'}}>
+        <View style={{alignItems:'center', marginBottom: 20}}>
           <Label>Enter the verification code sent to</Label>
           <Text style={{marginTop:10, marginBottom:10}}>{this.props.phone}</Text>
         </View>
-        <View style={{flexDirection:'row'}}>
-          {countsList}
-        </View>
+        <Item floatingLabel style={Style.input}>
+          <Input
+            textAlign={'center'}
+            keyboardType="numeric"
+            maxLength={6}
+            autoFocus
+            value={this.state.code}
+            onChangeText={code=> this.setState({code})}
+            />
+        </Item>
         <Button onPress={this.OnClickVerify} loading={this.state.process} text="VERIFY"/>
       </Form>
     )
   }
-  
-  OnClickVerify() {
-    let { code0, code1, code2, code3, code4, code5 } = this.state;
-    let code = code0 + code1 + code2 + code3 + code4 + code5;
+  OnClickVerify = () => {
+    let { code } = this.state;
     this.setState({process:true})
     this.props.confirmResult.confirm(code)
     .then(user=> {
       console.log(user);
     })
     .catch(err => {
-      console.log(err.message);
+      console.log(err);
       Toast.show({ text: err.message, buttonText: 'Ok' })
     })
     .finally(() => {
