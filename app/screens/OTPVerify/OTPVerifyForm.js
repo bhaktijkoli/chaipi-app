@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import { Text, View } from 'native-base';
 import { Form, Item, Label, Input } from 'native-base';
 import firebase from 'react-native-firebase';
 
-import Button from './../../components/Button';
+import ButtonEx from './../../components/Button';
 
 import Style from './../../styles/style';
 
@@ -32,7 +33,7 @@ class OTPVerify extends Component {
             onChangeText={code=> this.setState({code})}
             />
         </Item>
-        <Button onPress={this.OnClickVerify} loading={this.state.process} text="VERIFY"/>
+        <ButtonEx onPress={this.OnClickVerify} loading={this.state.process} text="VERIFY" disabled={this.state.code.length != 6}/>
       </Form>
     )
   }
@@ -44,8 +45,7 @@ class OTPVerify extends Component {
       console.log(user);
     })
     .catch(err => {
-      console.log(err);
-      Toast.show({ text: err.message, buttonText: 'Ok' })
+      Alert.alert("Verification failed", "You have enter wrong or expired OTP")
     })
     .finally(() => {
       this.setState({process:false})
