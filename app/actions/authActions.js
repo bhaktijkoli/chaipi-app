@@ -25,6 +25,14 @@ module.exports.getAddress = () => {
     store.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
   })
 }
+module.exports.getCards = () => {
+  console.log("Getting cards");
+  Request.get('/card/get')
+  .then(res => {
+    console.log("Cards", res.data);
+    store.dispatch({type: 'AUTH_SET_CARDS', payload: res.data});
+  })
+}
 module.exports.getOrder = () => {
   Request.get('/order/get/active')
   .then(res => {
