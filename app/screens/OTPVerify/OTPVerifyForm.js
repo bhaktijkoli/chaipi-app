@@ -45,6 +45,7 @@ class OTPVerify extends Component {
       console.log(user);
     })
     .catch(err => {
+      console.log(err);
       Alert.alert("Verification failed", "You have enter wrong or expired OTP")
     })
     .finally(() => {

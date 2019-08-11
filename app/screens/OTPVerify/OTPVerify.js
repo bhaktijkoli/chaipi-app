@@ -28,7 +28,8 @@ class OTPVerify extends Component {
     this.setState({phone});
     firebase.auth().signInWithPhoneNumber(phone)
     .then(confirmResult => {
-      this.setState({confirmResult: confirmResult});
+      console.log('confirmResult', confirmResult);
+      this.setState({confirmResult});
     })
     .catch(err => {
       this.setState({err: err.message})
