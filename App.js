@@ -57,6 +57,7 @@ const AppNavigator = createStackNavigator(
     SelectPayment: { screen: SelectPayment },
     OrderDetails: { screen: OrderDetails },
     Account: { screen: Account },
+    Profile: { screen: Profile },
     Subscription: { screen: Subscription },
     Address: { screen: Address },
     AddAddress: { screen: AddAddress },

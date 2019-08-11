@@ -1,64 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { Container, Content, View, Title, Text, List} from 'native-base';
+import { ScrollView } from 'react-native';
+import { Container, Content, Form, Item, Label, Input } from 'native-base';
+import ButtonEx from './../../../components/Button';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
+import AuthActions from './../../../actions/authActions';
 import Header2 from './../../../components/Header2';
 
 class Profile extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state= {
-      FullName : ''
+    this.state = {
+      fullname: this.props.auth.user.fullname,
+      process: false,
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   render() {
     return(
       <Container>
         <Header2 title="Your Profile"/>
         <ScrollView>
-        <Item style={Style.input}>
-                  <Input
-                    value={this.state.FullName}
-                    onChangeText={val=>this.setState({FullName: val})}
-                    placeholder='Enter fullname' />
-                </Item>
+          <Form style={Style.content}>
+            <Label>Fullname</Label>
+            <Item regular style={Style.input}>
+              <Input value={this.state.fullname} onChangeText={fullname => this.setState({fullname})}/>
+            </Item>
+            <ButtonEx onPress={this.onClickSave} loading={this.state.process} text="SAVE"/>
+          </Form>
         </ScrollView>
-        <View>
-          <TouchableOpacity
-          style = {CustomStyle.saveButton}
-          onPress={this.handleSubmit}
-          >
-            <Text style = {CustomStyle.saveButtonText}>Save</Text>
-          </TouchableOpacity>
-        </View>
       </Container>
     )
   }
-
-  handleSubmit() {
+  onClickSave = () => {
+    this.setState({process: true});
+    Request.post('/user/update/fullname', {fullname: this.state.fullname})
+    .then(res => {
+      this.setState({process: false});
+      this.props.navigation.navigate('Home');
+    })
+    .catch(err => console.error(err))
   }
 }
-
-const CustomStyle = StyleSheet.create({
-  saveButton: {
-    borderWidth: 1,
-    borderColor: '#007BFF',
-    backgroundColor: '#007BFF',
-    padding: 15,
-    margin: 5
-  },
-  saveButtonText: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    textAlign: 'center'
-  }
-})
 
 function mapStateToProps(state) {
   return {
