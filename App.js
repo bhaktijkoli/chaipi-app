@@ -23,6 +23,7 @@ import Subscription from './app/screens/Subscription/Subscription';
 import Address from './app/screens/Account/Address/Address';
 import AddAddress from './app/screens/Account/AddAddress/AddAddress';
 import AddCard from './app/screens/Account/AddCard/AddCard';
+import OrderHistory from './app/screens/Account/OrderHistory/OrderHistory';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 import fcm from './app/utils/fcm'
 
@@ -64,6 +65,7 @@ const AppNavigator = createStackNavigator(
     Address: { screen: Address },
     AddAddress: { screen: AddAddress },
     AddCard: { screen: AddCard },
+    OrderHistory: { screen: OrderHistory },
     PartnerWithUs: { screen: PartnerWithUs },
   },
   {
