@@ -37,7 +37,7 @@ class Cart extends Component {
     let {current_address} = this.state;
     let current_address_formated = "";
     if(current_address) {
-      current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.location}`;
+      current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.address}`;
     }
     this.renderAddressList()
     return(
