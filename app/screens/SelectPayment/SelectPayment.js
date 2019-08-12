@@ -44,8 +44,8 @@ class SelectPayment extends Component {
   }
   onProceed(payment) {
     this.setState({process: true})
-    let address = this.props.navigation.getParam('address');
-    let {lat, lon, house, landmark, address} = address;
+    let addressData = this.props.navigation.getParam('address');
+    let {lat, lon, house, landmark, address} = addressData;
     Request.post('/cart/proceed', {payment, house, landmark, lat, lon, address})
     .then(res => {
       this.setState({process: false})
