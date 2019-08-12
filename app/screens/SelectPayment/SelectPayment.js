@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Alert } from "react-native";
 import { Container, Content, List, Separator, ListItem, Left, Body, Right, Text, Icon } from 'native-base';
 import { If } from 'react-if';
 
@@ -48,9 +49,19 @@ class SelectPayment extends Component {
     let {lat, lon, house, landmark, address} = addressData;
     Request.post('/cart/proceed', {payment, house, landmark, lat, lon, address})
     .then(res => {
-      this.setState({process: false})
-      Auth.setOrder(res.data);
-      NavigationActions.resetNavigation(this, 'OrderDetails');
+      console.log("Order", res.data);
+      if(res.data.success == '1') {
+        this.setState({process: false})
+        Auth.setOrder(res.data);
+        NavigationActions.resetNavigation(this, 'OrderDetails');
+      } else {
+        Alert.alert("Order",
+        res.data.message,
+        [
+          {text: 'OK', onPress: () => NavigationActions.resetNavigation(this, 'Cart')},
+        ],
+        {cancelable: false});
+      }
     }).catch(err => console.log(err));
   }
 }
