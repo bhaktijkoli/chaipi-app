@@ -50,7 +50,7 @@ class SelectPayment extends Component {
     Request.post('/cart/proceed', {payment, house, landmark, lat, lon, address})
     .then(res => {
       console.log("Order", res.data);
-      if(res.data.success == '1') {
+      if(res.data.status == 1) {
         this.setState({process: false})
         Auth.setOrder(res.data);
         NavigationActions.resetNavigation(this, 'OrderDetails');
