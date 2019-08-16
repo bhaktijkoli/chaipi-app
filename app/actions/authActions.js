@@ -32,7 +32,7 @@ module.exports.getCards = () => {
   })
 }
 module.exports.getOrder = () => {
-  Request.get('/order/get/active')
+  Request.get('/order/get?active=1')
   .then(res => {
     store.dispatch({type: 'AUTH_SET_ORDER', payload: res.data})
   })
