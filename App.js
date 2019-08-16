@@ -25,6 +25,9 @@ import AddAddress from './app/screens/Account/AddAddress/AddAddress';
 import AddCard from './app/screens/Account/AddCard/AddCard';
 import OrderHistory from './app/screens/Account/OrderHistory/OrderHistory';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
+import Help from './app/screens/Account/Help/Help';
+import About from './app/screens/Account/About/About';
+import Legal from './app/screens/Account/Legal/Legal';
 import fcm from './app/utils/fcm'
 
 class App extends Component {
@@ -67,6 +70,9 @@ const AppNavigator = createStackNavigator(
     AddCard: { screen: AddCard },
     OrderHistory: { screen: OrderHistory },
     PartnerWithUs: { screen: PartnerWithUs },
+    Help: { screen: Help},
+    About: { screen: About},
+    Legal: { screen: Legal},
   },
   {
     defaultNavigationOptions: {

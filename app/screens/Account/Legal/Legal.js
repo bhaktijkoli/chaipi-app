@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { ScrollView, Image } from 'react-native';
-import { Container, Content, Button, ListItem, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Content, Button, ListItem, Left, Right, Body, Icon, Text, View } from 'native-base';
 
 import Header2 from './../../../components/Header2';
 import ButtonEx from './../../../components/Button';
 import Style from './../../../styles/style';
 
-import OrderHistoryForm from './OrderHistoryForm';
+import LegalForm from './LegalForm';
 
-class OrderHistory extends Component {
+class Legal extends Component {
   render() {
     return(
       <Container>
-        <Header2 title="Your Orders"/>
+        <Header2 title="Legal"/>
+        <View
+        style = {{
+            borderBottomColor: 'dimgray',
+            borderBottomWidth: 1,
+        }}
+        ></View>
         <ScrollView style={Style.content}>
-        <OrderHistoryForm auth={this.props.auth} navigation={this.props.navigation}/>
+        <LegalForm auth={this.props.auth} navigation={this.props.navigation}/>
 
         </ScrollView>
       </Container>
@@ -29,4 +35,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(OrderHistory);
+export default connect(mapStateToProps)(Legal);

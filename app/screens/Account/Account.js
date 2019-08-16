@@ -75,8 +75,8 @@ const accountItems = [
 
 const helpItems = [
   {name: 'Partner with us?', icon: 'book', route: 'PartnerWithUs', type: 'AntDesign'},
-  {name: 'About', icon: 'infocirlceo', route: 'Home', type: 'AntDesign'},
-  {name: 'Help', icon: 'questioncircleo', route: 'Home', type: 'AntDesign'},
+  {name: 'About', icon: 'infocirlceo', route: 'About', type: 'AntDesign'},
+  {name: 'Help', icon: 'questioncircleo', route: 'Help', type: 'AntDesign'},
 ]
 
 function mapStateToProps(state) {
