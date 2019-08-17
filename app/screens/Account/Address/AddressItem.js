@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Toast } from 'native-base';
 
+import Request from './../../../utils/request';
+
 class AddressItem extends Component {
   render() {
     let { item, navigation } = this.props;
