@@ -28,6 +28,14 @@ import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 import Help from './app/screens/Account/Help/Help';
 import About from './app/screens/Account/About/About';
 import Legal from './app/screens/Account/Legal/Legal';
+import OrderItem from './app/screens/Account/OrderHistory/OrderItem';
+import Copyright from './app/screens/Account/Copyright/Copyright';
+import TermsConditions from './app/screens/Account/TermsConditions/TermsConditions';
+import PrivacyPolicy from './app/screens/Account/PrivacyPolicy/PrivacyPolicy';
+import SoftwareLicenses from './app/screens/Account/SoftwareLicenses/SoftwareLicenses';
+import Pricing from './app/screens/Account/Pricing/Pricing';
+import AccountPaymentOptions from './app/screens/Account/AccountPaymentOptions/AccountPaymentOptions';
+import GuidetoChaiPi from './app/screens/Account/GuidetoChaiPi/GuidetoChaiPi';
 import fcm from './app/utils/fcm'
 
 class App extends Component {
@@ -69,10 +77,18 @@ const AppNavigator = createStackNavigator(
     AddAddress: { screen: AddAddress },
     AddCard: { screen: AddCard },
     OrderHistory: { screen: OrderHistory },
+    OrderItem: { screen: OrderItem},
     PartnerWithUs: { screen: PartnerWithUs },
     Help: { screen: Help},
     About: { screen: About},
     Legal: { screen: Legal},
+    Copyright: { screen: Copyright},
+    TermsConditions: { screen: TermsConditions},
+    PrivacyPolicy: { screen: PrivacyPolicy},
+    SoftwareLicenses: { screen : SoftwareLicenses},
+    Pricing: {screen: Pricing},
+    AccountPaymentOptions: { screen: AccountPaymentOptions},
+    GuidetoChaiPi: { screen: GuidetoChaiPi },
   },
   {
     defaultNavigationOptions: {

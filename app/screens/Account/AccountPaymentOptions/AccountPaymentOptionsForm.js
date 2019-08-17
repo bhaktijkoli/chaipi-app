@@ -11,22 +11,23 @@ import { ScrollView } from 'react-native-gesture-handler';
 import style from './../../../styles/style';
 
  
-class HelpForm extends Component {
+class AccountPaymentOptionsForm extends Component {
     render() {
         return (
             <Container>
                 <Content>
+                    <Text style = {{fontSize: 20,}}>Account and Payment Options</Text>
                     <List>
                         <ListItem>
                         </ListItem>
-                        {this.renderHelpItems(helpitems)}
+                        {this.renderAccountPaymentItems(accountpaymentitems)}
                     </List>
                 </Content>
             </Container>
         )
      }
 
-     renderHelpItems(arrayItems, condition=true) {
+     renderAccountPaymentItems(arrayItems, condition=true) {
         if(condition) {
           return arrayItems.map((el, key) => {
             return(
@@ -47,11 +48,11 @@ class HelpForm extends Component {
       }
 }
 
-const helpitems= [
-    {name : 'Help with an order', route: 'Home' , type: 'AntDesign'},
-    {name : 'Account and Payment Options', route: 'AccountPaymentOptions', type: 'AntDesign'},
-    {name : 'Guide to ChaiPi', route: 'GuidetoChaiPi', type: 'AntDesign'},
+const accountpaymentitems= [
+    {name : 'Account Setting', route: 'Home' , type: 'AntDesign'},
+    {name : 'Payment', route: 'Home', type: 'AntDesign'},
+    {name : 'Promotions and Referrals', route: 'Home', type: 'AntDesign'},
 ];
 
 
-export default HelpForm;
+export default AccountPaymentOptionsForm;
