@@ -12,6 +12,7 @@ import Logout from './app/screens/Login/Logout';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
 import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
+import Search from './app/screens/Search/Search';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
 import SelectPayment from './app/screens/SelectPayment/SelectPayment';
@@ -67,6 +68,7 @@ const AppNavigator = createStackNavigator(
     OTPVerify: { screen: OTPVerify },
     ProfileSetup: { screen: ProfileSetup },
     Home: { screen: Home },
+    Search: { screen: Search },
     Shop: { screen: Shop },
     Cart: { screen: Cart },
     SelectPayment: { screen: SelectPayment },
