@@ -6,9 +6,12 @@ import { Row } from "react-native-easy-grid";
 import Style from './../styles/style';
 import Request from './../utils/request';
 
+import SpinnerModel from './SpinnerModel';
+
 class CartButton extends Component {
   state = {
     count: 0,
+    process: false,
   }
   componentDidMount() {
     this.setState({count: this.props.cart.count})
@@ -17,6 +20,7 @@ class CartButton extends Component {
     let count = this.state.count;
     return(
       <Row>
+        <SpinnerModel visible={this.state.process}/>
         <Button bordered small style={customStyle.buttonLeft} onPress={e=> this.UpdateCount(count-1)}>
           <Text style={{paddingLeft: 10, paddingRight: 10}}>-</Text>
         </Button>
@@ -28,6 +32,7 @@ class CartButton extends Component {
     )
   }
   UpdateCount(count) {
+    this.setState({process: true});
     if(count < 0) count = 0;
     let data = {
       cart: this.props.cart.id,
@@ -36,6 +41,7 @@ class CartButton extends Component {
     this.setState({count})
     Request.post('/cart/count', data)
     .then(res => {
+      this.setState({process: false});
       this.props.update();
     })
   }
