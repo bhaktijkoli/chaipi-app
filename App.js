@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import { Provider } from "react-redux";
 import { Root, StyleProvider } from 'native-base';
-import { flipY } from 'react-navigation-transitions';
+import { fadeIn } from 'react-navigation-transitions';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
@@ -92,7 +92,7 @@ const AppNavigator = createStackNavigator(
     GuidetoChaiPi: { screen: GuidetoChaiPi },
   },
   {
-    transitionConfig: () => flipY(),
+    transitionConfig: () => fadeIn(),
     defaultNavigationOptions: {
       header: null
     }

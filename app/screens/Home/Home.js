@@ -19,6 +19,7 @@ class Home extends Component {
     Auth.getCart();
     Auth.getAddress();
     Auth.getCards();
+    Auth.getFavorites();
   }
   render() {
     return(
