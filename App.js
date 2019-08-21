@@ -50,6 +50,12 @@ class App extends Component {
 
 
 
+const Drawer  = createDrawerNavigator(
+  {
+    home: { screen: Home},
+  }
+);
+
 const AppNavigator = createStackNavigator(
   {
     Login: { screen: Login },
@@ -81,5 +87,5 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-const AppContainer =  createAppContainer(AppNavigator);
+const AppContainer =  createAppContainer(AppNavigator, Drawer);
 export default App;

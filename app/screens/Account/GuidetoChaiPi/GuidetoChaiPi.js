@@ -7,9 +7,9 @@ import Header2 from './../../../components/Header2';
 import ButtonEx from './../../../components/Button';
 import Style from './../../../styles/style';
 
-import HelpForm from './HelpForm';
+import GuidetoChaiPiForm from './GuidetoChaiPiForm';
 
-class Help extends Component {
+class GuidetoChaiPi extends Component {
   render() {
     return(
       <Container>
@@ -21,7 +21,7 @@ class Help extends Component {
         }}
         ></View>
         <ScrollView style={Style.content}>
-        <HelpForm auth={this.props.auth} navigation={this.props.navigation}/>
+        <GuidetoChaiPiForm auth={this.props.auth} navigation={this.props.navigation}/>
 
         </ScrollView>
       </Container>
@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Help);
+export default connect(mapStateToProps)(GuidetoChaiPi);

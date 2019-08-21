@@ -3,25 +3,25 @@ import { connect } from "react-redux";
 import { ScrollView, Image } from 'react-native';
 import { Container, Content, Button, ListItem, Left, Right, Body, Icon, Text, View } from 'native-base';
 
-import Header2 from './../../../components/Header2';
-import ButtonEx from './../../../components/Button';
-import Style from './../../../styles/style';
+import Header2 from '../../../components/Header2';
+import ButtonEx from '../../../components/Button';
+import Style from '../../../styles/style';
 
-import HelpForm from './HelpForm';
+import PrivacyPolicyForm from './PrivacyPolicyForm';
 
-class Help extends Component {
+class PrivacyPolicy extends Component {
   render() {
     return(
       <Container>
-        <Header2 title="Help"/>
+        <Header2 title="Privacy Policy"/>
         <View
         style = {{
-          borderBottomColor: 'gainsboro',
-          borderBottomWidth: 1,
+            borderBottomColor: 'gainsboro',
+            borderBottomWidth: 1,
         }}
         ></View>
         <ScrollView style={Style.content}>
-        <HelpForm auth={this.props.auth} navigation={this.props.navigation}/>
+        <PrivacyPolicyForm auth={this.props.auth} navigation={this.props.navigation}/>
 
         </ScrollView>
       </Container>
@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Help);
+export default connect(mapStateToProps)(PrivacyPolicy);
