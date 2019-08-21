@@ -6,6 +6,7 @@ var initialState = {
   order: null,
   addresses: [],
   cards: [],
+  favorites: [],
   phone: '',
   update: 0,
 }
@@ -32,6 +33,9 @@ export default function reducer(state=initialState, action) {
     }
     case "AUTH_SET_ORDER": {
       return {...state, order: action.payload}
+    }
+    case "AUTH_SET_FAVORITES": {
+      return {...state, favorites: action.payload}
     }
   }
 

@@ -19,9 +19,16 @@ class Header2 extends Component {
         <Body>
           <Title>{this.props.title}</Title>
         </Body>
-        <Right/>
+        <Right>
+          {this.renderRight()}
+        </Right>
       </Header>
     )
+  }
+  renderRight = () => {
+    if(this.props.right) {
+      return this.props.right();
+    }
   }
 }
 

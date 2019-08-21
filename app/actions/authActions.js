@@ -38,6 +38,13 @@ module.exports.getOrder = () => {
   })
 }
 
+module.exports.getFavorites = () => {
+  Request.get('/favorite/get')
+  .then(res => {
+    store.dispatch({type: 'AUTH_SET_FAVORITES', payload: res.data})
+  })
+}
+
 module.exports.getStatusTitle = (order) => {
   if(!order) return "";
   switch (order.status) {

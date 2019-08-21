@@ -33,7 +33,7 @@ class FooterEx extends Component {
             <Button vertical active={tab=='home'} onPress={e=>this.onClick('Home')}>
               <Icon name="home" type="AntDesign" />
             </Button>
-            <Button vertical active={tab=='search'}>
+            <Button vertical active={tab=='search'} onPress={e=>this.onClick('Search')}>
               <Icon name="search1" type="AntDesign" />
             </Button>
             <Button badge={cartCount>0} vertical active={tab=='cart'} onPress={e=>this.onClick('Cart')}>

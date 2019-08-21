@@ -38,6 +38,13 @@ export default StyleSheet.create({
     marginRight: 0,
     borderColor: '#f39c12',
   },
+  inputSearch: {
+    marginTop:5,
+    marginBottom:10,
+    marginLeft: 10,
+    marginRight: 15,
+    borderColor: '#000',
+  },
   inputNoBorder: {
     marginTop:5,
     marginBottom:10,

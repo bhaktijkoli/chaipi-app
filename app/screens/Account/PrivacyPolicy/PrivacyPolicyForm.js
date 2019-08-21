@@ -3,7 +3,10 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
+<<<<<<< HEAD
 import { Linking } from 'react-native';
+=======
+>>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
 import Header2 from '../../../components/Header2';
 import { StyleSheet } from 'react-native';
 import Style from '../../../styles/style';
@@ -11,13 +14,17 @@ import Request from '../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
 import style from '../../../styles/style';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
  
 class PrivacyPolicyForm extends Component {
     render() {
         return (
             <Container>
         <Content>
+<<<<<<< HEAD
           <ScrollView>
               <Text style = {{fontSize: 20}}>Intoduction</Text>
               <Text style = {CustomStyle.pad}>When you use ChaiPi, you trust us with your information. We are committed to keeping that trust. That starts with helping you understand our privacy practices.
@@ -53,6 +60,9 @@ class PrivacyPolicyForm extends Component {
               }}
               ></View>
               </ScrollView>
+=======
+          
+>>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
         </Content>
       </Container>
         )
@@ -60,6 +70,7 @@ class PrivacyPolicyForm extends Component {
 
 }
 
+<<<<<<< HEAD
 const CustomStyle = StyleSheet.create({
 
   fp: {
@@ -81,6 +92,8 @@ const CustomStyle = StyleSheet.create({
 
 })
 
+=======
+>>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
 
 
 export default PrivacyPolicyForm;

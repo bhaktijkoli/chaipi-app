@@ -48,11 +48,11 @@ class LegalForm extends Component {
 }
 
 const legalitems= [
-    {name : 'Copyright', route: 'Home' , type: 'AntDesign'},
-    {name : 'Terms & Conditions', route: 'Home', type: 'AntDesign'},
-    {name : 'PrivacyPolicy', route: 'Home', type: 'AntDesign'},
-    {name : 'Software Licenses', route: 'Home', type: 'AntDesign'},
-    {name : 'Pricing', route: 'Home', type: 'AntDesign'},
+    {name : 'Copyright', route: 'Copyright' , type: 'AntDesign'},
+    {name : 'Terms & Conditions', route: 'TermsConditions', type: 'AntDesign'},
+    {name : 'Privacy Policy', route: 'PrivacyPolicy', type: 'AntDesign'},
+    {name : 'Software Licenses', route: 'SoftwareLicenses', type: 'AntDesign'},
+    {name : 'Pricing', route: 'Pricing', type: 'AntDesign'},
 ];
 
 

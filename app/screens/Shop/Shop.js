@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content } from 'native-base';
+import { Container, Content, Button, Icon } from 'native-base';
 import { FlatList } from 'react-native';
 import { If } from 'react-if';
 
@@ -31,7 +31,7 @@ class Shop extends Component {
     let shop = this.props.navigation.getParam('shop');
     return(
       <Container>
-        <Header2 title={shop.name}/>
+        <Header2 title={shop.name} right={this.headerRight}/>
         <Content style={{padding:5}}>
           <FlatList
             numColumns={2}
@@ -45,6 +45,25 @@ class Shop extends Component {
   }
   update() {
     Auth.getCart();
+  }
+  headerRight = () => {
+    let shop = this.props.navigation.getParam('shop');
+    let active = false;
+    this.props.auth.favorites.forEach(s => {
+      if(s.shopId == shop.id && s.active == 1) active = true;
+    })
+    let icon = active?'heart':'hearto';
+    return(
+      <Button transparent onPress={this.onFavoriteToggle}>
+        <Icon name={icon} type="AntDesign" style={{color:'red'}}/>
+      </Button>
+    )
+  }
+  onFavoriteToggle = () => {
+    let shop = this.props.navigation.getParam('shop');
+    Request.post('/favorite/toggle', {shop: shop.id}).then(res => {
+      Auth.getFavorites();
+    })
   }
 }
 
