@@ -51,7 +51,7 @@ class Home extends Component {
   }
   onSubmit = (e) => {
     let search = this.state.search;
-    Request.get(`/shop/get?search=${search}`)
+    Request.get(`/shop/get?search=${search}&nearby=true`)
     .then(res => {
       this.setState({shops: res.data});
     })
