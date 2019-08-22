@@ -16,7 +16,7 @@ class About extends Component {
         <Header2 title="About"/>
         <View
         style = {{
-            borderBottomColor: 'black',
+            borderBottomColor: 'gainsboro',
             borderBottomWidth: 1,
         }}
         ></View>

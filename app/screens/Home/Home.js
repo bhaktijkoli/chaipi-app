@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Text} from 'native-base';
+import { Container, Content, View, Title, Text, Left, Icon, Right} from 'native-base';
 import firebase from 'react-native-firebase';
 
 import OfferItemList from './OfferItemList';
 import SubscriptionList from './SubscriptionList';
 import ShopList from './ShopList';
 
-import Header from './../../components/Header'
+import Header3 from './../../components/Header3'
 import Footer from './../../components/Footer'
 
 import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
 import ws from './../../utils/ws';
+import { DrawerNavigator } from 'react-navigation';
 
 class Home extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class Home extends Component {
   render() {
     return(
       <Container>
-        <Header title="NOW"/>
+        <Header3/>
         <Content>
           <Text style={Style.homeLabel}>Offers</Text>
           <OfferItemList />

@@ -16,11 +16,7 @@ class AccountPaymentOptions extends Component {
         <Header2 title="Help"/>
         <View
         style = {{
-<<<<<<< HEAD
           borderBottomColor: 'gainsboro',
-=======
-          borderBottomColor: 'black',
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
           borderBottomWidth: 1,
         }}
         ></View>

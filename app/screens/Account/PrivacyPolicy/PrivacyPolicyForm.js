@@ -3,10 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
-<<<<<<< HEAD
 import { Linking } from 'react-native';
-=======
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
 import Header2 from '../../../components/Header2';
 import { StyleSheet } from 'react-native';
 import Style from '../../../styles/style';
@@ -14,17 +11,12 @@ import Request from '../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
 import style from '../../../styles/style';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
  
 class PrivacyPolicyForm extends Component {
     render() {
         return (
             <Container>
         <Content>
-<<<<<<< HEAD
           <ScrollView>
               <Text style = {{fontSize: 20}}>Intoduction</Text>
               <Text style = {CustomStyle.pad}>When you use ChaiPi, you trust us with your information. We are committed to keeping that trust. That starts with helping you understand our privacy practices.
@@ -51,7 +43,7 @@ class PrivacyPolicyForm extends Component {
               <Text>{'\u2022'} Delivery Recipients: users who request deliveries of food or other items</Text>
               <Text>{'\u2022'} Delivery Partners: users who provide delivery services</Text>
               <Text style= {CustomStyle.pad}>This policy also applies to those who provide information to Uber in connection with an application to use our services, or whose information Uber otherwise receives in connection with its services (such as contact information of individuals associated with UberEats restaurant partners). All those subject to this policy are referred to as “users” for purposes of this policy.</Text>
-              <Text>The practices described in this policy are subject to applicable laws in the places in which we operate. This means that we only engage in the practices described in this policy in a particular country or region if permitted under the laws of those places. Please contact us if you have questions on our practices in your country or region.</Text>
+              <Text>Th1e practices described in this policy are subject to applicable laws in the places in which we operate. This means that we only engage in the practices described in this policy in a particular country or region if permitted under the laws of those places. Please contact us if you have questions on our practices in your country or region.</Text>
               <View
               style = {{
                 borderBottomColor: 'gainsboro',
@@ -60,9 +52,6 @@ class PrivacyPolicyForm extends Component {
               }}
               ></View>
               </ScrollView>
-=======
-          
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
         </Content>
       </Container>
         )
@@ -70,7 +59,6 @@ class PrivacyPolicyForm extends Component {
 
 }
 
-<<<<<<< HEAD
 const CustomStyle = StyleSheet.create({
 
   fp: {
@@ -92,8 +80,6 @@ const CustomStyle = StyleSheet.create({
 
 })
 
-=======
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
 
 
 export default PrivacyPolicyForm;

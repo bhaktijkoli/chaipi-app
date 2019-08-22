@@ -16,7 +16,7 @@ class Legal extends Component {
         <Header2 title="Legal"/>
         <View
         style = {{
-            borderBottomColor: 'dimgray',
+            borderBottomColor: 'gainsboro',
             borderBottomWidth: 1,
         }}
         ></View>

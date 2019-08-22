@@ -16,11 +16,7 @@ class TermsConditions extends Component {
         <Header2 title="Terms & Conditions"/>
         <View
         style = {{
-<<<<<<< HEAD
             borderBottomColor: 'gainsboro',
-=======
-            borderBottomColor: 'dimgray',
->>>>>>> ca3a35bab879813892f7e8cadde029da6463ba41
             borderBottomWidth: 1,
         }}
         ></View>

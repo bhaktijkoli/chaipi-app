@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createDrawerNavigator, createAppContainer, DrawerItems, SafeAreaView } from "react-navigation";
 import { Provider } from "react-redux";
-import { Root, StyleProvider } from 'native-base';
+import { Root, StyleProvider, View } from 'native-base';
+import { Image } from 'react-native';
 import { fadeIn } from 'react-navigation-transitions';
 import store from "./app/store";
 import getTheme from './native-base-theme/components';
@@ -40,6 +41,7 @@ import Pricing from './app/screens/Account/Pricing/Pricing';
 import AccountPaymentOptions from './app/screens/Account/AccountPaymentOptions/AccountPaymentOptions';
 import GuidetoChaiPi from './app/screens/Account/GuidetoChaiPi/GuidetoChaiPi';
 import fcm from './app/utils/fcm'
+import { ScrollView } from 'react-native-gesture-handler';
 
 class App extends Component {
   async componentDidMount() {
@@ -59,12 +61,28 @@ class App extends Component {
 
 }
 
+const CustomDrawerComponent = (props) => (
+  <SafeAreaView style = {{flex: 1}}>
+    <View style = {{height: 150, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
+      
+    </View>
+    <ScrollView>
+      <DrawerItems {...props}/>
+    </ScrollView>
+  </SafeAreaView>
+)
 
 
-const Drawer  = createDrawerNavigator(
+const MyDrawerNavigator  = createDrawerNavigator(
   {
-    home: { screen: Home},
-  }
+    Home: { screen: Home },
+    Cart: { screen: Cart },
+    Search: { screen: Search },
+    Account: { screen: Account },
+  },
+  {
+    contentComponent: CustomDrawerComponent
+  }  
 );
 
 const AppNavigator = createStackNavigator(
@@ -73,7 +91,7 @@ const AppNavigator = createStackNavigator(
     Logout: { screen: Logout },
     OTPVerify: { screen: OTPVerify },
     ProfileSetup: { screen: ProfileSetup },
-    Home: { screen: Home },
+    Home: { screen: MyDrawerNavigator },
     Search: { screen: Search },
     Shop: { screen: Shop },
     Cart: { screen: Cart },
@@ -109,5 +127,5 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-const AppContainer =  createAppContainer(AppNavigator, Drawer);
+const AppContainer =  createAppContainer(AppNavigator);
 export default App;
