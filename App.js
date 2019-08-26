@@ -40,6 +40,7 @@ import SoftwareLicenses from './app/screens/Account/SoftwareLicenses/SoftwareLic
 import Pricing from './app/screens/Account/Pricing/Pricing';
 import AccountPaymentOptions from './app/screens/Account/AccountPaymentOptions/AccountPaymentOptions';
 import GuidetoChaiPi from './app/screens/Account/GuidetoChaiPi/GuidetoChaiPi';
+import Sidebar from './app/screens/Account/Sidebar';
 import fcm from './app/utils/fcm'
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -76,12 +77,9 @@ const CustomDrawerComponent = (props) => (
 const MyDrawerNavigator  = createDrawerNavigator(
   {
     Home: { screen: Home },
-    Cart: { screen: Cart },
-    Search: { screen: Search },
-    Account: { screen: Account },
   },
   {
-    contentComponent: CustomDrawerComponent
+    contentComponent: Sidebar
   }  
 );
 
