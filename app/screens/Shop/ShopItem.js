@@ -22,7 +22,7 @@ class ShopItem extends Component {
       <View style={{margin:10}}>
         <TouchableOpacity>
           <Shimmer autoRun={true} visible={this.state.loaded} style={{height:124, width:this.getItemWidth()}}>
-            <Image source={{uri: product.image}} style={{height:124, width:this.getItemWidth()}} onLoad={e=>this.setState({loaded:true})}/>
+            <Image source={{uri: Request.url(product.image)}} style={{height:124, width:this.getItemWidth()}} onLoad={e=>this.setState({loaded:true})}/>
           </Shimmer>
           <Text style={{fontSize:16, marginTop:5}}>{product.name}</Text>
         </TouchableOpacity>
