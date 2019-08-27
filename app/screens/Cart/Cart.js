@@ -32,7 +32,7 @@ class Cart extends Component {
     if(carts.length == 0) return this.renderEmptyCart();
     let total = 0;
     carts.forEach(el => {
-      total = el.product.price * el.count
+      total += el.product.price * el.count
     });
     let {current_address} = this.state;
     let current_address_formated = "";

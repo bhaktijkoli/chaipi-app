@@ -5,6 +5,8 @@ import Style from './../../styles/style';
 
 import Shimmer from 'react-native-shimmer-placeholder'
 
+import Request from './../../utils/request';
+
 class OfferItem extends Component {
   state = {
     loaded: false,
@@ -13,9 +15,11 @@ class OfferItem extends Component {
   }
   render() {
     let offer = this.props.offer;
+    let uri = offer.image;
+    console.log(uri);
     return(
       <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
-        <Image source={{ uri: offer.image }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
+        <Image source={{ uri }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
       </Shimmer>
     )
   }
