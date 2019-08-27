@@ -14,6 +14,9 @@ class Profile extends Component {
     super(props)
     this.state = {
       fullname: this.props.auth.user.fullname,
+      email: this.props.auth.user.email,
+      phone: this.props.auth.user.phone,
+      dob: this.props.auth.user.dob,
       process: false,
     }
   }
@@ -26,6 +29,18 @@ class Profile extends Component {
             <Label>Fullname</Label>
             <Item regular style={Style.input}>
               <Input value={this.state.fullname} onChangeText={fullname => this.setState({fullname})}/>
+            </Item>
+            <Label>Email</Label>
+            <Item regular style={Style.input}>
+              <Input value={this.state.email} onChangeText={email => this.setState({email})}/>
+            </Item>
+            <Label>Mobile Number</Label>
+            <Item regular style={Style.input}>
+              <Input value={this.state.phone} onChangeText={email => this.setState({phone})}/>
+            </Item>
+            <Label>Date of Birth</Label>
+            <Item regular style={Style.input}>
+              <Input value={this.state.dob} onChangeText={email => this.setState({dob})}/>
             </Item>
             <ButtonEx onPress={this.onClickSave} loading={this.state.process} text="SAVE"/>
           </Form>

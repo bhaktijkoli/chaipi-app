@@ -17,6 +17,7 @@ class Sidebar extends Component {
   render() {
     let user = this.props.auth.user;
     let phone = this.props.auth.phone;
+    let email = this.props.auth.email;
     return(
       <Container>
         <Content>
@@ -29,6 +30,7 @@ class Sidebar extends Component {
             <Body>
               <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
               <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
+              <Text style={{marginLeft:15,color:'#000'}}>{email}</Text>
             </Body>
           </Header>
           <List>
