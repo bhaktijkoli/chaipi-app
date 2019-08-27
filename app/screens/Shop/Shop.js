@@ -36,7 +36,7 @@ class Shop extends Component {
           <FlatList
             numColumns={2}
             data={this.state.products}
-            renderItem={({item, index}) => { return <ShopItem product={item} update={this.update.bind(this)}/> }}
+            renderItem={({item, index}) => { return <ShopItem product={item} update={this.update.bind(this)} auth={this.props.auth}/> }}
             keyExtractor={(item, index) => index.toString()}
             ></FlatList>
         </Content>

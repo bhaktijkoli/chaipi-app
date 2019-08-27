@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Container, Content, View, Title, Button, Text, H1} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { FlatList, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Alert, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { If } from 'react-if';
 import Shimmer from 'react-native-shimmer-placeholder'
 
@@ -18,6 +18,7 @@ class ShopItem extends Component {
   render() {
     let { product } = this.props;
     let cart = this.getCartItem(product.id);
+    console.log(this.props.auth.cart[0]);
     return(
       <View style={{margin:10}}>
         <TouchableOpacity>
@@ -45,10 +46,25 @@ class ShopItem extends Component {
     )
   }
   onAddClick(product) {
-    let data = {
-      product: product.id,
-      count: 1,
+    let cart =this.props.auth.cart;
+    if(cart.length > 0) {
+      if(product.shopId != cart[0].shopId) {
+        Alert.alert(
+          'Replace cart item?',
+          `Your cart contains items from ${cart[0].shop.name}. Do you want to discard the selection and add items from ${product.shop.name}?`,
+          [
+            {text: 'No', style: 'cancel'},
+            {text: 'Yes', onPress: () => this.sendRequest(product)},
+          ],
+          {cancelable: false},
+        )
+        return;
+      }
     }
+    this.sendRequest(product);
+  }
+  sendRequest = (product) => {
+    let data = { product: product.id, count: 1 }
     Request.post('/cart/add', data)
     .then(res => {
       this.props.update();
