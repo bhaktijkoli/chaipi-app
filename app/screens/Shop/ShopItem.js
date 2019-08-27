@@ -18,7 +18,6 @@ class ShopItem extends Component {
   render() {
     let { product } = this.props;
     let cart = this.getCartItem(product.id);
-    console.log(this.props.auth.cart[0]);
     return(
       <View style={{margin:10}}>
         <TouchableOpacity>
