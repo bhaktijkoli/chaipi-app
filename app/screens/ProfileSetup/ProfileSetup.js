@@ -29,16 +29,13 @@ class ProfileSetup extends Component {
   static navigationOptions = {
     header: null,
   }
-  state = {
-    image: null,
-  }
   constructor(props) {
     super(props)
     this.state = {
       fullname: '',
-      //dob: '',
       email: '',
       phone: '',
+      image: null,
       process: false,
     }
     this.onClickNext = this.onClickNext.bind(this)
@@ -51,37 +48,31 @@ class ProfileSetup extends Component {
       <Container>
         <Content contentContainerStyle={{flex: 1}}>
           <ScrollView>
-          <Grid style={{alignItems: 'flex-end'}}>
-            <Col style={Style.content}>
-              <Form style={Style.bottom}>
-                <H1 style={Style.heading}>Welcome</H1>
-                <Text style={Style.label}>Setup your profile</Text>
-                <Item style={Style.input}>
-                  <Input
-                    value={this.state.fullname}
-                    onChangeText={val=>this.setState({fullname: val})}
-                    placeholder='Enter fullname' />
-                </Item>
-                <Item style = {Style.input}>
-                  <Input
-                  value ={this.state.email}
-                  onChangeText={val=>this.setState({email: val})}
-                  placeholder='Enter email address'
-                  />
-                </Item>
-                <Item style = {Style.input}>
-                  <Input
-                  value = {this.state.phone}
-                  onChangeText={val=>this.setState({phone: val})}
-                  placeholder="Enter contact number"
-                  />
-                </Item>
-                {/*<Item style = {Style.input}>
-                  <DatePicker placeHolderText = "Enter birthdate"
-                  value = {this.setState.dob}
-                  onChangeText={val=>this.setState({dob: val})}
-                  />
-    </Item>*/}
+            <Grid style={{alignItems: 'flex-end'}}>
+              <Col style={Style.content}>
+                <Form style={Style.bottom}>
+                  <H1 style={Style.heading}>Welcome</H1>
+                  <Text style={Style.label}>Setup your profile</Text>
+                  <Item style={Style.input}>
+                    <Input
+                      value={this.state.fullname}
+                      onChangeText={val=>this.setState({fullname: val})}
+                      placeholder='Enter fullname' />
+                  </Item>
+                  <Item style = {Style.input}>
+                    <Input
+                      value ={this.state.email}
+                      onChangeText={val=>this.setState({email: val})}
+                      placeholder='Enter email address'
+                      />
+                  </Item>
+                  <Item style = {Style.input}>
+                    <Input
+                      value = {this.state.phone}
+                      onChangeText={val=>this.setState({phone: val})}
+                      placeholder="Enter contact number"
+                      />
+                  </Item>
                   <Label style = {Style.top}>Profile Picture</Label>
                   <If condition={this.state.image==null}>
                     <Then>
@@ -95,13 +86,13 @@ class ProfileSetup extends Component {
                       </TouchableOpacity>
                     </Else>
                   </If>
-                <ButtonEx onPress={this.onClickNext} loading={this.state.process} text="NEXT"/>
-                <Button transparent block onPress={this.onClickLogout}>
-                  <Text>Logout</Text>
-                </Button>
-              </Form>
-            </Col>
-          </Grid>
+                  <ButtonEx onPress={this.onClickNext} loading={this.state.process} text="NEXT"/>
+                  <Button transparent block onPress={this.onClickLogout}>
+                    <Text>Logout</Text>
+                  </Button>
+                </Form>
+              </Col>
+            </Grid>
           </ScrollView>
         </Content>
       </Container>
@@ -109,13 +100,11 @@ class ProfileSetup extends Component {
   }
   onClickNext() {
     this.setState({process: true});
-    let data = {
-      uid: this.props.auth.uid,
-      fullname: this.state.fullname,
-      email: this.state.email,
-      phone: this.state.phone,
-      //dob: this.state.dob,
-    };
+    let data = new FormData();
+    data.append('uid', this.state.uid)
+    data.append('fullname', this.state.fullname)
+    data.append('email', this.state.email)
+    data.append('image', this.state.image)
     Request.post('/user/add', data)
     .then(res => {
       Request.get('/user/get/'+this.props.auth.uid)
