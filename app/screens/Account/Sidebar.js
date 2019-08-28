@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Container, Content, View, Title, Text} from 'native-base';
 import { Header, Left, Body, Right, Icon } from 'native-base';
+import { Image } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { If } from 'react-if'
 
@@ -17,22 +18,15 @@ class Sidebar extends Component {
   render() {
     let user = this.props.auth.user;
     let phone = this.props.auth.phone;
-    let email = this.props.auth.email;
     return(
       <Container>
         <Content>
             <ScrollView>
-                <SafeAreaView>
-                    <View style = {{height: 150, backgroundColor: 'gainsboro', alignItems: 'center', justifyContent: 'center'}}>
+                    <View style = {{height: 250,  marginTop: -25 }}>
+                      <Image source = {require('./../../assets/empty_cart.png')} style={{width:215, height:200}}/>
+                      <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
+                      <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
                     </View>
-                </SafeAreaView>
-          <Header transparent noLeft>
-            <Body>
-              <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
-              <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
-              <Text style={{marginLeft:15,color:'#000'}}>{email}</Text>
-            </Body>
-          </Header>
           <List>
             <ListItem itemDivider>
               <Text>My Account</Text>
