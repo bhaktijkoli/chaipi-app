@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "release": "cd android && ./gradlew assembleRelease",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npx jetify"
   },
   "dependencies": {
     "@types/jest": "^24.0.15",
@@ -43,6 +44,7 @@
     "@babel/runtime": "7.4.3",
     "babel-jest": "24.7.1",
     "jest": "24.7.1",
+    "jetifier": "^1.6.4",
     "metro-react-native-babel-preset": "0.53.1",
     "react-test-renderer": "16.8.3"
   },
