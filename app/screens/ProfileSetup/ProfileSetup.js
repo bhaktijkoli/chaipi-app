@@ -34,14 +34,13 @@ class ProfileSetup extends Component {
     this.state = {
       fullname: '',
       email: '',
-      phone: '',
       image: null,
       process: false,
+      fullname_error: '',
+      email_error: '',
     }
     this.onClickNext = this.onClickNext.bind(this)
     this.onClickLogout = this.onClickLogout.bind(this)
-  }
-  componentDidMount() {
   }
   render() {
     return(
@@ -59,6 +58,9 @@ class ProfileSetup extends Component {
                       onChangeText={val=>this.setState({fullname: val})}
                       placeholder='Enter fullname' />
                   </Item>
+                  <If condition={this.state.fullname_error.length > 0}>
+                    <Text style={Style.error}>{this.state.fullname_error}</Text>
+                  </If>
                   <Item style = {Style.input}>
                     <Input
                       value ={this.state.email}
@@ -66,13 +68,9 @@ class ProfileSetup extends Component {
                       placeholder='Enter email address'
                       />
                   </Item>
-                  <Item style = {Style.input}>
-                    <Input
-                      value = {this.state.phone}
-                      onChangeText={val=>this.setState({phone: val})}
-                      placeholder="Enter contact number"
-                      />
-                  </Item>
+                  <If condition={this.state.email_error.length > 0}>
+                    <Text style={Style.error}>{this.state.email_error}</Text>
+                  </If>
                   <Label style = {Style.top}>Profile Picture</Label>
                   <If condition={this.state.image==null}>
                     <Then>
@@ -101,17 +99,25 @@ class ProfileSetup extends Component {
   onClickNext() {
     this.setState({process: true});
     let data = new FormData();
-    data.append('uid', this.state.uid)
+    data.append('uid', this.props.auth.uid)
     data.append('fullname', this.state.fullname)
     data.append('email', this.state.email)
     data.append('image', this.state.image)
     Request.post('/user/add', data)
     .then(res => {
-      Request.get('/user/get/'+this.props.auth.uid)
-      .then(res => {
-        AuthActions.setUser(res.data);
-        NavigationActions.resetNavigation(this, 'Login');
-      })
+      if(res.data.success) {
+        Request.get('/user/get/'+this.props.auth.uid)
+       .then(res => {
+         AuthActions.setUser(res.data);
+         NavigationActions.resetNavigation(this, 'Login');
+       })
+      } else {
+        let messages = res.data.messages;
+        Object.keys(messages).forEach(el => {
+          var key = el+'_error';
+          this.setState({[key]: messages[el]})
+        });
+      }
     })
     .catch(err => console.error(err))
     .finally(()=> this.setState({process: false}))
@@ -120,7 +126,7 @@ class ProfileSetup extends Component {
     this.props.navigation.navigate("Logout");
   }
   changeImage() {
-    ImagePicker.showImagePicker(profileImageOptions, (response) => {
+    ImagePicker.default.showImagePicker(profileImageOptions, (response) => {
       if (response.didCancel) {
       } else if (response.error) {
       } else {
