@@ -23,24 +23,23 @@ class OrderHistoryForm extends Component {
                     </Card>
                     <Text style = {Style.content}>Bill Details</Text>
                     <Card>
-                        <CardItem>
-                            <Text style = {Style.content}>Product Name</Text>
-                            <Text>Item Total</Text>
-                            <Right>
-                                <Text>₹125</Text>
-                            </Right>
-                            <Text>GST</Text>
-                            <Right>
-                                <Text>₹15</Text>
-                            </Right>
-                            <Text>Delivery Charges</Text>
-                            <Right>
-                                <Text>₹10</Text>
-                            </Right>
-                            <Text note>Total</Text>
-                            <Right>
-                                <Text note>₹150</Text>
-                            </Right>
+                        <CardItem> 
+                            <View>
+                            <Text style = {Style.top}>Item Total</Text>
+                            <Text style = {{alignItems: 'flex-end', marginTop : 20}}>125</Text>
+                            </View>
+                            <View>
+                            <Text style = {Style.top}>GST</Text>
+                            <Text style = {{alignItems: 'flex-end', marginTop : 20, marginLeft: 10, marginRight: 10}}>50</Text>
+                            </View>
+                            <View>
+                            <Text style = {Style.top}>Delivery Charges</Text>
+                            <Text style = {{alignItems: 'flex-end', marginTop : 20}}>10</Text>
+                            </View>
+                            <View>
+                            <Text note style = {Style.top}>Total</Text>
+                            <Text style = {{alignItems: 'flex-end', marginTop : 20}}>10</Text>
+                            </View>
                         </CardItem>
                     </Card>
                 </Content>

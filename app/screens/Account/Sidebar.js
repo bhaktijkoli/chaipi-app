@@ -18,12 +18,13 @@ class Sidebar extends Component {
   render() {
     let user = this.props.auth.user;
     let phone = this.props.auth.phone;
+    let image = this.props.auth.user.image;
     return(
       <Container>
         <Content>
             <ScrollView>
                     <View style = {{height: 250,  marginTop: -25 }}>
-                      <Image source = {require('./../../assets/empty_cart.png')} style={{width:215, height:200}}/>
+                      <Image source = {image} style={{width:215, height:200}}/>
                       <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
                       <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
                     </View>
