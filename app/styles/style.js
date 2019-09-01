@@ -78,4 +78,21 @@ export default StyleSheet.create({
     borderTopWidth: 0.5,
     borderTopColor: '#575757',
   },
+  avatarContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  avatarBig: {
+    width:256,
+    height:256,
+    marginTop:10,
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    borderColor: '#f39c12',
+    borderRadius: 256,
+  }
 });
