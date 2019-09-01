@@ -117,10 +117,10 @@ class ProfileSetup extends Component {
           var key = el+'_error';
           this.setState({[key]: messages[el]})
         });
+        this.setState({process: false});
       }
     })
     .catch(err => console.error(err))
-    .finally(()=> this.setState({process: false}))
   }
   onClickLogout() {
     this.props.navigation.navigate("Logout");
