@@ -84,6 +84,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row'
   },
+  avatar: {
+    width: 128,
+    height: 128,
+    borderRadius: 128,
+  },
   avatarBig: {
     width:256,
     height:256,

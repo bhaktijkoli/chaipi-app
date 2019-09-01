@@ -9,6 +9,7 @@ import { If } from 'react-if'
 import Footer from './../../components/Footer'
 
 import Style from './../../styles/style';
+import Request from './../../utils/request';
 import { SafeAreaView } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -22,22 +23,24 @@ class Sidebar extends Component {
     return(
       <Container>
         <Content>
-            <ScrollView>
-                    <View style = {{height: 250,  marginTop: -25 }}>
-                      <Image source = {image} style={{width:215, height:200}}/>
-                      <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
-                      <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
-                    </View>
-          <List>
-            <ListItem itemDivider>
-              <Text>My Account</Text>
-            </ListItem>
-            {this.renderSettingItems(accountItems)}
-            <ListItem itemDivider>
-              <Text>Help</Text>
-            </ListItem>
-            {this.renderSettingItems(helpItems)}
-          </List>
+          <ScrollView>
+            <View style={{marginTop:50, marginBottom: 10}}>
+              <View style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginBottom: 20}}>
+                <Image source={{uri: Request.url(image)}} style={Style.avatar}/>
+              </View>
+              <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
+              <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
+            </View>
+            <List>
+              <ListItem itemDivider>
+                <Text>My Account</Text>
+              </ListItem>
+              {this.renderSettingItems(accountItems)}
+              <ListItem itemDivider>
+                <Text>Help</Text>
+              </ListItem>
+              {this.renderSettingItems(helpItems)}
+            </List>
           </ScrollView>
         </Content>
       </Container>
