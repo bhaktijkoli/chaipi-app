@@ -25,7 +25,28 @@ class OTPVerify extends Component {
     let phone = this.props.navigation.getParam('phone');
     let country = this.props.navigation.getParam('country');
     phone = country+phone;
-    this.setState({phone});
+    this.setState({phone}, () => {
+      this.sendOtp();
+    });
+  }
+  render() {
+    if(!this.state.confirmResult) return <SpinnerBox />
+    return(
+      <Container>
+        <Content contentContainerStyle={{flex: 1}}>
+          <Text>{this.state.err}</Text>
+          <Grid style={{alignItems: 'center'}}>
+            <Col style={Style.content}>
+              <OTPVerifyForm phone={this.state.phone} confirmResult={this.state.confirmResult} onResend={this.sendOtp}/>
+            </Col>
+          </Grid>
+        </Content>
+      </Container>
+    )
+  }
+  sendOtp = () => {
+    this.setState({confirmResult: null});
+    let phone = this.state.phone;
     firebase.auth().signInWithPhoneNumber(phone)
     .then(confirmResult => {
       console.log('confirmResult', confirmResult);
@@ -41,21 +62,6 @@ class OTPVerify extends Component {
         ]
       );
     })
-  }
-  render() {
-    if(!this.state.confirmResult) return <SpinnerBox />
-    return(
-      <Container>
-        <Content contentContainerStyle={{flex: 1}}>
-          <Text>{this.state.err}</Text>
-          <Grid style={{alignItems: 'center'}}>
-            <Col style={Style.content}>
-              <OTPVerifyForm phone={this.state.phone} confirmResult={this.state.confirmResult} />
-            </Col>
-          </Grid>
-        </Content>
-      </Container>
-    )
   }
 }
 
