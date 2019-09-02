@@ -13,7 +13,7 @@
     <item name="android:textColorPrimary">#f39c12</item>
 
     <!-- Used for the background -->
-    <item name="android:background">#f39c12</item>
+    <item name="android:background">#FFF</item>
   </style>
 
 </resources>
