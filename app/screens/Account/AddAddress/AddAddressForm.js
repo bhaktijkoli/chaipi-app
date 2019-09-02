@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Content, Form, Item, Label, Text, Input, Textarea, Icon, Button, Toast } from 'native-base';
+import { Content, Form, Item, Label, Text, Input, Textarea, Picker, Icon, Button, Toast } from 'native-base';
 import { PermissionsAndroid, Platform, StyleSheet } from 'react-native';
 import ButtonEx from './../../../components/Button';
 import axios from 'axios';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
+import { If } from 'react-if';
 
 import Style from './../../../styles/style';
 import Request from './../../../utils/request';
@@ -16,8 +17,11 @@ class AddAddressForm extends Component {
     landmark: '',
     house_error: '',
     landmark_error: '',
+    type_error: '',
     lat: 0,
     lon: 0,
+    type: 'home',
+    type_other: '',
     process: false,
   }
   async componentDidMount() {
@@ -54,13 +58,9 @@ class AddAddressForm extends Component {
         </MapView>
         <Form style={Style.content}>
           <Label>Location</Label>
-          <Item regular style={Style.inputRegularError}>
-            <Input
-              caretHidden={true}
-              placeholder="Searching your location"
-              editable={false}
-              value={this.state.address} />
-          </Item>
+          <Text style={Style.inputRegularError} numberOfLines={2}>
+            {this.state.address==''?'Searching your location':this.state.address}
+          </Text>
           <Text style={Style.error}></Text>
           <Label>House/Flat No</Label>
           <Item regular error={this.state.house_error.length>0} style={Style.inputRegularError}>
@@ -76,7 +76,30 @@ class AddAddressForm extends Component {
               onChangeText={val=>this.setState({landmark: val})} />
           </Item>
           <Text style={Style.error}>{this.state.landmark_error}</Text>
-          <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="ADD"/>
+          <Label>Save As</Label>
+          <Item regular style={Style.inputRegularError}>
+            <Picker
+              mode="dropdown"
+              iosHeader="Save As"
+              iosIcon={<Icon name="arrow-down" />}
+              style={{ width: undefined }}
+              selectedValue={this.state.type}
+              onValueChange={type => this.setState({type})}
+              >
+              <Picker.Item label="Home" value="home" />
+              <Picker.Item label="Work" value="work" />
+              <Picker.Item label="Other" value="other" />
+            </Picker>
+          </Item>
+          <If condition={this.state.type == "other"}>
+            <Item regular error={this.state.type_error.length>0} style={Style.inputRegularError}>
+              <Input
+                value={this.state.type_other}
+                onChangeText={val=>this.setState({type_other: val})} />
+            </Item>
+          </If>
+          <ButtonEx onPress={this.onClickAdd.bind(this)} loading={this.state.process} text="SAVE"/>
+
         </Form>
       </Content>
     )
@@ -132,6 +155,7 @@ class AddAddressForm extends Component {
       let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU`;
       axios.get(url)
       .then(res => {
+        console.log(res.data);
         let address = res.data.results[1].formatted_address;
         this.setState({address});
       })
