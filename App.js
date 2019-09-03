@@ -14,6 +14,7 @@ import OTPVerify from './app/screens/OTPVerify/OTPVerify';
 import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
 import SearchLocation from './app/screens/SearchLocation/SearchLocation';
+import SearchLocationAddress from './app/screens/SearchLocationAddress/SearchLocationAddress';
 import Search from './app/screens/Search/Search';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
@@ -80,6 +81,7 @@ const MyDrawerNavigator  = createDrawerNavigator(
   {
     Home: { screen: Home },
     SearchLocation: { screen: SearchLocation },
+    SearchLocationAddress: { screen: SearchLocationAddress },
   },
   {
     contentComponent: Sidebar
