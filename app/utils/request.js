@@ -20,8 +20,8 @@ module.exports.setToken = (token) => {
 }
 
 const url = (req) => {
-   // return `https://chaipaan.tk${req}`;
-  return `http://${host}:${port}${req}`;
+    return `https://chaipaan.tk${req}`;
+ // return `http://${host}:${port}${req}`;
 }
 
 const route = (req) => {
