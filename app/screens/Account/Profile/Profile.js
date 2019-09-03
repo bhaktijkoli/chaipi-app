@@ -43,49 +43,49 @@ class Profile extends Component {
     return(
       <Container>
         <Header2 title="Your Profile"/>
-          <ScrollView>
-            <Grid style={{alignItems: 'flex-end'}}>
-              <Col style={Style.content}>
-                <Form style={Style.bottom}>
-                  <H1 style={Style.heading}>Welcome</H1>
-                  <Text style={Style.label}>Setup your profile</Text>
-                  <Item style={Style.input}>
-                    <Input
-                      value={this.state.fullname}
-                      onChangeText={val=>this.setState({fullname: val})}
-                      placeholder='Enter fullname' />
-                  </Item>
-                  <If condition={this.state.fullname_error.length > 0}>
-                    <Text style={Style.error}>{this.state.fullname_error}</Text>
-                  </If>
-                  <Item style = {Style.input}>
-                    <Input
-                      value ={this.state.email}
-                      onChangeText={val=>this.setState({email: val})}
-                      placeholder='Enter email address'
-                      />
-                  </Item>
-                  <If condition={this.state.email_error.length > 0}>
-                    <Text style={Style.error}>{this.state.email_error}</Text>
-                  </If>
-                  <Label style = {Style.top}>Profile Picture</Label>
+        <ScrollView>
+          <Grid style={{alignItems: 'flex-end'}}>
+            <Col style={Style.content}>
+              <Form style={Style.bottom}>
+                <Text style={Style.label}>Edit your profile</Text>
+                <View style={[Style.avatarContainer, {marginTop: 20}]}>
                   <If condition={this.state.image==null}>
                     <Then>
                       <TouchableOpacity activeOpacity = { .5 } onPress={this.changeImage.bind(this)}>
-                        <Image source={{uri: Request.url(this.props.auth.user.image)}} style={{width:152, height:152, marginTop:10, marginBottom: 20}} onPress={this.changeImage.bind(this)}/>
+                        <Image source={{uri: Request.url(this.props.auth.user.image)}} style={Style.avatarBig} onPress={this.changeImage.bind(this)}/>
                       </TouchableOpacity>
                     </Then>
                     <Else>
                       <TouchableOpacity activeOpacity = { .5 } onPress={this.changeImage.bind(this)}>
-                        <Image source={this.state.image} style={{width:152, height:152, marginTop:10, marginBottom: 20}} onPress={this.changeImage.bind(this)}/>
+                        <Image source={this.state.image} style={Style.avatarBig} onPress={this.changeImage.bind(this)}/>
                       </TouchableOpacity>
                     </Else>
                   </If>
-                  <ButtonEx onPress={this.onClickNext} loading={this.state.process} text="SAVE"/>
-                </Form>
-              </Col>
-            </Grid>
-          </ScrollView>
+                </View>
+                <Item style={Style.input}>
+                  <Input
+                    value={this.state.fullname}
+                    onChangeText={val=>this.setState({fullname: val})}
+                    placeholder='Enter fullname' />
+                </Item>
+                <If condition={this.state.fullname_error.length > 0}>
+                  <Text style={Style.error}>{this.state.fullname_error}</Text>
+                </If>
+                <Item style = {Style.input}>
+                  <Input
+                    value ={this.state.email}
+                    onChangeText={val=>this.setState({email: val})}
+                    placeholder='Enter email address'
+                    />
+                </Item>
+                <If condition={this.state.email_error.length > 0}>
+                  <Text style={Style.error}>{this.state.email_error}</Text>
+                </If>
+                <ButtonEx onPress={this.onClickNext} loading={this.state.process} text="SAVE"/>
+              </Form>
+            </Col>
+          </Grid>
+        </ScrollView>
       </Container>
     )
   }
@@ -100,10 +100,10 @@ class Profile extends Component {
     .then(res => {
       if(res.data.success) {
         Request.get('/user/get/'+this.props.auth.uid)
-       .then(res => {
-         AuthActions.setUser(res.data);
-         NavigationActions.resetNavigation(this, 'Home');
-       })
+        .then(res => {
+          AuthActions.setUser(res.data);
+          NavigationActions.resetNavigation(this, 'Home');
+        })
       } else {
         let messages = res.data.messages;
         Object.keys(messages).forEach(el => {
