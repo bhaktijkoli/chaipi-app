@@ -59,7 +59,8 @@ class OTPVerify extends Component {
         err.message,
         [
           {text: 'Try again', onPress: () => this.props.navigation.navigate('Login')},
-        ]
+        ],
+        {cancelable: false},
       );
     })
   }
