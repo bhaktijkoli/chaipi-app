@@ -20,13 +20,8 @@ module.exports.setToken = (token) => {
 }
 
 const url = (req) => {
-<<<<<<< HEAD
-    return `https://chaipaan.tk${req}`;
- // return `http://${host}:${port}${req}`;
-=======
-     return `https://chaipaan.tk${req}`;
- //return `http://${host}:${port}${req}`;
->>>>>>> 906cf76cf27b7f65ce5a30573fa0b94dfaf42668
+  return `https://chaipaan.tk${req}`;
+  // return `http://${host}:${port}${req}`;
 }
 
 const route = (req) => {

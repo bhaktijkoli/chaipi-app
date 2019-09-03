@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FlatList } from 'react-native';
 import { Container, Content, View, Text, Icon } from 'native-base';
+import { ListItem, Left, Body } from 'native-base';
 import { Form, Item, Input } from 'native-base';
 import GPlaces from 'react-native-gplaces';
 import { If } from 'react-if';
@@ -18,7 +19,7 @@ const places = new GPlaces({
 
 class SearchLocation extends Component {
   state = {
-    search: '',
+    search: 'chendani',
     places: [],
   }
   render() {
@@ -40,8 +41,7 @@ class SearchLocation extends Component {
         </Form>
         <Content>
           <FlatList
-            numColumns={2}
-            data={this.state.products}
+            data={this.state.places}
             renderItem={({item, index}) => { return this.renderPlaceItem(item) }}
             keyExtractor={(item, index) => index.toString()}
             ></FlatList>
@@ -51,19 +51,31 @@ class SearchLocation extends Component {
   }
   renderPlaceItem = (place) => {
     return(
-      <Text>
-        {place.description}
-      </Text>
+      <ListItem onPress={e=>this.onClickLocation(place)}>
+        <Body>
+          <Text>
+            {place.description}
+          </Text>
+        </Body>
+      </ListItem>
     )
+  }
+  onClickLocation = (place) => {
+    places.getPlaceDetails(place.place_id, {
+      fields: 'geometry'
+    })
+    .then(r => {
+      console.log(r);
+    })
+    .catch(err => console.error(err))
   }
   onChangeSearch = (search) => {
     this.setState({search});
   }
   getPlaces = () => {
-    console.log("Searhing for ", this.state.search);
     places.search(this.state.search, {
       components: 'country:in',
-      types: 'establishment'
+      types: 'geocode'
     })
     .then(places => {
       this.setState({places});
