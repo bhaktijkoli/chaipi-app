@@ -14,7 +14,7 @@ class Header3 extends Component {
               <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
           </Left>
         <Body>
-          <Title>NOW</Title>
+          <Title onPress={e=>this.props.navigation.navigate('SearchLocation')}>HOME</Title>
         </Body>
         <Right>
           {this.renderRight()}

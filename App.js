@@ -13,6 +13,7 @@ import Logout from './app/screens/Login/Logout';
 import OTPVerify from './app/screens/OTPVerify/OTPVerify';
 import ProfileSetup from './app/screens/ProfileSetup/ProfileSetup';
 import Home from './app/screens/Home/Home';
+import SearchLocation from './app/screens/SearchLocation/SearchLocation';
 import Search from './app/screens/Search/Search';
 import Shop from './app/screens/Shop/Shop';
 import Cart from './app/screens/Cart/Cart';
@@ -65,7 +66,7 @@ class App extends Component {
 const CustomDrawerComponent = (props) => (
   <SafeAreaView style = {{flex: 1}}>
     <View style = {{height: 150, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
-      
+
     </View>
     <ScrollView>
       <DrawerItems {...props}/>
@@ -77,10 +78,11 @@ const CustomDrawerComponent = (props) => (
 const MyDrawerNavigator  = createDrawerNavigator(
   {
     Home: { screen: Home },
+    SearchLocation: { screen: SearchLocation },
   },
   {
     contentComponent: Sidebar
-  }  
+  }
 );
 
 const AppNavigator = createStackNavigator(
