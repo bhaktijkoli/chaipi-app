@@ -1,0 +1,11 @@
+[
+    {
+        "title": "How is the delivery time calculated?",
+        "descripton": ["The delivery time displayed at the top of your order is estimated and includes factors such as:",
+        "1. The time it typically takes the restaurant to accept and prepare an average order",
+        "2. The time we estimate it will take to travel from the restaurant to the delivery address",
+
+        "The stated delivery time is our best prediction but is not a guarantee. Actual delivery time may vary depending on how busy the shop is, the size of your order, traffic conditions, and other factors."
+        ]
+    }
+]

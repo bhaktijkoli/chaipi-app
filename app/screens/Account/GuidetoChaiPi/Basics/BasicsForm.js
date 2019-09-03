@@ -3,15 +3,15 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
-import Header2 from './../../../components/Header2';
+import Header2 from '../../../../components/Header2';
 import { StyleSheet } from 'react-native';
-import Style from './../../../styles/style';
-import Request from './../../../utils/request';
+import Style from '../../../../styles/style';
+import Request from '../../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
-import style from './../../../styles/style';
+import style from '../../../../styles/style';
 
  
-class GuidetoChaiPiForm extends Component {
+class BasicsForm extends Component {
     render() {
         return (
             <Container>
@@ -49,9 +49,14 @@ class GuidetoChaiPiForm extends Component {
 }
 
 const guideitems= [
-    {name : 'Basics', route: 'Basics' , type: 'AntDesign'},
-    {name : 'Policies', route: 'AccountPaymentOptions', type: 'AntDesign'},
+    {name : 'What is ChaiPi?', route: 'Home' , type: 'AntDesign'},
+    {name : 'How does ChiPi work?', route: 'Home', type: 'AntDesign'},
+    {name : 'When and where is ChaiPi available?', route: 'Home', type: 'AntDesign'},
+    {name : 'How to place an order on ChaiPi?', route: 'Home', type: 'AntDesign'},
+    {name : 'Am I expected to leave a tip?', route: 'Home', type: 'AntDesign'},
+    {name : 'How is the delivery time calculated?', route: 'Home', type: 'AntDesign'},
+    {name : 'Where should I meet my delivery partner?', route: 'Home', type: 'AntDesign'},
 ];
 
 
-export default GuidetoChaiPiForm;
+export default BasicsForm;
