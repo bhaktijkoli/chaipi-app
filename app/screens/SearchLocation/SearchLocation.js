@@ -25,6 +25,9 @@ class SearchLocation extends Component {
   render() {
     let addresses = this.props.auth.addresses;
     let icon = this.state.search.length?'close':'search1'
+    let items = [];
+    items = items.concat(addresses);
+    items = items.concat(this.state.places);
     return(
       <Container>
         <Header title={`Set your Location`}/>
@@ -41,7 +44,7 @@ class SearchLocation extends Component {
         </Form>
         <Content>
           <FlatList
-            data={this.state.places}
+            data={items}
             renderItem={({item, index}) => { return this.renderPlaceItem(item) }}
             keyExtractor={(item, index) => index.toString()}
             ></FlatList>
@@ -50,17 +53,35 @@ class SearchLocation extends Component {
     )
   }
   renderPlaceItem = (place) => {
-    return(
-      <ListItem onPress={e=>this.onClickLocation(place)}>
-        <Body>
-          <Text>
-            {place.description}
-          </Text>
-        </Body>
-      </ListItem>
-    )
+    if(place.type) {
+      let icon = this.getAddressIcon(place.type);
+      return(
+        <ListItem icon onPress={e=>this.onClickAddress(place)}>
+          <Body>
+            <Text>
+              <Icon name={icon} type="Entypo"/>
+              {place.type.charAt(0).toUpperCase() + place.type.slice(1)}
+            </Text>
+          </Body>
+        </ListItem>
+      )
+    } else if(place.description) {
+      return(
+        <ListItem onPress={e=>this.onClickPlace(place)}>
+          <Body>
+            <Text>
+              {place.description}
+            </Text>
+          </Body>
+        </ListItem>
+      )
+    }
   }
-  onClickLocation = (place) => {
+  onClickAddress = (address) => {
+    Auth.setCurrentAddress(address);
+    this.props.navigation.navigate('Home');
+  }
+  onClickPlace = (place) => {
     places.getPlaceDetails(place.place_id, {
       fields: 'geometry'
     })
@@ -78,10 +99,18 @@ class SearchLocation extends Component {
       types: 'geocode'
     })
     .then(places => {
-      console.log(places);
       this.setState({places});
     })
     .catch(err => console.error(err))
+  }
+  getAddressIcon = (icon) => {
+    if(icon == "home") {
+      icon = "home";
+    } else if(icon == "work") {
+      icon = "briefcase";
+    } else {
+      icon = "location-pin"
+    }
   }
 }
 
