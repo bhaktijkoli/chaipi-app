@@ -7,8 +7,10 @@ import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import { If } from 'react-if';
 
+import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
 import Request from './../../utils/request';
+
 
 class SearchLocationAddressForm extends Component {
   state = {
@@ -72,6 +74,15 @@ class SearchLocationAddressForm extends Component {
     )
   }
   onClickAdd() {
+    let current_address = {
+      address: this.state.address,
+      landmark: this.state.landmark,
+      house: this.state.house,
+      type: this.state.address,
+      lat: this.state.lat,
+      lon: this.state.lon,
+    }
+    Auth.setCurrentAddress(current_address);
     this.props.navigation.navigate('Home');
   }
   onRegionChange(region) {

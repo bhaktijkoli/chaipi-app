@@ -65,7 +65,6 @@ class SearchLocation extends Component {
       fields: 'geometry'
     })
     .then(r => {
-      console.log(r.geometry.location);
       this.props.navigation.navigate('SearchLocationAddress', {location: r.geometry.location});
     })
     .catch(err => console.error(err))
@@ -79,6 +78,7 @@ class SearchLocation extends Component {
       types: 'geocode'
     })
     .then(places => {
+      console.log(places);
       this.setState({places});
     })
     .catch(err => console.error(err))
