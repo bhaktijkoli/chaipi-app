@@ -6,6 +6,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import Shimmer from 'react-native-shimmer-placeholder';
 
 import Style from './../../styles/style';
+import Request from './../../utils/request';
 
 import CartButton from './../../components/CartButton';
 
@@ -16,10 +17,11 @@ class CartItem extends Component {
   render() {
     let cart = this.props.cart;
     let product = cart.product
+    console.log("URL", product.image);
     return(
       <View style={{flexDirection: 'row'}}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
-          <Image source={{ uri: product.image }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
+          <Image source={{ uri: Request.url(product.image) }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
         </Shimmer>
         <Grid style={CustomStyle.descContainer}>
           <Row>

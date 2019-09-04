@@ -5,6 +5,7 @@ var initialState = {
   cart: [],
   order: null,
   addresses: [],
+  current_address: null,
   cards: [],
   favorites: [],
   phone: '',
@@ -36,6 +37,9 @@ export default function reducer(state=initialState, action) {
     }
     case "AUTH_SET_FAVORITES": {
       return {...state, favorites: action.payload}
+    }
+    case "AUTH_SET_CURRENT_ADDRESS": {
+      return {...state, current_address: action.payload}
     }
   }
 

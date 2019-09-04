@@ -25,7 +25,7 @@ class Home extends Component {
   render() {
     return(
       <Container>
-        <Header3/>
+        <Header3 auth={this.props.auth}/>
         <Content>
           <Text style={Style.homeLabel}>Offers</Text>
           <OfferItemList />

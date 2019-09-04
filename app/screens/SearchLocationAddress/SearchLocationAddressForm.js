@@ -24,9 +24,9 @@ class SearchLocationAddressForm extends Component {
   }
   componentDidMount() {
     let {lat, lng} = this.props.navigation.getParam('location');
-    this.setState({lat: lat, lon: lng}, ()=> {
+    setTimeout(function () {
       this.moveCamera(lat, lng);
-    })
+    }.bind(this), 300);
   }
   render() {
     let coordinate = {

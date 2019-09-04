@@ -19,13 +19,7 @@ import CartLogo from './../../assets/cart_empty.svg';
 
 class Cart extends Component {
   state = {
-    current_address: null,
     addressModalVisible: false,
-  }
-  componentDidMount() {
-    if(this.props.auth.addresses[0]) {
-      this.setState({current_address: this.props.auth.addresses[0]});
-    };
   }
   render() {
     let carts = this.props.auth.cart;
@@ -34,7 +28,7 @@ class Cart extends Component {
     carts.forEach(el => {
       total += el.product.price * el.count
     });
-    let {current_address} = this.state;
+    let current_address = this.props.auth.current_address;
     let current_address_formated = "";
     if(current_address) {
       current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.address}`;

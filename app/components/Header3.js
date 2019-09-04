@@ -8,13 +8,18 @@ import Style from './../styles/style';
 
 class Header3 extends Component {
   render() {
+    let location = "NOW";
+    if(this.props.auth.current_address) {
+      location = this.props.auth.current_address.type;
+    }
+    location = location.charAt(0).toUpperCase() + location.slice(1);
     return(
-        <Header transparent>
-          <Left>
-              <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-          </Left>
+      <Header transparent>
+        <Left>
+          <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+        </Left>
         <Body>
-          <Title onPress={e=>this.props.navigation.navigate('SearchLocation')}>HOME</Title>
+          <Title onPress={e=>this.props.navigation.navigate('SearchLocation')}>{location}</Title>
         </Body>
         <Right>
           {this.renderRight()}

@@ -23,6 +23,18 @@ module.exports.getAddress = () => {
   Request.get('/address/get')
   .then(res => {
     store.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
+    if(res.data.length>0) {
+      let address = res.data[0];
+      let current_address = {
+        address: address.address,
+        landmark: address.landmark,
+        house: address.house,
+        type: address.type,
+        lat: address.lat,
+        lon: address.lon,
+      };
+      store.dispatch({type: 'AUTH_SET_CURRENT_ADDRESS', payload: current_address});
+    }
   })
 }
 module.exports.getCards = () => {
