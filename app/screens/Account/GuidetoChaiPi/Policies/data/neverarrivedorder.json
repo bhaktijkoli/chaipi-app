@@ -1,0 +1,9 @@
+[
+    {
+        "title": "Why was I charged for my order that never arrived?",
+        "description": ["When the Delivery Partner arrives at the delivery address, they attempt to contact the customer. The ChaiPi app also notifies the customer of these attempted communications. The Delivery Partner also waits for a reasonable amount of time at the delivery address.",
+        "If the Delivery Partner is unable to deliver the order, the ChaiPi app provides a notification of the attempted delivery that wasn't completed successfully. All these contact attempts will appear in the ChaiPi app.",
+        "If a Delivery Partner isn't able to deliver your order in these circumstances, you are charged for the order."
+        ]
+    }
+]

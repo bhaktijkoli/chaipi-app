@@ -44,6 +44,7 @@ import AccountPaymentOptions from './app/screens/Account/AccountPaymentOptions/A
 import GuidetoChaiPi from './app/screens/Account/GuidetoChaiPi/GuidetoChaiPi';
 import Sidebar from './app/screens/Account/Sidebar';
 import Basics from './app/screens/Account/GuidetoChaiPi/Basics/Basics';
+import Policies from './app/screens/Account/GuidetoChaiPi/Policies/Policies';
 import fcm from './app/utils/fcm'
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -122,6 +123,7 @@ const AppNavigator = createStackNavigator(
     AccountPaymentOptions: { screen: AccountPaymentOptions},
     GuidetoChaiPi: { screen: GuidetoChaiPi },
     Basics: { screen: Basics},
+    Policies: { screen: Policies },
   },
   {
     transitionConfig: () => fadeIn(),

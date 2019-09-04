@@ -16,7 +16,7 @@ class BasicsForm extends Component {
         return (
             <Container>
                 <Content>
-                    <Text style = {{fontSize: 20}}>Guide to ChaiPi</Text>
+                    <Text style = {{fontSize: 20}}>Basics</Text>
                     <List>
                         <ListItem>
                         </ListItem>

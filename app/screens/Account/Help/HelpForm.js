@@ -49,7 +49,7 @@ class HelpForm extends Component {
 
 const helpitems= [
     {name : 'Help with an order', route: 'Home' , type: 'AntDesign'},
-    {name : 'Account and Payment Options', route: 'AccountPaymentOptions', type: 'AntDesign'},
+    //{name : 'Account and Payment Options', route: 'AccountPaymentOptions', type: 'AntDesign'},
     {name : 'Guide to ChaiPi', route: 'GuidetoChaiPi', type: 'AntDesign'},
 ];
 

@@ -1,0 +1,23 @@
+[
+    {
+        "title": "What is the Chaipi cancellation policy?",
+        "options":[
+            {
+                "title": "",
+                "description": "Our Cancellation policy depends on your oreder status:"
+            },
+            {
+                "title": "CANCELLING BEFORE SHOP ACCEPTS ORDER:",
+                "description": "-If you cancel before the shop accepts the order, you'll receive a full refund"
+            },
+            {
+                "title": "CANCELLING AFTER SHOP ACCEPTS ORDER:",
+                "description": "-If you cancel after the shop accepts the order, you'll receive a partial refund"
+            },
+            {
+                "title": "CANCELLING BEFORE DELIVERY PARTNER PICKS UP ORDER:",
+                "description": "-If you cancel before the delivery partner picks up the order, you'll receive a partial refund"
+            }
+        ]
+    }
+]

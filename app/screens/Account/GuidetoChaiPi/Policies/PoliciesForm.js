@@ -3,20 +3,20 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
-import Header2 from './../../../components/Header2';
+import Header2 from '../../../../components/Header2';
 import { StyleSheet } from 'react-native';
-import Style from './../../../styles/style';
-import Request from './../../../utils/request';
+import Style from '../../../../styles/style';
+import Request from '../../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
-import style from './../../../styles/style';
+import style from '../../../../styles/style';
 
  
-class GuidetoChaiPiForm extends Component {
+class PoliciesForm extends Component {
     render() {
         return (
             <Container>
                 <Content>
-                    <Text style = {{fontSize: 20}}>Guide to ChaiPi</Text>
+                    <Text style = {{fontSize: 20}}>Policies</Text>
                     <List>
                         <ListItem>
                         </ListItem>
@@ -49,9 +49,10 @@ class GuidetoChaiPiForm extends Component {
 }
 
 const guideitems= [
-    {name : 'Basics', route: 'Basics' , type: 'AntDesign'},
-    {name : 'Policies', route: 'Policies', type: 'AntDesign'},
+    {name : 'What is the Chaipi cancellation policy?', route: 'Home', type: 'AntDesign'},
+    {name : 'Can I order multiple tea, or from multiple shops, in the same order?', route: 'Home', type: 'AntDesign'},
+    {name : 'Why was I charged for my order that never arrived?', route: 'Home', type: 'AntDesign'},
 ];
 
 
-export default GuidetoChaiPiForm;
+export default PoliciesForm;
