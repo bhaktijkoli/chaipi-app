@@ -19,7 +19,7 @@ const places = new GPlaces({
 
 class SearchLocation extends Component {
   state = {
-    search: 'chendani',
+    search: '',
     places: [],
   }
   render() {

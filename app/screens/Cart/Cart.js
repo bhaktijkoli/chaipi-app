@@ -29,6 +29,7 @@ class Cart extends Component {
       total += el.product.price * el.count
     });
     let current_address = this.props.auth.current_address;
+    console.log("Current Address", current_address);
     let current_address_formated = "";
     if(current_address) {
       current_address_formated = `${current_address.house}, ${current_address.landmark}, ${current_address.address}`;
