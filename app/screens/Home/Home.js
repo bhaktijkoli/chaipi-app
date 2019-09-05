@@ -27,11 +27,11 @@ class Home extends Component {
       <Container>
         <Header3 auth={this.props.auth}/>
         <Content>
-          <Text style={Style.homeLabel}>Offers</Text>
+          <Text style={Style.homeheading}>Offers</Text>
           <OfferItemList />
-          <Text style={Style.homeLabel}>Subscriptions</Text>
+          <Text style={Style.homeheading}>Subscriptions</Text>
           <SubscriptionList navigation={this.props.navigation}/>
-          <Text style={Style.homeLabel}>Shops</Text>
+          <Text style={Style.homeheading}>Shops</Text>
           <ShopList navigation={this.props.navigation}/>
         </Content>
         <Footer tab='home' navigation={this.props.navigation} auth={this.props.auth}/>
