@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Text, Left, Icon, Right} from 'native-base';
+import { Container, Content, View, Title, Text, Left, Icon, Right, Card} from 'native-base';
 import firebase from 'react-native-firebase';
 
 import OfferItemList from './OfferItemList';
