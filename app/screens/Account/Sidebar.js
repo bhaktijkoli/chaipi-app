@@ -24,7 +24,7 @@ class Sidebar extends Component {
       <Container>
         <Content>
           <ScrollView>
-            <View style={{marginTop:50, marginBottom: 10}}>
+            <View style={{marginTop:50, marginBottom: 10,}}>
               <View style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginBottom: 20}}>
                 <Image source={{uri: Request.url(image)}} style={Style.avatar}/>
               </View>

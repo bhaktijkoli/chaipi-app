@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Text, Left, Icon, Right} from 'native-base';
+import { Container, Content, View, Title, Text, Left, Icon, Right, Card} from 'native-base';
 import firebase from 'react-native-firebase';
 
 import OfferItemList from './OfferItemList';
@@ -27,12 +27,17 @@ class Home extends Component {
       <Container>
         <Header3 auth={this.props.auth}/>
         <Content>
-          <Text style={Style.homeLabel}>Offers</Text>
+          <Text style={Style.homeheading}>Offers</Text>
           <OfferItemList />
-          <Text style={Style.homeLabel}>Subscriptions</Text>
+          <Text style={Style.homeheading}>Subscriptions</Text>
           <SubscriptionList navigation={this.props.navigation}/>
+<<<<<<< HEAD
           <Text style={Style.homeLabel}>Shops</Text>
           <ShopList navigation={this.props.navigation} auth={this.props.auth}/>
+=======
+          <Text style={Style.homeheading}>Shops</Text>
+          <ShopList navigation={this.props.navigation}/>
+>>>>>>> 1635fb1c06ed2aca4a9d59f0d60f43fa4dee1c9a
         </Content>
         <Footer tab='home' navigation={this.props.navigation} auth={this.props.auth}/>
       </Container>

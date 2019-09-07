@@ -22,6 +22,13 @@ export default StyleSheet.create({
     fontWeight: "500",
     marginBottom: 10,
   },
+  homeheading: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginLeft: 10,
+    marginTop: 5,
+    marginBottom: 5,
+  },
   label: {
     marginLeft: 10,
   },
