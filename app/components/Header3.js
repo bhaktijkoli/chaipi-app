@@ -16,10 +16,10 @@ class Header3 extends Component {
     return(
       <Header transparent style = {{backgroundColor: '#ffa500'}}>
         <Left>
-          <Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>
+          <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} style={{color:'#FFF'}}/>
         </Left>
         <Body>
-          <Title onPress={e=>this.props.navigation.navigate('SearchLocation')}>{location}</Title>
+          <Title style={{color:'#FFF'}} onPress={e=>this.props.navigation.navigate('SearchLocation')}>{location}</Title>
         </Body>
         <Right>
           {this.renderRight()}
