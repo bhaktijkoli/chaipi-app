@@ -1,5 +1,6 @@
 import Request from './../utils/request';
 import store from './../store';
+import {AsyncStorage} from 'react-native';
 
 module.exports.setUser = (data) => {
   store.dispatch({type: 'AUTH_SET_USER', payload: data})
@@ -23,7 +24,8 @@ module.exports.getAddress = () => {
   Request.get('/address/get')
   .then(res => {
     store.dispatch({type: 'AUTH_SET_ADDRESS', payload: res.data});
-    if(res.data.length>0) {
+    let state = store.getState();
+    if(!state.auth.current_address && res.data.length>0) {
       let address = res.data[0];
       let current_address = {
         address: address.address,
@@ -35,13 +37,26 @@ module.exports.getAddress = () => {
       };
       store.dispatch({type: 'AUTH_SET_CURRENT_ADDRESS', payload: current_address});
       module.exports.getShops();
-    }
+  }
   })
 }
-module.exports.setCurrentAddress = (current_address) => {
+
+module.exports.setCurrentAddress = async (current_address) => {
   store.dispatch({type: 'AUTH_SET_CURRENT_ADDRESS', payload: current_address});
+  await AsyncStorage.setItem('CURRENT_ADDRESS', JSON.stringify(current_address));
   module.exports.getShops();
 }
+
+module.exports.loadCurrentAddress = async () => {
+  const value = await AsyncStorage.getItem('CURRENT_ADDRESS');
+  try {
+    var current_address = JSON.parse(value);
+    module.exports.setCurrentAddress(current_address);
+  } catch (e) {
+
+  }
+}
+
 module.exports.getCards = () => {
   Request.get('/card/get')
   .then(res => {

@@ -38,6 +38,7 @@ class Login extends Component {
           AuthActions.getOrder();
           Fcm.syncToken();
           Fcm.checkNotification(() => {
+            AuthActions.loadCurrentAddress();
             this.props.navigation.dispatch(NavigationActions.homeAction);
           })
         })
