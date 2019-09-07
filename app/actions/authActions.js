@@ -40,6 +40,7 @@ module.exports.getAddress = () => {
 }
 module.exports.setCurrentAddress = (current_address) => {
   store.dispatch({type: 'AUTH_SET_CURRENT_ADDRESS', payload: current_address});
+  module.exports.getShops();
 }
 module.exports.getCards = () => {
   Request.get('/card/get')
