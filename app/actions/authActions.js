@@ -34,6 +34,7 @@ module.exports.getAddress = () => {
         lon: address.lon,
       };
       store.dispatch({type: 'AUTH_SET_CURRENT_ADDRESS', payload: current_address});
+      module.exports.getShops();
     }
   })
 }
@@ -58,6 +59,22 @@ module.exports.getFavorites = () => {
   .then(res => {
     store.dispatch({type: 'AUTH_SET_FAVORITES', payload: res.data})
   })
+}
+
+module.exports.getShops = () => {
+  let state = store.getState();
+  let query = "";
+  if(state.auth.current_address) {
+    let {lat, lon} = state.auth.current_address;
+    query = `?lat=${lat}&lon=${lon}`;
+    store.dispatch({type: 'AUTH_SET_SHOPS_LOADING'})
+    Request.get('/shop/get'+query)
+    .then(res => {
+      store.dispatch({type: 'AUTH_SET_SHOPS', payload: res.data})
+    })
+    .catch(err => console.error(err))
+  }
+
 }
 
 module.exports.getStatusTitle = (order) => {

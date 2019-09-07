@@ -32,7 +32,7 @@ class Home extends Component {
           <Text style={Style.homeLabel}>Subscriptions</Text>
           <SubscriptionList navigation={this.props.navigation}/>
           <Text style={Style.homeLabel}>Shops</Text>
-          <ShopList navigation={this.props.navigation}/>
+          <ShopList navigation={this.props.navigation} auth={this.props.auth}/>
         </Content>
         <Footer tab='home' navigation={this.props.navigation} auth={this.props.auth}/>
       </Container>

@@ -1,6 +1,7 @@
 var initialState = {
   user: null,
-  shop: null,
+  shops: [],
+  shops_loading: true,
   uid: null,
   cart: [],
   order: null,
@@ -40,6 +41,12 @@ export default function reducer(state=initialState, action) {
     }
     case "AUTH_SET_CURRENT_ADDRESS": {
       return {...state, current_address: action.payload}
+    }
+    case "AUTH_SET_SHOPS": {
+      return {...state, shops: action.payload, shops_loading: false}
+    }
+    case "AUTH_SET_SHOPS_LOADING": {
+      return {...state, shops_loading: true}
     }
   }
 
