@@ -106,5 +106,16 @@ export default StyleSheet.create({
     flexDirection: 'row',
     borderColor: '#f39c12',
     borderRadius: 256,
-  }
+  },
+  text1: {
+    marginTop: 20,
+    alignItems: 'center',
+    color: '#6495ed',
+    fontSize:30,
+  },
+  text2: {
+    marginTop: 20,
+    alignItems: 'center',
+    color: '#575757',
+  },
 });

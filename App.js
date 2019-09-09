@@ -47,6 +47,10 @@ import Basics from './app/screens/Account/GuidetoChaiPi/Basics/Basics';
 import Policies from './app/screens/Account/GuidetoChaiPi/Policies/Policies';
 import fcm from './app/utils/fcm'
 import { ScrollView } from 'react-native-gesture-handler';
+import Permissions from './app/screens/Permissions/Permissions';
+import LocationPermissions from './app/screens/Permissions/LocationPermissions';
+import NotificationPermissions from './app/screens/Permissions/NotificationPermissions';
+
 
 class App extends Component {
   async componentDidMount() {
@@ -127,6 +131,9 @@ const AppNavigator = createStackNavigator(
     GuidetoChaiPi: { screen: GuidetoChaiPi },
     Basics: { screen: Basics},
     Policies: { screen: Policies },
+    Permissions: { screen: Permissions},
+    LocationPermissions: { screen: LocationPermissions },
+    NotificationPermissions: { screen: NotificationPermissions },
   },
   {
     transitionConfig: () => fadeIn(),
