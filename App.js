@@ -50,6 +50,16 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Permissions from './app/screens/Permissions/Permissions';
 import LocationPermissions from './app/screens/Permissions/LocationPermissions';
 import NotificationPermissions from './app/screens/Permissions/NotificationPermissions';
+import Whatischaipi from './app/screens/Account/GuidetoChaiPi/Basics/Whatischaipi';
+import Howchaipiwork from './app/screens/Account/GuidetoChaiPi/Basics/Howchaipiwork';
+import Chaipiavailable from './app/screens/Account/GuidetoChaiPi/Basics/Chaipiavailable';
+import Howplaceorder from './app/screens/Account/GuidetoChaiPi/Basics/Howplaceorder';
+import Leavetip from './app/screens/Account/GuidetoChaiPi/Basics/Leavetip';
+import Deliverytime from './app/screens/Account/GuidetoChaiPi/Basics/Deliverytime';
+import Deliverypartner from './app/screens/Account/GuidetoChaiPi/Basics/Deliverypartner';
+import Cancelpolicy from './app/screens/Account/GuidetoChaiPi/Policies/Cancelpolicy';
+import Multipleorder from './app/screens/Account/GuidetoChaiPi/Policies/Multipleorder';
+import Neverarrivedorder from './app/screens/Account/GuidetoChaiPi/Policies/Neverarrivedorder';
 
 
 class App extends Component {
@@ -134,6 +144,16 @@ const AppNavigator = createStackNavigator(
     Permissions: { screen: Permissions},
     LocationPermissions: { screen: LocationPermissions },
     NotificationPermissions: { screen: NotificationPermissions },
+    Whatischaipi: { screen: Whatischaipi },
+    Howchaipiwork: { screen: Howchaipiwork },
+    Chaipiavailable: { screen: Chaipiavailable },
+    Howplaceorder: { screen: Howplaceorder },
+    Leavetip: { screen: Leavetip },
+    Deliverytime: {screen: Deliverytime },
+    Deliverypartner: { screen: Deliverypartner },
+    Cancelpolicy: { screen: Cancelpolicy },
+    Multipleorder: { screen: Multipleorder },
+    Neverarrivedorder: { screen: Neverarrivedorder },
   },
   {
     transitionConfig: () => fadeIn(),

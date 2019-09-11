@@ -10,12 +10,25 @@ import Style from '../../../styles/style';
 import Request from '../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
 import style from '../../../styles/style';
+import Policy from '../../../data/Policy';
 
  
 class PrivacyPolicyForm extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      Policy: require('../../../data/Policy.json'),
+    }
+  }
+
+
     render() {
         return (
-            <Container>
+          <View>
+            {this.policy()}
+          </View>
+           /* <Container>
         <Content>
           <ScrollView>
               <Text style = {{fontSize: 20}}>Intoduction</Text>
@@ -51,35 +64,23 @@ class PrivacyPolicyForm extends Component {
                 paddingTop: 10,
               }}
               ></View>
-              </ScrollView>
+            </ScrollView>
         </Content>
-      </Container>
+      </Container>*/
         )
      }
 
+     policy(){
+      return Policy.map(function(options, i){
+        return(
+          <View key = {i}>
+            <Text>{options.title}</Text>
+            <Text >{options.option}</Text>
+          </View>
+        );
+      });
+    }
 }
-
-const CustomStyle = StyleSheet.create({
-
-  fp: {
-    fontSize: 20,
-    paddingTop: 10.
-  },
-
-  pad: {
-    paddingTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-  },
-
-  hyperlink: {
-    marginLeft:10,
-    marginRight: 10,
-    color: 'blue',
-  },
-
-})
-
 
 
 export default PrivacyPolicyForm;

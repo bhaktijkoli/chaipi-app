@@ -3,28 +3,27 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
-import Header2 from '../../../components/Header2';
-import { StyleSheet } from 'react-native';
-import Style from '../../../styles/style';
-import pricing from '../../../data/pricing';
- 
-class PricingForm extends Component {
+import Style from '../../../../styles/style';
 
+import WhenandwhereisChaiPiavailable from '../../../../data/databasic/WhenandwhereisChaiPiavailable';
+
+class ChaipiavailableForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pricing: require('../../../data/pricing.json'),
+      WhenandwhereisChaiPiavailable: require('../../../../data/databasic/WhenandwhereisChaiPiavailable.json'),
     }
   }
     render() {
-          return (
-            <View>
-              {this.price()}
-            </View>
-        )
-     }
-     price(){
-      return pricing.map(function(options, i){
+        return (
+          <View>
+          {this.available()}
+        </View>
+    )
+        }
+
+     available(){
+      return WhenandwhereisChaiPiavailable.map(function(options, i){
         return(
           <View key = {i}>
             <Text style = {Style.heading}>{options.title}</Text>
@@ -35,4 +34,4 @@ class PricingForm extends Component {
     }
 }
 
-export default PricingForm;
+export default ChaipiavailableForm;

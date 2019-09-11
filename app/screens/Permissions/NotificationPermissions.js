@@ -43,29 +43,6 @@ class NotificationPermissions extends Component {
 
   onClickNext() {
     this.setState({process: true});
-    let data = new FormData();
-    data.append('uid', this.props.auth.uid)
-    data.append('fullname', this.state.fullname)
-    data.append('email', this.state.email)
-    data.append('image', this.state.image)
-    Request.post('/user/add', data)
-    .then(res => {
-      if(res.data.success) {
-        Request.get('/user/get/'+this.props.auth.uid)
-        .then(res => {
-          AuthActions.setUser(res.data);
-          NavigationActions.resetNavigation(this, 'Login');
-        })
-      } else {
-        let messages = res.data.messages;
-        Object.keys(messages).forEach(el => {
-          var key = el+'_error';
-          this.setState({[key]: messages[el]})
-        });
-        this.setState({process: false});
-      }
-    })
-    .catch(err => console.error(err))
   }
 }
 

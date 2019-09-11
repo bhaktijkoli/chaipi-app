@@ -3,28 +3,27 @@ import { TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
-import Header2 from '../../../components/Header2';
-import { StyleSheet } from 'react-native';
-import Style from '../../../styles/style';
-import pricing from '../../../data/pricing';
- 
-class PricingForm extends Component {
+import Style from '../../../../styles/style';
 
+import howchaipiwork from '../../../../data/databasic/howchaipiwork';
+
+class HowchaipiworkForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pricing: require('../../../data/pricing.json'),
+      howchaipiwork: require('../../../../data/databasic/howchaipiwork.json'),
     }
   }
     render() {
-          return (
-            <View>
-              {this.price()}
-            </View>
-        )
-     }
-     price(){
-      return pricing.map(function(options, i){
+        return (
+          <View>
+          {this.work()}
+        </View>
+    )
+        }
+
+     work(){
+      return howchaipiwork.map(function(options, i){
         return(
           <View key = {i}>
             <Text style = {Style.heading}>{options.title}</Text>
@@ -35,4 +34,4 @@ class PricingForm extends Component {
     }
 }
 
-export default PricingForm;
+export default HowchaipiworkForm;

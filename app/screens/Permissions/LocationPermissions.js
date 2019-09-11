@@ -41,10 +41,6 @@ class LocationPermissions extends Component {
   static navigationOptions = {
     header: null,
   }
-
-  async componentDidMount(){
-      await request_location_runtime_permission()
-  }
   render() {
     return(
         <Container>
@@ -68,6 +64,7 @@ class LocationPermissions extends Component {
   }
 
   onClickNext () {
+    request_location_runtime_permission()
     this.props.navigation.navigate("NotificationPermissions");
   }
 }

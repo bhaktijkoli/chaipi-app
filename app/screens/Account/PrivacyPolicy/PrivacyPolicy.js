@@ -36,3 +36,15 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(PrivacyPolicy);
+/*policy(){
+  return Policy.map(function(options, title, i){
+    return(
+      <View key = {i}>
+        <Text>{title.title}</Text>
+        <View>
+          <Text>{options.options}</Text>
+        </View>
+      </View>
+    );
+  });
+}*/

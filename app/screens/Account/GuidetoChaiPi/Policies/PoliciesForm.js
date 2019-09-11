@@ -49,9 +49,9 @@ class PoliciesForm extends Component {
 }
 
 const guideitems= [
-    {name : 'What is the Chaipi cancellation policy?', route: 'Home', type: 'AntDesign'},
-    {name : 'Can I order multiple tea, or from multiple shops, in the same order?', route: 'Home', type: 'AntDesign'},
-    {name : 'Why was I charged for my order that never arrived?', route: 'Home', type: 'AntDesign'},
+    {name : 'What is the Chaipi cancellation policy?', route: 'Cancelpolicy', type: 'AntDesign'},
+    {name : 'Can I order multiple tea, or from multiple shops, in the same order?', route: 'Multipleorder', type: 'AntDesign'},
+    {name : 'Why was I charged for my order that never arrived?', route: 'Neverarrivedorder', type: 'AntDesign'},
 ];
 
 
