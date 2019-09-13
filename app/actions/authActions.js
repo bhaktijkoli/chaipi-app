@@ -57,6 +57,18 @@ module.exports.loadCurrentAddress = async () => {
   }
 }
 
+module.exports.hasAskedForPermissions = async () => {
+  const value = await AsyncStorage.getItem('ASKED_FOR_PERMISSIONS');
+  if(value == null) {
+    return false;
+  }
+  return true;
+}
+module.exports.setAskForPermissions = async () => {
+  await AsyncStorage.setItem('ASKED_FOR_PERMISSIONS', 'yes');
+  return true;
+}
+
 module.exports.getCards = () => {
   Request.get('/card/get')
   .then(res => {

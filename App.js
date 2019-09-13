@@ -48,8 +48,6 @@ import Policies from './app/screens/Account/GuidetoChaiPi/Policies/Policies';
 import fcm from './app/utils/fcm'
 import { ScrollView } from 'react-native-gesture-handler';
 import Permissions from './app/screens/Permissions/Permissions';
-import LocationPermissions from './app/screens/Permissions/LocationPermissions';
-import NotificationPermissions from './app/screens/Permissions/NotificationPermissions';
 import Whatischaipi from './app/screens/Account/GuidetoChaiPi/Basics/Whatischaipi';
 import Howchaipiwork from './app/screens/Account/GuidetoChaiPi/Basics/Howchaipiwork';
 import Chaipiavailable from './app/screens/Account/GuidetoChaiPi/Basics/Chaipiavailable';
@@ -142,8 +140,6 @@ const AppNavigator = createStackNavigator(
     Basics: { screen: Basics},
     Policies: { screen: Policies },
     Permissions: { screen: Permissions},
-    LocationPermissions: { screen: LocationPermissions },
-    NotificationPermissions: { screen: NotificationPermissions },
     Whatischaipi: { screen: Whatischaipi },
     Howchaipiwork: { screen: Howchaipiwork },
     Chaipiavailable: { screen: Chaipiavailable },
