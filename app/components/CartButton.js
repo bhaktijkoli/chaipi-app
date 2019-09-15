@@ -17,7 +17,7 @@ class CartButton extends Component {
     this.setState({count: this.props.cart.count})
   }
   render() {
-    let count = this.state.count;
+    let count = this.props.cart.count;
     return(
       <Row>
         <SpinnerModel visible={this.state.process}/>
@@ -38,11 +38,10 @@ class CartButton extends Component {
       cart: this.props.cart.id,
       count: count,
     }
-    this.setState({count})
     Request.post('/cart/count', data)
     .then(res => {
-      this.setState({process: false});
       this.props.update();
+      this.setState({process: false});
     })
   }
 }
