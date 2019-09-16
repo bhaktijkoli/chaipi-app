@@ -26,6 +26,7 @@ import Cards from './app/screens/Account/Cards/Cards';
 import Subscription from './app/screens/Subscription/Subscription';
 import Address from './app/screens/Account/Address/Address';
 import AddAddress from './app/screens/Account/AddAddress/AddAddress';
+import EditAddress from './app/screens/Account/EditAddress/EditAddress';
 import AddCard from './app/screens/Account/AddCard/AddCard';
 import Favorites from './app/screens/Account/Favorites/Favorites';
 import OrderHistory from './app/screens/Account/OrderHistory/OrderHistory';
@@ -120,6 +121,7 @@ const AppNavigator = createStackNavigator(
     Subscription: { screen: Subscription },
     Address: { screen: Address },
     AddAddress: { screen: AddAddress },
+    EditAddress: { screen: EditAddress },
     AddCard: { screen: AddCard },
     Favorites: { screen: Favorites },
     OrderHistory: { screen: OrderHistory },
