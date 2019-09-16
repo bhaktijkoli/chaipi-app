@@ -54,8 +54,10 @@ class Shop extends Component {
     })
     let icon = active?'heart':'hearto';
     return(
-      <Button transparent onPress={this.onFavoriteToggle}>
-        <Icon name={icon} type="AntDesign" style={{color:'red'}}/>
+      <Button transparent>
+        <Icon name="shoppingcart" type="AntDesign" style={{color:'black', padding: 10}} onPress={e=>this.onClick('Cart')}/>
+        <Icon name={icon} type="AntDesign" style={{color:'red'}} onPress= {this.onFavoriteToggle}>
+        </Icon>
       </Button>
     )
   }
@@ -64,6 +66,9 @@ class Shop extends Component {
     Request.post('/favorite/toggle', {shop: shop.id}).then(res => {
       Auth.getFavorites();
     })
+  }
+  onClick(menu) {
+    this.props.navigation.navigate(menu);
   }
 }
 

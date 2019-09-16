@@ -31,7 +31,7 @@ class Home extends Component {
           <OfferItemList />
           <Text style={Style.homeheading}>Subscriptions</Text>
           <SubscriptionList navigation={this.props.navigation}/>
-          <Text style={Style.homeLabel}>Shops</Text>
+          <Text style={Style.homeheading}>Shops</Text>
           <ShopList navigation={this.props.navigation} auth={this.props.auth}/>
         </Content>
         <Footer tab='home' navigation={this.props.navigation} auth={this.props.auth}/>

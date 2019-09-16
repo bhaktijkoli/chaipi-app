@@ -37,6 +37,14 @@ class SelectPayment extends Component {
             <Separator bordered>
               <Text>CREDIT/DEBIT CARDS</Text>
             </Separator>
+            <ListItem>
+              <Left>
+                <Icon name="credit-card" type='FontAwesome' style={{width:30, color: '#a9a9a9'}}/>
+              </Left>
+              <Body>
+                <Text>Credit or Debit Card</Text>
+              </Body>
+            </ListItem>
           </List>
         </Content>
         <SpinnerModel visible={this.state.process}/>

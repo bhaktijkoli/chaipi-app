@@ -75,7 +75,7 @@ class PrivacyPolicyForm extends Component {
         return(
           <View key = {i}>
             <Text>{options.title}</Text>
-            <Text >{options.option}</Text>
+            <Text >{options.description}</Text>
           </View>
         );
       });

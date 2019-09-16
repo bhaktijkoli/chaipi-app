@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, View, Title, Button, Text, H1} from 'native-base';
+import { Container, Content, View, Title, Button, Text, H1, Toast} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Alert, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { If } from 'react-if';
@@ -59,6 +59,7 @@ class ShopItem extends Component {
         )
         return;
       }
+      Toast.show({text:"Added to cart", buttonText:'Ok'});
     }
     this.sendRequest(product);
   }
