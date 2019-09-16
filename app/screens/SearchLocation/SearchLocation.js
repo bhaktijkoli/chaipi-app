@@ -11,8 +11,6 @@ import NavigationActions from './../../actions/navigationActions';
 import Request from './../../utils/request';
 import Style from './../../styles/style';
 
-// key: 'AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU'
-
 class SearchLocation extends Component {
   render() {
     let addresses = this.props.auth.addresses;
@@ -20,7 +18,6 @@ class SearchLocation extends Component {
     addresses.forEach(a => {
       predefinedPlaces.push({description: a.type, name: a.type, geometry: { location: { lat: a.lat, lng: a.lon } }})
     })
-    // const homePlace = { description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
     return(
       <Container>
         <Header title="Set your location" />
