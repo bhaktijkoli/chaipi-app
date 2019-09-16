@@ -2,115 +2,80 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FlatList } from 'react-native';
 import { Container, Content, View, Text, Icon } from 'native-base';
-import { ListItem, Left, Body } from 'native-base';
-import { Form, Item, Input } from 'native-base';
-import GPlaces from 'react-native-gplaces';
-import { If } from 'react-if';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import Header from './../../components/Header2'
 
 import Auth from './../../actions/authActions';
+import NavigationActions from './../../actions/navigationActions';
 import Request from './../../utils/request';
 import Style from './../../styles/style';
 
-const places = new GPlaces({
-  key: 'AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU'
-});
+// key: 'AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU'
 
 class SearchLocation extends Component {
-  state = {
-    search: '',
-    places: [],
-  }
   render() {
     let addresses = this.props.auth.addresses;
-    let icon = this.state.search.length?'close':'search1'
-    let items = [];
-    items = items.concat(addresses);
-    items = items.concat(this.state.places);
+    let predefinedPlaces = [];
+    addresses.forEach(a => {
+      predefinedPlaces.push({description: a.type, name: a.type, geometry: { location: { lat: a.lat, lng: a.lon } }})
+    })
+    // const homePlace = { description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
     return(
       <Container>
-        <Header title={`Set your Location`}/>
-        <Form>
-          <Item regular style={Style.inputSearch}>
-            <Input
-              returnKeyType={"search"}
-              placeholder="Search for area, street name..."
-              value={this.state.search}
-              onSubmitEditing={this.getPlaces}
-              onChangeText={search=>this.onChangeSearch(search)}/>
-            <Icon name={icon} type="AntDesign" onPress={e=>this.setState({search:''})}/>
-          </Item>
-        </Form>
-        <Content>
-          <FlatList
-            data={items}
-            renderItem={({item, index}) => { return this.renderPlaceItem(item) }}
-            keyExtractor={(item, index) => index.toString()}
-            ></FlatList>
-        </Content>
+        <Header title="Set your location" />
+        <GooglePlacesAutocomplete
+          placeholder='Enter Location'
+          minLength={2}
+          returnKeyType={'default'}
+          fetchDetails={true}
+          query={{
+            key: 'AIzaSyB725g4AZKR2idp-yY5opgxFrV_wR2z2MU',
+            language: 'en', // language of the results
+          }}
+          predefinedPlaces={predefinedPlaces}
+          autoFocus={true}
+          currentLocation={true}
+          onPress={this.onLocationSelected}
+          styles={{
+            textInputContainer: {
+              backgroundColor: 'rgba(0,0,0,0)',
+              borderTopWidth: 0,
+              borderBottomWidth: 0
+            },
+            textInput: {
+              marginLeft: 0,
+              marginRight: 0,
+              height: 38,
+              color: '#5d5d5d',
+              fontSize: 16
+            },
+            predefinedPlacesDescription: {
+              color: '#1faadb'
+            },
+          }}
+          />
       </Container>
     )
   }
-  renderPlaceItem = (place) => {
-    if(place.type) {
-      let icon = this.getAddressIcon(place.type);
-      return(
-        <ListItem icon onPress={e=>this.onClickAddress(place)}>
-          <Body>
-            <Text>
-              <Icon name={icon} type="Entypo"/>
-              {place.type.charAt(0).toUpperCase() + place.type.slice(1)}
-            </Text>
-          </Body>
-        </ListItem>
-      )
-    } else if(place.description) {
-      return(
-        <ListItem onPress={e=>this.onClickPlace(place)}>
-          <Body>
-            <Text>
-              {place.description}
-            </Text>
-          </Body>
-        </ListItem>
-      )
-    }
-  }
-  onClickAddress = (address) => {
-    Auth.setCurrentAddress(address);
-    this.props.navigation.navigate('Home');
-  }
-  onClickPlace = (place) => {
-    places.getPlaceDetails(place.place_id, {
-      fields: 'geometry'
-    })
-    .then(r => {
-      this.props.navigation.navigate('SearchLocationAddress', {location: r.geometry.location});
-    })
-    .catch(err => console.error(err))
-  }
-  onChangeSearch = (search) => {
-    this.setState({search});
-  }
-  getPlaces = () => {
-    places.search(this.state.search, {
-      components: 'country:in',
-      types: 'geocode'
-    })
-    .then(places => {
-      this.setState({places});
-    })
-    .catch(err => console.error(err))
-  }
-  getAddressIcon = (icon) => {
-    if(icon == "home") {
-      icon = "home";
-    } else if(icon == "work") {
-      icon = "briefcase";
+  onLocationSelected = (data, details) => {
+    console.log("Data", data);
+    console.log("details", details);
+    let type = "";
+    if(data.structured_formatting) {
+      type = data.structured_formatting.main_text;
     } else {
-      icon = "location-pin"
+      type = data.name;
     }
+    console.log("type", type);
+    let lat = details.geometry.location.lat;
+    let lon = details.geometry.location.lng;
+    console.log(lat, lon);
+    let currentLocation = {
+      type, lat, lon
+    };
+    Auth.setCurrentAddress(currentLocation);
+    NavigationActions.resetNavigation(this, "Home");
   }
 }
 
