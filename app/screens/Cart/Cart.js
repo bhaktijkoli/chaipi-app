@@ -139,11 +139,14 @@ class Cart extends Component {
   renderEmptyCart() {
     return(
       <Container>
+        <Content>
         <Header title={`Your Cart`}/>
         <View style={{alignItems:'center'}}>
           <Image source={require('./../../assets/empty_cart.png')} style={{width:264, height:264, marginLeft:-15,marginBottom:20}}/>
           <Text style={Style.lightColor}>Your cart is empty.</Text>
         </View>
+        </Content>
+        <Footer tab='cart' navigation={this.props.navigation} auth={this.props.auth}/>
       </Container>
     )
   }
