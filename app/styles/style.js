@@ -118,4 +118,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     color: '#575757',
   },
+  badgeContainer: {
+    position: "absolute"
+  },
 });

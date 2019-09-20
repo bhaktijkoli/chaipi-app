@@ -18,7 +18,7 @@ class OfferItem extends Component {
     let uri = offer.image;
     console.log(uri);
     return(
-      //<TouchableOpacity style={{flexDirection: 'row'}} onPress={e=>this.onClick('Offer')}>
+      //<TouchableOpacity style={{flexDirection: 'row'}} onPress={e=>this.onClick()}>
       <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
         <Image source={{ uri }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
       </Shimmer>
@@ -26,7 +26,7 @@ class OfferItem extends Component {
     )
   }
   onClick() {
-    this.props.navigation.navigate();
+    this.props.navigation.navigate('Offer');
   }
 }
 

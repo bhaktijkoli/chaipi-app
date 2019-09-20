@@ -18,7 +18,10 @@ class Account extends Component {
     return(
       <Container>
         <Content>
-          <Header transparent noLeft>
+          <Header transparent>
+          {/*<Left>
+          <Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>
+          </Left>*/}
             <Body>
               <Text style={{marginLeft:15,color:'#000'}}>{user.fullname.toUpperCase()}</Text>
               <Text style={{marginLeft:15,color:'#000'}}>{phone}</Text>
