@@ -6,12 +6,22 @@ import Shimmer from 'react-native-shimmer-placeholder';
 
 import Request from './../../utils/request';
 
+const moment = require('moment');
+
 class ShopItem extends Component {
   state = {
     loaded: false,
   }
   render() {
     let { shop, navigation, nulled } = this.props;
+    let updatedAt = moment(shop.updatedAt);
+    let enabled = true;
+    let opacity = 1;
+    console.log(moment().diff(updatedAt, 'minutes'));
+    if(moment().diff(updatedAt, 'minutes') > 2) {
+      enabled = false;
+      opacity = 0.3
+    }
     if(nulled) {
       return(
         <View style={{flexDirection: 'row'}}>
@@ -27,9 +37,9 @@ class ShopItem extends Component {
       )
     }
     return(
-      <TouchableOpacity style={{flexDirection: 'row'}} onPress={e => navigation.navigate("Shop", {shop})}>
+      <TouchableOpacity style={{flexDirection: 'row'}} onPress={this.onPress}>
         <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
-          <Image source={{ uri: Request.url(shop.image) }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
+          <Image source={{ uri: Request.url(shop.image) }} style={[CustomStyle.image, {opacity}]} onLoad={e=>this.setState({loaded:true})}/>
         </Shimmer>
         <View style={{flexDirection: 'column'}}>
           <Text numberOfLines={1} style={CustomStyle.title}>{shop.name}</Text>
@@ -37,6 +47,13 @@ class ShopItem extends Component {
         </View>
       </TouchableOpacity>
     )
+  }
+  onPress = () => {
+    let { shop, navigation } = this.props;
+    let updatedAt = moment(shop.updatedAt);
+    if(moment().diff(updatedAt, 'minutes') < 2) {
+      navigation.navigate("Shop", {shop})
+    }
   }
 }
 
