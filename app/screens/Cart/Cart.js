@@ -6,7 +6,7 @@ import { List, ListItem } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { If, Then, Else } from 'react-if';
 
-import Header from './../../components/Header2'
+import Header from './../../components/Header4'
 import Footer from './../../components/Footer'
 
 import Auth from './../../actions/authActions';

@@ -59,7 +59,7 @@ class ShopItem extends Component {
         )
         return;
       }
-      Toast.show({text:"Added to cart", buttonText:'Ok'});
+      
     }
     this.sendRequest(product);
   }

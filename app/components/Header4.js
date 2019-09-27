@@ -12,8 +12,8 @@ class Header2 extends Component {
         <If condition={!this.props.navigation.isFirstRouteInParent()}>
           <Left>
             <Button transparent >
-              {/*<Icon name='menu' color='#000000' onPress={() => this.props.navigation.openDrawer()}/>*/}
-              <Icon name='arrow-back' onPress={()=> this.props.navigation.goBack()}/>
+              <Icon name='menu' color='#000000' onPress={() => this.props.navigation.openDrawer()}/>
+              {/*<Icon name='arrow-back' onPress={()=> this.props.navigation.goBack()}/>*/}
             </Button>
           </Left>
         </If>

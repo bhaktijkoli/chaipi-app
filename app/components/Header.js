@@ -8,9 +8,9 @@ class HeaderEx extends Component {
   render() {
     return(
       <Header transparent>
-        {/*<Left>
+        <Left>
           <Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>
-        </Left>*/}
+        </Left>
         <Body>
           <Title>{this.props.title}</Title>
         </Body>

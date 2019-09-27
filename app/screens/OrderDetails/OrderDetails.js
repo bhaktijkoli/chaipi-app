@@ -34,7 +34,7 @@ class OrderDetails extends Component {
     return(
       <Container>
         <Header2 title={"ORDER #"+order.trackid}/>
-        <ScrollView style={Style.content}>
+        <ScrollView style={{padding: 15}} contentContainerStyle= {{flexGrow: 1}}>
           <View style={{flexDirection: 'row'}}>
             <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
               <Image source={{ uri: Request.url(shop.image) }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
