@@ -154,6 +154,7 @@ const customStyle = StyleSheet.create({
 function mapStateToProps(state) {
   return {
     auth: state.auth,
+    
   };
 }
 
