@@ -34,7 +34,7 @@ class OrderDetails extends Component {
     return(
       <Container>
         <Header2 title={"ORDER #"+order.trackid}/>
-        <ScrollView style={{padding: 15}} contentContainerStyle= {{flexGrow: 1}}>
+        <ScrollView style={{padding: 15}} contentContainerStyle= {{flexGrow: 1,}}>
           <View style={{flexDirection: 'row'}}>
             <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
               <Image source={{ uri: Request.url(shop.image) }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
@@ -90,6 +90,8 @@ class OrderDetails extends Component {
               <Text note>10</Text>
               <Text>&#8377;{total+10}</Text>
             </View>
+          </View>
+          <View style = {{height: 50}}>
           </View>
         </ScrollView>
       </Container>

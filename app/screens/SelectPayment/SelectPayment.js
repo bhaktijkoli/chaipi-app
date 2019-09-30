@@ -34,10 +34,10 @@ class SelectPayment extends Component {
                 <Text note>Please keep exact change handy to help us serve you better</Text>
               </Body>
             </ListItem>
-            <Separator bordered>
+            {/*<Separator bordered>
               <Text>CREDIT/DEBIT CARDS</Text>
             </Separator>
-            {/*<ListItem>
+            <ListItem>
               <Left>
                 <Icon name="credit-card" type='FontAwesome' style={{width:30, color: '#a9a9a9'}}/>
               </Left>

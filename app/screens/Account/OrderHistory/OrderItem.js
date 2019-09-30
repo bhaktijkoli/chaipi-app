@@ -16,7 +16,7 @@ class OrderItem extends Component {
         <CardItem header>
           <Col>
             <Text>{shop.name}</Text>
-            <Text note numberOfLines={1} style={{fontSize:12}}>{shop.address}</Text>
+            <Text note numberOfLines={3} style={{fontSize:12}}>{shop.address}</Text>
             <Text note style={{fontSize:15, paddingTop:10}}>&#8377;{price}</Text>
           </Col>
         </CardItem>

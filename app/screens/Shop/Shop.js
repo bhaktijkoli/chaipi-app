@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container, Content, Button, Icon, View, Badge, Text, BadgedIcon, } from 'native-base';
+import { Container, Content, Button, Icon, View, Badge, Text, BadgedIcon, Footer, } from 'native-base';
 import { FlatList } from 'react-native';
 import { If } from 'react-if';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import { StyleSheet, Modal } from 'react-native';
 
 import Header2 from './../../components/Header2';
 import Withbadge from './../../components/Withbadge';
@@ -49,7 +50,7 @@ class Shop extends Component {
             renderItem={({item, index}) => { return <ShopItem product={item} update={this.update.bind(this)} auth={this.props.auth}/> }}
             keyExtractor={(item, index) => index.toString()}
           ></FlatList>
-          <If  condition={cartCount>0}>
+          {/*<If  condition={cartCount>0}>
           <TouchableOpacity onPress={e=>this.onClick('Cart')}>
           <View style = {{flexDirection: 'row', backgroundColor: '#ffa500'}}> 
             <Grid style={{padding: 10,}}>
@@ -71,8 +72,31 @@ class Shop extends Component {
             </Grid>
           </View>
           </TouchableOpacity>
-          </If>
+    </If>*/}
         </Content>
+        <View>
+          <If condition={cartCount>0}>
+          <TouchableOpacity onPress={e=>this.onClick('Cart')}>
+            <Footer>
+              <View style={customStyle.orderView}>
+                <View style={{flex: 1}}>
+                  <Text style={{fontWeight: '500',alignSelf: 'flex-start', marginLeft: 15, color: '#ffffff'}}>&#8377;{total}</Text>
+                </View>
+                <View style = {{flex: 1}}>
+                  <Text style = {{color: '#ffffff', alignSelf: 'center'}}>View Cart</Text>
+                </View>
+                <View style={{flex: 1}}>
+                  <Button style = {{alignSelf: 'flex-end', color: '#ffffff', marginRight: 15}} transparent  badge={cartCount>0} onPress={e=>this.onClick('Cart')}>
+                    <If condition={cartCount>0}>
+                      <Badge primary style = {{alignSelf: 'center'}}><Text>{cartCount}</Text></Badge>
+                    </If>
+                  </Button>
+                </View>
+                </View>
+              </Footer>
+              </TouchableOpacity>
+            </If>
+            </View>
       </Container>
     )
   }
@@ -115,6 +139,17 @@ class Shop extends Component {
     this.props.navigation.navigate(menu);
   }
 }
+
+const customStyle = StyleSheet.create({
+  orderView: {
+    width: '100%',
+    padding: 5,
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#ffa500'
+  }
+})
 
 function mapStateToProps(state) {
   return {

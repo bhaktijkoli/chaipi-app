@@ -28,10 +28,10 @@ class OrderHistory extends Component {
     return(
       <Container>
         <Header2 title="Your Orders"/>
-        <ScrollView style={Style.content}>
+        {/*<ScrollView style={Style.content}>
         <OrderHistoryForm auth={this.props.auth} navigation={this.props.navigation}/>
 
-        </ScrollView>
+    </ScrollView>*/}
         <If condition={this.state.loading}>
           <Then>
             <SpinnerBox />
