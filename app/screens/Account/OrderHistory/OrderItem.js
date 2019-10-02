@@ -24,9 +24,9 @@ class OrderItem extends Component {
           <Col>
             <Text>{products.map((el, key) => { return `${el.name}x${el.count}${key!=products.length-1?", ":""}`})}</Text>
             <Text note style={{fontSize:10}}>{createdAt.format('MMMM Do, h:m A')}</Text>
-            <Button primary bordered style={{marginTop: 10}}>
+            {/*<Button primary bordered style={{marginTop: 10}}>
               <Text>REORDER</Text>
-            </Button>
+    </Button>*/}
           </Col>
         </CardItem>
       </Card>

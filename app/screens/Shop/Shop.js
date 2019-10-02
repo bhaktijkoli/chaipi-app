@@ -18,7 +18,6 @@ import Request from './../../utils/request';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class Shop extends Component {
-  //BadgedIcon = Withbadge()(Icon);
   state = {
     products: [],
   }
@@ -112,21 +111,14 @@ class Shop extends Component {
     })
     let icon = active?'heart':'hearto';
     return(
+      <View style = {{flexDirection: 'row'}}>
+      {/*<Button small transparent style = {customStyle.snackbutton}>
+        <Text style = {customStyle.snackText}>Add Snacks</Text>
+    </Button>*/}
       <Button transparent>
-        {/*<Icon name="shoppingcart" type="AntDesign" style={{color:'black', padding: 10}} onPress={e=>this.onClick('Cart')}/> */}
         <Icon name={icon} type="AntDesign" style={{color:'red'}} onPress= {this.onFavoriteToggle}/>
       </Button>
-      /*<View style = {{flexDirection: 'row'}}>
-      <Button transparent  badge={cartCount>0} onPress={e=>this.onClick('Cart')}>
-        <If condition={cartCount>0}>
-          <Badge primary style = {{alignSelf: 'center', position:'absolute', top: 2, right:-5, height:20, width: 35}}><Text>{cartCount}</Text></Badge>
-        </If>
-        <Icon name="shoppingcart" type="AntDesign" style={{color:'black'}}/> 
-      </Button>
-      <Button transparent onPress= {this.onFavoriteToggle}>
-      <Icon name={icon} type="AntDesign" style={{color:'red'}}/>
-      </Button>
-    </View>*/
+      </View>
     )
   }
   onFavoriteToggle = () => {
@@ -148,6 +140,14 @@ const customStyle = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#ffa500'
+  },
+  snackbutton: {
+    backgroundColor: '#27ae60',
+    alignSelf: 'center'
+  },
+  snackText: {
+    color: '#FFF',
+    fontSize: 12,
   }
 })
 

@@ -39,7 +39,7 @@ class OrderHistory extends Component {
           <Else>
             <ScrollView style={Style.content}>
               <FlatList
-                data={this.state.orders}
+                data={this.state.orders.reverse()}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={(item) => {return <OrderItem item={item} navigation={this.props.navigation}/>}}
                   >
