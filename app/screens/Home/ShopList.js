@@ -11,17 +11,38 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { List, ListItem } from 'native-base';
 
 class ShopList extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      types: [],
+    }
+  }
+
+ /*renderItem = (itemData) => {
+ return (
+ <Text style={customStyle.item}>{itemData.item.name}</Text>
+)
+}*/
+
   componentDidMount() {
     Auth.getShops();
+
+      Request.get('/shoptype/get')
+        .then(res => {
+          let type = "";
+          if(res.data.length > 0) type = res.data[0];
+          this.setState({types: res.data, type});
+        })
   }
   render() {
     return(
       <View>
       <FlatList
         horizontal={true}
-        data= {Data}
-        renderItem={({item}) => <Text onPress= {e=>this.props.navigation.navigate('Cart')} style={customStyle.item}>{item.key}</Text>}
-        keyExtractor={item => item.id}
+        data={this.state.types}
+        keyExtractor = {(item, index) => item.toString()}
+        //renderItem={this.renderItem}
+        renderItem={(itemData) => { return (<Text style={customStyle.item}>{itemData.item.name}</Text>)}}
         >
       </FlatList>
       <FlatList
