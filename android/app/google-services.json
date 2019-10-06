@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "778753524039-apomtq9grc067vsjjhia7gush2punti8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipi",
+            "certificate_hash": "ac8e7213ee07a229a5e41fed8dfd0d0316166a15"
+          }
+        },
+        {
           "client_id": "778753524039-gv3p7tapivgt9cokqhl34qmceqqg7noa.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -74,6 +82,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "778753524039-7col5j0ir3luo61v7i29sh4569j2pqnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipioperator",
+            "certificate_hash": "bf2e0495a463065bd3d93029d94c649ba66d0e27"
+          }
+        },
+        {
+          "client_id": "778753524039-bj7rqg5rfb12g7iikctain1uth4aa27t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaipioperator",
+            "certificate_hash": "ff179a9ec44e481abb6e1a0a4e18d4a57f6236bc"
+          }
+        },
         {
           "client_id": "778753524039-kmfhlm06fqsg5nnis62es4jj7u0b4sbv.apps.googleusercontent.com",
           "client_type": 1,

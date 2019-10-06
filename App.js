@@ -58,6 +58,7 @@ import Deliverypartner from './app/screens/Account/GuidetoChaiPi/Basics/Delivery
 import Cancelpolicy from './app/screens/Account/GuidetoChaiPi/Policies/Cancelpolicy';
 import Multipleorder from './app/screens/Account/GuidetoChaiPi/Policies/Multipleorder';
 import Neverarrivedorder from './app/screens/Account/GuidetoChaiPi/Policies/Neverarrivedorder';
+//import ForceUpdate from './app/screens/ForceUpdate/ForceUpdate';
 
 
 class App extends Component {
@@ -150,6 +151,7 @@ const AppNavigator = createStackNavigator(
     Cancelpolicy: { screen: Cancelpolicy },
     Multipleorder: { screen: Multipleorder },
     Neverarrivedorder: { screen: Neverarrivedorder },
+    //ForceUpdate: { screen: ForceUpdate },
   },
   {
     transitionConfig: () => fadeIn(),

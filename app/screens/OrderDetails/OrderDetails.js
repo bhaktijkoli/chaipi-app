@@ -13,6 +13,7 @@ import SpinnerModel from './../../components/SpinnerModel';
 import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
 import Request from './../../utils/request';
+import DeviceInfo from 'react-native-device-info'
 
 class OrderDetails extends Component {
   state = {
@@ -30,7 +31,10 @@ class OrderDetails extends Component {
     let products = JSON.parse(order.products);
     let shop = order.shop;
     let total = 0;
+    const version = DeviceInfo.getVersion();
     console.log("Shop", shop);
+    console.log("Order Status",order.status);
+    console.log('appVersion:', version)
     return(
       <Container>
         <Header2 title={"ORDER #"+order.trackid}/>
