@@ -77,12 +77,14 @@ module.exports.getFavorites = () => {
   })
 }
 
-module.exports.getShops = () => {
+module.exports.getShops = (type=null) => {
   let state = store.getState();
   let query = "";
+  if(type == "ALL") type = null;
   if(state.auth.current_address) {
     let {lat, lon} = state.auth.current_address;
     query = `?lat=${lat}&lon=${lon}`;
+    if(type) query += `&type=${type}`;
     store.dispatch({type: 'AUTH_SET_SHOPS_LOADING'})
     Request.get('/shop/get'+query)
     .then(res => {
