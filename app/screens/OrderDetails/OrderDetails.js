@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { ScrollView, StyleSheet, Image } from 'react-native';
+import { ScrollView, StyleSheet, Image, ToastAndroid } from 'react-native';
 import { Container, View, Text } from 'native-base';
 import { If, Then, Else } from 'react-if';
 import Shimmer from 'react-native-shimmer-placeholder';
@@ -8,11 +8,13 @@ import StepIndicator from 'react-native-step-indicator';
 
 import Header2 from './../../components/Header2';
 import SpinnerBox from './../../components/SpinnerBox';
+import Home from './../Home/Home'
 import SpinnerModel from './../../components/SpinnerModel';
 
 import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
 import Request from './../../utils/request';
+import NavigationActions from './../../actions/navigationActions';
 import DeviceInfo from 'react-native-device-info'
 
 class OrderDetails extends Component {
@@ -26,7 +28,7 @@ class OrderDetails extends Component {
   render() {
     let order = this.props.auth.order;
     if(!order || !order.shop) {
-      return <SpinnerBox />
+      return <Home />    
     }
     let products = JSON.parse(order.products);
     let shop = order.shop;
