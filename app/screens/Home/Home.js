@@ -14,6 +14,10 @@ import Auth from './../../actions/authActions';
 import Style from './../../styles/style';
 import ws from './../../utils/ws';
 import { DrawerNavigator } from 'react-navigation';
+import DeviceInfo from 'react-native-device-info'
+
+const version = DeviceInfo.getVersion();
+console.log('appVersion:', version)
 
 class Home extends Component {
   componentDidMount() {
