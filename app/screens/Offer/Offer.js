@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { Image } from 'react-native';
-import { Container, Content, Toast } from 'native-base';
-import { Form, Item, Label, Picker } from 'native-base';
-import { H2, Text, Icon } from 'native-base';
-import ButtonEx from './../../components/Button'
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text } from 'native-base';
 
-import Header2 from './../../components/Header2';
-import Request from './../../utils/request';
+import Offeritem from './Offeritem';
+
 import Style from './../../styles/style';
+import Request from './../../utils/request';
 
 class Offer extends Component {
-  state = {
-    duration: 3,
-    process: false,
+
+  componentDidMount() {
+    let offer = this.props.navigation.getParam('offer');
+    Request.get('/offer/get')
+    .then(res => {
+      this.setState({offers:res.data});
+    })
+    .catch(err => console.error(err));
   }
   render() {
+    let offer = this.props.navigation.getParam('offer');
     return(
-      <Container>
-        <Header2 title={offer.name}/>
-        <Content style={Style.content}>
-          <H2 style={Style.bottom}>{offer.name}</H2>
-          <Image source={{uri: offer.image}} style={{width:256, height: 216}}/>
-          <Text style={Style.mg10}>{offer.description}</Text>
-        </Content>
-      </Container>
-    )
+      <View>
+        <FlatList
+          style={{marginLeft:5, marginRight:5}}
+          data={this.state.offer}
+          renderItem={({item, index}) => { return <Offeritem offer={item} navigation={this.props.navigation} nulled={this.props.auth.offer_loading}/> }}
+            keyExtractor={(item, index) => index.toString()}
+            >
+          </FlatList>
+        </View>
+      )
+    }
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-  };
-}
 
-export default connect(mapStateToProps)(Offer);
+  export default Offer;

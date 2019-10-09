@@ -10,7 +10,7 @@ import Style from '../../../styles/style';
 import Request from '../../../utils/request';
 import { ScrollView } from 'react-native-gesture-handler';
 import style from '../../../styles/style';
-import Policy from '../../../data/Policy';
+import Policy from '../../../data/dataprimary/Policy.json';
 
  
 class PrivacyPolicyForm extends Component {
@@ -18,7 +18,7 @@ class PrivacyPolicyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Policy: require('../../../data/Policy.json'),
+      Policy: require('../../../data/dataprimary/Policy.json'),
     }
   }
 

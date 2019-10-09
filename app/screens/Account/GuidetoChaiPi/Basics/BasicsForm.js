@@ -51,10 +51,10 @@ class BasicsForm extends Component {
 const guideitems= [
     {name : 'What is ChaiPi?', route: 'Whatischaipi' , type: 'AntDesign'},
     {name : 'How does ChiPi work?', route: 'Howchaipiwork', type: 'AntDesign'},
-    {name : 'When and where is ChaiPi available?', route: 'Chaipiavailable', type: 'AntDesign'},
+    //{name : 'When and where is ChaiPi available?', route: 'Chaipiavailable', type: 'AntDesign'},
     {name : 'How to place an order on ChaiPi?', route: 'Howplaceorder', type: 'AntDesign'},
     {name : 'Am I expected to leave a tip?', route: 'Leavetip', type: 'AntDesign'},
-    {name : 'How is the delivery time calculated?', route: 'Deliverytime', type: 'AntDesign'},
+    //{name : 'How is the delivery time calculated?', route: 'Deliverytime', type: 'AntDesign'},
     {name : 'Where should I meet my delivery partner?', route: 'Deliverypartner', type: 'AntDesign'},
 ];
 

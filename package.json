@@ -29,6 +29,7 @@
     "react-native-image-picker": "^1.0.2",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-maps": "^0.24.2",
+    "react-native-phone-call": "^1.0.9",
     "react-native-ratings": "^6.3.1",
     "react-native-shimmer-placeholder": "^1.0.34",
     "react-native-step-indicator": "0.0.11",

@@ -63,6 +63,7 @@ class ProfileSetup extends Component {
                       <Else>
                         <TouchableOpacity activeOpacity = { .5 } onPress={this.changeImage.bind(this)}>
                           <Image source={this.state.image} style={Style.avatarBig} onPress={this.changeImage.bind(this)}/>
+                          {/*<Image source={this.state.image} style={{image: { flex: 1,width: 50,height: 50,resizeMode: 'contain' }}} onPress={this.changeImage.bind(this)}/>*/}
                         </TouchableOpacity>
                       </Else>
                     </If>

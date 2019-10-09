@@ -78,7 +78,8 @@ const accountItems = [
 
 const helpItems = [
   {name: 'Partner with us?', icon: 'book', route: 'PartnerWithUs', type: 'AntDesign'},
-  //{name: 'About', icon: 'infocirlceo', route: 'About', type: 'AntDesign'},
+  {name: 'AboutUs', icon: 'infocirlceo', route: 'About', type: 'AntDesign'},
+  {name: 'ContactUs', icon: 'contacts', route: 'Contactus', type: 'AntDesign'},
   //{name: 'Help', icon: 'questioncircleo', route: 'Help', type: 'AntDesign'},
 ]
 

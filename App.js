@@ -33,6 +33,7 @@ import OrderHistory from './app/screens/Account/OrderHistory/OrderHistory';
 import PartnerWithUs from './app/screens/Account/PartnerWithUs/PartnerWithUs';
 import Help from './app/screens/Account/Help/Help';
 import About from './app/screens/Account/About/About';
+import Offer from './app/screens/Offer/Offer';
 import Legal from './app/screens/Account/Legal/Legal';
 import OrderItem from './app/screens/Account/OrderHistory/OrderItem';
 import Copyright from './app/screens/Account/Copyright/Copyright';
@@ -58,6 +59,8 @@ import Deliverypartner from './app/screens/Account/GuidetoChaiPi/Basics/Delivery
 import Cancelpolicy from './app/screens/Account/GuidetoChaiPi/Policies/Cancelpolicy';
 import Multipleorder from './app/screens/Account/GuidetoChaiPi/Policies/Multipleorder';
 import Neverarrivedorder from './app/screens/Account/GuidetoChaiPi/Policies/Neverarrivedorder';
+import Contactus from './app/screens/Account/Contactus/Contactus';
+
 //import ForceUpdate from './app/screens/ForceUpdate/ForceUpdate';
 
 
@@ -130,6 +133,7 @@ const AppNavigator = createStackNavigator(
     PartnerWithUs: { screen: PartnerWithUs },
     Help: { screen: Help},
     About: { screen: About},
+    Offer: { screen: Offer },
     Legal: { screen: Legal},
     Copyright: { screen: Copyright},
     TermsConditions: { screen: TermsConditions},
@@ -151,6 +155,7 @@ const AppNavigator = createStackNavigator(
     Cancelpolicy: { screen: Cancelpolicy },
     Multipleorder: { screen: Multipleorder },
     Neverarrivedorder: { screen: Neverarrivedorder },
+    Contactus: { screen: Contactus },
     //ForceUpdate: { screen: ForceUpdate },
   },
   {

@@ -6,6 +6,7 @@ import Style from './../../styles/style';
 import Shimmer from 'react-native-shimmer-placeholder'
 
 import Request from './../../utils/request';
+import { View } from 'native-base';
 
 class OfferItem extends Component {
   state = {
@@ -14,19 +15,21 @@ class OfferItem extends Component {
   componentDidMount() {
   }
   render() {
-    let offer = this.props.offer;
+    let { offer, navigation, nulled } = this.props;
     let uri = offer.image;
     console.log(uri);
     return(
-      //<TouchableOpacity style={{flexDirection: 'row'}} onPress={e=>this.onClick()}>
+      <View>
+      <TouchableOpacity style={{flexDirection: 'row'}} onPress={this.onPress}>
       <Shimmer autoRun={true} visible={this.state.loaded} style={CustomStyle.image}>
         <Image source={{ uri }} style={CustomStyle.image} onLoad={e=>this.setState({loaded:true})}/>
-      </Shimmer>
-      //</TouchableOpacity>
+        </Shimmer>
+        </TouchableOpacity>
+      </View>
     )
   }
-  onClick() {
-    this.props.navigation.navigate('Offer');
+  onPress = () => {
+      this.props.navigation.navigate("Offer", {offer})
   }
 }
 

@@ -4,29 +4,43 @@ import { List, ListItem } from 'native-base';
 import { View, Form, Item, Label,Content, Text, Card, Input, Textarea, Icon, Button, Toast, Container, CardItem, Body, Right } from 'native-base';
 
 import Header2 from './../../../components/Header2';
-import { StyleSheet } from 'react-native';
 import Style from './../../../styles/style';
-import Request from './../../../utils/request';
-import { ScrollView } from 'react-native-gesture-handler';
-import style from './../../../styles/style';
+
+import aboutus from './../../../data//dataprimary/aboutus.json';
+
 
  
 class AboutForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      aboutus: require('./../../../data//dataprimary/aboutus.json'),
+    }
+  }
     render() {
         return (
-            <Container>
-        <Content>
-           <List>
+          <View>
+          {this.aboutus()}
+        </View>
+          /*<List>
                <ListItem>
                </ListItem>
                {this.renderAboutItems(aboutitems)}
-           </List>
-        </Content>
-      </Container>
+          </List>*/
         )
      }
 
-     renderAboutItems(arrayItems, condition=true) {
+     aboutus(){
+      return aboutus.map(function(options, i){
+        return(
+          <View key = {i}>
+            <Text style = {{paddingBottom: 10, alignItems: 'center', paddingLeft: 5, paddingRight: 5}}>{options.description}</Text>
+          </View>
+        );
+      });
+    }
+
+     /*renderAboutItems(arrayItems, condition=true) {
         if(condition) {
           return arrayItems.map((el, key) => {
             return(
@@ -44,14 +58,14 @@ class AboutForm extends Component {
       }
       onClickListItem(route) {
         this.props.navigation.navigate(route);
-      }
+      }*/
 }
 
-const aboutitems= [
+/*const aboutitems= [
     {name : 'Rate us in Google Play', route: 'Home' , type: 'AntDesign'},
     {name : 'Like us on Facebook', route: 'Home', type: 'AntDesign'},
     {name : 'Legal', route: 'Legal', type: 'AntDesign'},
-];
+];*/
 
 
 export default AboutForm;

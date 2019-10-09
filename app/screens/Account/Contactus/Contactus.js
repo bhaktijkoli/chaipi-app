@@ -4,24 +4,24 @@ import { ScrollView, Image } from 'react-native';
 import { Container, Content, Button, ListItem, Left, Right, Body, Icon, Text, View } from 'native-base';
 
 import Header2 from './../../../components/Header2';
-import ButtonEx from './../../../components/Button';
 import Style from './../../../styles/style';
 
-import AboutForm from './AboutForm';
+import ContactusForm from './ContactusForm';
 
-class About extends Component {
+class Contactus extends Component {
   render() {
     return(
       <Container>
-        <Header2 title="Aboutus"/>
+        <Header2 title="Contactus"/>
         <View
         style = {{
-            borderBottomColor: 'gainsboro',
-            borderBottomWidth: 1,
+          borderBottomColor: 'gainsboro',
+          borderBottomWidth: 1,
         }}
         ></View>
         <ScrollView style={Style.content}>
-        <AboutForm auth={this.props.auth} navigation={this.props.navigation}/>
+        <ContactusForm auth={this.props.auth} navigation={this.props.navigation}/>
+
         </ScrollView>
       </Container>
     )
@@ -34,4 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(Contactus);
